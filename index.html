@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Nusha Hospital - Compassionate care, advanced medical services, and patient-first healthcare.">
+    <title>Nusha Hospital | Your Health, Our Priority</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafcff;
+            color: #1e2a3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            overflow-x: hidden;
+        }
+        /* FIXED HEADER - always visible at top, never moves */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.2s ease;
+        }
+        /* Add padding to body to prevent content from hiding under fixed header */
+        body {
+            padding-top: 85px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding-top: 72px;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                padding-top: 68px;
+            }
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 18px 24px;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo img {
+            height: 65px;
+            width: auto;
+            object-fit: contain;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0b5e7e;
+            line-height: 1.2;
+        }
+        .logo span {
+            color: #2c9b6e;
+        }
+        .slogan {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #0f7b5e;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1f3b4c;
+            transition: 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #0f7b5e;
+            border-bottom: 2px solid #0f7b5e;
+            padding-bottom: 4px;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #0b5e7e;
+        }
+        .btn-primary {
+            background-color: #0f7b5e;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .btn-primary:hover {
+            background-color: #0a5f48;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(15,123,94,0.2);
+        }
+        
+        /* Hero Section with Rotating Backgrounds - USING LOCAL IMAGES */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #e8f5f0 0%, #d4ede4 100%);
+            padding: 80px 0;
+            overflow: hidden;
+            min-height: 550px;
+            margin-top: 0;
+        }
+        .hero-bg-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 1.5s ease-in-out;
+            opacity: 0;
+        }
+        .hero-bg.active {
+            opacity: 1;
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.3) 100%);
+        }
+        .hero-content {
+            max-width: 550px;
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        .hero-content h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        .hero-content .btn-primary {
+            background-color: #0f7b5e;
+        }
+        .hero-content .btn-primary:hover {
+            background-color: #0a5f48;
+        }
+        
+        /* Scroll Down Arrow inside Hero */
+        .scroll-down-wrapper {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .scroll-down-wrapper.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .scroll-down-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: bounceSlide 2s infinite;
+        }
+        .scroll-down-arrow i {
+            font-size: 1.2rem;
+            color: white;
+        }
+        @keyframes bounceSlide {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .scroll-down-arrow:hover {
+            background: rgba(255,255,255,0.4);
+            transform: translateY(3px);
+            animation: none;
+        }
+        
+        /* Ambulance Button - Top Right Corner (adjusted for fixed header) */
+        .ambulance-corner {
+            position: fixed;
+            top: 100px;
+            right: 24px;
+            z-index: 999;
+        }
+        .ambulance-btn {
+            background-color: #dc2626;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation: gentlePulse 2s ease-in-out infinite;
+        }
+        .ambulance-btn:hover {
+            background-color: #b91c1c;
+            transform: scale(1.02);
+            animation: none;
+        }
+        @keyframes gentlePulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.92; transform: scale(1.01); }
+        }
+        
+        .about-section {
+            padding: 70px 0;
+            background: white;
+        }
+        .about-grid {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .about-text {
+            flex: 1.2;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #144d5e;
+        }
+        hr.divider {
+            width: 70px;
+            height: 4px;
+            background: #2c9b6e;
+            border: none;
+            margin: 12px 0 28px 0;
+        }
+        .about-highlights {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .highlight {
+            background: #f0f8f4;
+            padding: 12px 20px;
+            border-radius: 60px;
+            font-weight: 500;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 70px 0;
+            background: #f8fefb;
+        }
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        .service-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+        .service-item.reverse {
+            flex-direction: row-reverse;
+        }
+        .service-image {
+            flex: 1;
+            min-width: 280px;
+        }
+        .service-image img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+        .service-content {
+            flex: 1;
+            padding: 30px;
+        }
+        .service-content h3 {
+            font-size: 1.8rem;
+            color: #144d5e;
+            margin-bottom: 15px;
+        }
+        .service-content p {
+            color: #5a6e7c;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .service-link {
+            color: #0f7b5e;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1rem;
+        }
+        .service-link:hover {
+            gap: 12px;
+        }
+        
+        .activities-section {
+            padding: 70px 0;
+            background: #f8fefb;
+        }
+        .swiper {
+            padding: 30px 0 60px;
+        }
+        .swiper-slide {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+        }
+        .activity-slide-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+        .activity-slide-content {
+            padding: 24px;
+        }
+        .doctor-name {
+            font-weight: 700;
+            color: #0f7b5e;
+            margin: 10px 0;
+            display: flex;
+            gap: 8px;
+        }
+        /* Hide navigation arrows on activities swiper */
+        .activitySwiper .swiper-button-next,
+        .activitySwiper .swiper-button-prev {
+            display: none;
+        }
+
+        /* Testimonials Slideshow Styles */
+        .testimonials-section {
+            padding: 70px 0;
+            background: white;
+        }
+        .testimonials-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .testimonial-slide {
+            background: #f8fefb;
+            border-radius: 28px;
+            padding: 48px 40px;
+            text-align: center;
+            border: 1px solid #e2f0ea;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+        }
+        .quote-icon {
+            font-size: 3rem;
+            color: #0f7b5e;
+            opacity: 0.3;
+            margin-bottom: 20px;
+        }
+        .testimonial-text {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #2d3e4e;
+            font-style: italic;
+            margin-bottom: 28px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .patient-avatar {
+            width: 70px;
+            height: 70px;
+            background: #0f7b5e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.6rem;
+            margin: 0 auto 12px;
+        }
+        .patient-name {
+            font-weight: 700;
+            color: #1b4e62;
+            font-size: 1.1rem;
+        }
+        .patient-condition {
+            font-size: 0.85rem;
+            color: #6c8a9a;
+            margin-top: 4px;
+        }
+        .stars {
+            color: #f5b042;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 32px;
+        }
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbdbe0;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .testimonial-dot.active {
+            background: #0f7b5e;
+            width: 24px;
+            border-radius: 5px;
+        }
+        .testimonial-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: 1px solid #e2f0ea;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #0f7b5e;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .testimonial-nav:hover {
+            background: #0f7b5e;
+            color: white;
+            border-color: #0f7b5e;
+        }
+        .testimonial-nav.prev { left: -60px; }
+        .testimonial-nav.next { right: -60px; }
+        @media (max-width: 1000px) {
+            .testimonial-nav.prev { left: -20px; }
+            .testimonial-nav.next { right: -20px; }
+        }
+        @media (max-width: 768px) {
+            .testimonial-slide { padding: 32px 24px; }
+            .testimonial-text { font-size: 1rem; }
+            .testimonial-nav { display: none; }
+        }
+
+        /* Why Choose Us Section Styles - Professional Animated Carousel */
+        .why-choose-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-top: 20px;
+        }
+        .inquiry-col {
+            flex: 1.2;
+            min-width: 280px;
+        }
+        .why-col {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(15,123,94,0.03);
+            border-radius: 48px;
+            padding: 28px 24px;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+            border: 1px solid #e2f0ea;
+        }
+        .why-heading {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #144d5e;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 5px solid #2c9b6e;
+            padding-left: 20px;
+        }
+        .carousel-container {
+            position: relative;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .reason-card {
+            background: white;
+            border-radius: 32px;
+            padding: 32px 28px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+            border: 1px solid rgba(44,155,110,0.2);
+            width: 100%;
+            opacity: 0;
+            transform: translateX(25px) scale(0.96);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            backdrop-filter: blur(0px);
+        }
+        .reason-card.active {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            position: relative;
+            pointer-events: auto;
+            box-shadow: 0 28px 40px -12px rgba(15,123,94,0.2);
+        }
+        .reason-card i {
+            font-size: 3.2rem;
+            color: #0f7b5e;
+            background: #e9f5f0;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: 0.3s;
+        }
+        .reason-card h3 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #144d5e;
+            margin-bottom: 16px;
+        }
+        .reason-card p {
+            color: #4a6272;
+            line-height: 1.6;
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbdbe0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .carousel-dot.active-dot {
+            background: #0f7b5e;
+            width: 28px;
+            border-radius: 8px;
+        }
+        @media (max-width: 850px) {
+            .why-choose-wrapper { flex-direction: column; }
+            .reason-card h3 { font-size: 1.4rem; }
+            .reason-card i { width: 65px; height: 65px; line-height: 65px; font-size: 2.5rem; }
+            .carousel-container { min-height: 460px; }
+        }
+
+        .news-section {
+            padding: 70px 0;
+            background: #f8fefb;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 30px;
+        }
+        .news-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            cursor: pointer;
+        }
+        .news-card:hover { transform: translateY(-4px); }
+        .news-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-content { padding: 24px; }
+        .news-date {
+            font-size: 0.75rem;
+            color: #0f7b5e;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .news-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #144d5e;
+            margin-bottom: 12px;
+        }
+        .news-excerpt {
+            color: #5a6e7c;
+            margin-bottom: 16px;
+        }
+        .read-more {
+            color: #0f7b5e;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        
+        /* Shared Detail Overlay for News & Services */
+        .detail-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 2000;
+            overflow-y: auto;
+        }
+        .detail-overlay.active { display: block; }
+        .detail-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+        .detail-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e2f0ea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.95);
+        }
+        .close-detail-btn {
+            background: #0f7b5e;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .detail-full-image {
+            width: 100%;
+            max-height: 550px;
+            object-fit: cover;
+        }
+        .detail-content { padding: 48px; }
+        .detail-title {
+            color: #144d5e;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+        .detail-body { color: #2d3e4e; line-height: 1.8; }
+        .detail-body p { margin-bottom: 20px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .gallery-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .back-to-home-btn {
+            background: #0f7b5e;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            margin-top: 40px;
+            cursor: pointer;
+        }
+        
+        .insurance-section {
+            padding: 70px 0;
+            background: white;
+        }
+        .insurance-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .insurance-card {
+            background: #f8fefb;
+            border-radius: 24px;
+            padding: 24px 32px;
+            text-align: center;
+            min-width: 160px;
+            border: 1px solid #e2f0ea;
+        }
+        .insurance-card i {
+            font-size: 2.5rem;
+            color: #0f7b5e;
+            margin-bottom: 12px;
+        }
+        .insurance-note {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #e8f5f0;
+            border-radius: 48px;
+        }
+        .inquiry-section {
+            padding: 70px 0;
+            background: #f8fefb;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 700px;
+            background: white;
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.05);
+            border: 1px solid #e4f0ea;
+        }
+        .form-group { margin-bottom: 24px; }
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #cbdbe0;
+            border-radius: 24px;
+            font-family: inherit;
+        }
+        .success-message {
+            background: #dff0e8;
+            color: #0a5f48;
+            padding: 12px;
+            border-radius: 48px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .error-message {
+            background: #ffe9e9;
+            color: #b33;
+            padding: 10px;
+            border-radius: 48px;
+            margin-top: 12px;
+        }
+
+        /* WhatsApp Widget - With Circular White Background Logo */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .whatsapp-chat-preview {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            width: 280px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+        .whatsapp-chat-preview.hidden { display: none; }
+        .whatsapp-preview-header {
+            background: #075e54;
+            color: white;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .whatsapp-preview-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-circle {
+            background: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .logo-circle .header-logo {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+        .whatsapp-preview-header-left .name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .whatsapp-preview-header-left .status {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin-left: 5px;
+        }
+        .close-widget-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0 5px;
+            opacity: 0.8;
+        }
+        .close-widget-btn:hover { opacity: 1; }
+        .whatsapp-preview-body {
+            padding: 16px;
+            background-image: url('https://wallpapercave.com/wp/wp4044079.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .whatsapp-preview-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.1);
+            pointer-events: none;
+        }
+        .whatsapp-preview-message {
+            background: white;
+            padding: 10px 12px;
+            border-radius: 12px;
+            border-bottom-left-radius: 2px;
+            font-size: 0.85rem;
+            color: #1f2f3e;
+            max-width: 90%;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 1;
+        }
+        .message-sender {
+            font-weight: 700;
+            color: #075e54;
+            font-size: 0.75rem;
+            margin-bottom: 4px;
+        }
+        .whatsapp-preview-message p { margin: 0; }
+        .whatsapp-preview-footer {
+            padding: 12px 16px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+        .whatsapp-start-btn {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+        }
+        .whatsapp-start-btn:hover { background: #20b859; }
+        .whatsapp-button {
+            background-color: #25d366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: 0.2s;
+            border: none;
+            font-size: 0.9rem;
+        }
+        .whatsapp-button i { font-size: 1.3rem; }
+        .whatsapp-button:hover {
+            transform: scale(1.03);
+            background-color: #20b859;
+        }
+        @media (max-width: 768px) {
+            .whatsapp-chat-preview { width: 260px; }
+            .logo-circle {
+                width: 36px;
+                height: 36px;
+            }
+            .logo-circle .header-logo {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        .footer {
+            background: #0d2c38;
+            color: #cddfe6;
+            padding: 48px 0 28px;
+        }
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .footer-col h4 {
+            margin-bottom: 16px;
+            color: white;
+        }
+        .footer-col p, .footer-col a {
+            margin-bottom: 10px;
+            color: #b8dfd0;
+            text-decoration: none;
+        }
+        .social-icons {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+        }
+        .social-icons i {
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+        .subscribe-group {
+            display: flex;
+            margin-top: 8px;
+        }
+        .subscribe-group input {
+            padding: 8px 12px;
+            border-radius: 40px;
+            border: none;
+            flex: 1;
+        }
+        .subscribe-group button {
+            background: #2c9b6e;
+            border: none;
+            border-radius: 40px;
+            padding: 8px 16px;
+            margin-left: 8px;
+            color: white;
+            cursor: pointer;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 48px;
+            border-top: 1px solid #2d5464;
+            padding-top: 24px;
+        }
+        
+        /* Responsive Overrides for Fixed Header */
+        @media (max-width: 850px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                padding: 20px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .hero-content h2 { 
+                font-size: 2rem; 
+                white-space: normal;
+                word-break: keep-all;
+            }
+            .ambulance-corner {
+                top: 80px;
+                right: 16px;
+            }
+            .ambulance-btn {
+                padding: 8px 16px;
+                font-size: 0.75rem;
+            }
+            .service-item, .service-item.reverse {
+                flex-direction: column;
+            }
+            .service-image img {
+                height: 250px;
+            }
+            .logo img {
+                height: 50px;
+            }
+            .logo h1 {
+                font-size: 1.4rem;
+            }
+            .slogan {
+                font-size: 0.6rem;
+            }
+            .nav-container {
+                padding: 12px 20px;
+            }
+        }
+
+        /* =========================================
+           GLOBAL RESPONSIVE IMPROVEMENTS
+        ========================================= */
+
+        /* Prevent horizontal scrolling */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Flexible images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Better responsive containers */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Responsive typography */
+        h1, h2, h3, h4, h5, h6 {
+            word-wrap: break-word;
+        }
+
+        p {
+            word-wrap: break-word;
+        }
+
+        /* =========================================
+           LARGE TABLETS & SMALL LAPTOPS
+        ========================================= */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 20px;
+            }
+            .hero {
+                min-height: 500px;
+                padding: 70px 0;
+            }
+            .hero-content {
+                max-width: 100%;
+            }
+            .hero-content h2 {
+                font-size: 2.5rem;
+                white-space: normal;
+            }
+            .about-grid,
+            .service-item,
+            .service-item.reverse {
+                gap: 30px;
+            }
+            .news-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            .footer-grid {
+                gap: 40px;
+            }
+        }
+
+        /* =========================================
+           TABLETS
+        ========================================= */
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .nav-container {
+                padding: 12px 16px;
+            }
+            .logo h1 {
+                font-size: 1.4rem;
+            }
+            .logo img {
+                height: 45px;
+            }
+            .hero {
+                min-height: auto;
+                padding: 100px 0 90px;
+            }
+            .hero-content {
+                text-align: center;
+                margin: 0 auto;
+            }
+            .hero-content h2 {
+                font-size: 1.9rem;
+                line-height: 1.3;
+                white-space: normal;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .btn-primary {
+                width: auto;
+                justify-content: center;
+                padding: 12px 24px;
+                font-size: 0.95rem;
+            }
+            .ambulance-corner {
+                top: auto;
+                bottom: 90px;
+                right: 16px;
+            }
+            .ambulance-btn {
+                font-size: 0.75rem;
+                padding: 10px 16px;
+                border-radius: 30px;
+            }
+            .about-section,
+            .services-section,
+            .activities-section,
+            .testimonials-section,
+            .news-section,
+            .insurance-section,
+            .inquiry-section {
+                padding: 55px 0;
+            }
+            .section-title {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            .about-grid {
+                flex-direction: column;
+            }
+            .about-text {
+                width: 100%;
+            }
+            .about-highlights {
+                gap: 12px;
+            }
+            .highlight {
+                width: 100%;
+                text-align: center;
+            }
+            .service-item,
+            .service-item.reverse {
+                flex-direction: column;
+            }
+            .service-image,
+            .service-content {
+                width: 100%;
+            }
+            .service-image img {
+                height: 220px;
+            }
+            .service-content {
+                padding: 24px;
+            }
+            .service-content h3 {
+                font-size: 1.5rem;
+            }
+            .activity-slide-img {
+                height: 220px;
+            }
+            .testimonial-slide {
+                padding: 28px 20px;
+            }
+            .testimonial-text {
+                font-size: 0.96rem;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .insurance-grid {
+                gap: 16px;
+            }
+            .insurance-card {
+                width: calc(50% - 10px);
+                min-width: unset;
+                padding: 20px;
+            }
+            .form-container {
+                padding: 28px 20px;
+            }
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px;
+            }
+            .footer-grid {
+                flex-direction: column;
+            }
+            .footer-col {
+                width: 100%;
+            }
+            .subscribe-group {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .subscribe-group button {
+                margin-left: 0;
+            }
+            .whatsapp-widget {
+                right: 14px;
+                bottom: 14px;
+            }
+            .whatsapp-chat-preview {
+                width: 250px;
+            }
+            .whatsapp-button {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* =========================================
+           SMALL PHONES
+        ========================================= */
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+            .container {
+                padding: 0 14px;
+            }
+            .hero {
+                padding: 90px 0 80px;
+            }
+            .hero-content h2 {
+                font-size: 1.65rem;
+                white-space: normal;
+            }
+            .hero-content p {
+                font-size: 0.92rem;
+            }
+            .section-title {
+                font-size: 1.55rem;
+            }
+            .btn-primary {
+                width: 100%;
+                padding: 12px 18px;
+                font-size: 0.9rem;
+            }
+            .ambulance-btn {
+                font-size: 0.7rem;
+                padding: 8px 14px;
+            }
+            .service-content {
+                padding: 20px 18px;
+            }
+            .service-content h3 {
+                font-size: 1.3rem;
+            }
+            .testimonial-slide {
+                padding: 24px 16px;
+            }
+            .patient-avatar {
+                width: 60px;
+                height: 60px;
+                font-size: 1.3rem;
+            }
+            .insurance-card {
+                width: 100%;
+            }
+            .form-container {
+                padding: 24px 16px;
+                border-radius: 24px;
+            }
+            .whatsapp-chat-preview {
+                width: 220px;
+            }
+            .whatsapp-button span {
+                display: none;
+            }
+            .whatsapp-button {
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                justify-content: center;
+                padding: 0;
+            }
+            .whatsapp-button i {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* =========================================
+           VERY SMALL DEVICES
+        ========================================= */
+        @media (max-width: 360px) {
+            .hero-content h2 {
+                font-size: 1.4rem;
+                white-space: normal;
+            }
+            .section-title {
+                font-size: 1.35rem;
+            }
+            .ambulance-btn {
+                padding: 7px 12px;
+                font-size: 0.65rem;
+            }
+            .service-content h3 {
+                font-size: 1.15rem;
+            }
+            .testimonial-text {
+                font-size: 0.88rem;
+            }
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            .slogan {
+                font-size: 0.55rem;
+            }
+        }
+        
+        /* Detail overlay responsive */
+        @media (max-width: 768px) {
+            .detail-content { padding: 28px 20px; }
+            .detail-title { font-size: 1.7rem; }
+            .gallery-grid { gap: 12px; }
+            .gallery-img { height: 140px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- FIXED HEADER - Always visible, never moves away -->
+<div class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="photos/logo/nusha.png" alt="Nusha Hospital Logo" onerror="this.style.display='none'">
+            <div class="logo-text">
+                <h1>NUSHA <span>Hospital</span></h1>
+                <div class="slogan">Your Health, Our Priority.</div>
+            </div>
+        </div>
+        <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#insurance">Insurance</a></li>
+            <li><a href="#inquiry">Contact</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Ambulance Button - Top Right Corner -->
+<div class="ambulance-corner">
+    <button class="ambulance-btn" id="ambulanceBtn"><i class="fas fa-ambulance"></i> Call Ambulance: +256708378673</button>
+</div>
+
+<!-- Hero Section with Rotating Backgrounds - Heading in SINGLE LINE -->
+<section id="home" class="hero">
+    <div class="hero-bg-container">
+        <div class="hero-bg" id="heroBg1" style="background-image: url('photos/hero/heroBg1.jpg');"></div>
+        <div class="hero-bg" id="heroBg2" style="background-image: url('photos/hero/heroBg2.jpg');"></div>
+        <div class="hero-bg" id="heroBg3" style="background-image: url('photos/hero/heroBg3.jpg');"></div>
+        <div class="hero-bg" id="heroBg4" style="background-image: url('photos/hero/heroBg4.jpg');"></div>
+        <div class="hero-bg" id="heroBg5" style="background-image: url('photos/hero/heroBg5.jpg');"></div>
+        <div class="hero-bg" id="heroBg6" style="background-image: url('photos/hero/heroBg6.jpg');"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <h2>Your Health, Our Priority.</h2>
+            <p>Providing compassionate, affordable and quality healthcare services for individuals, families and communities.</p>
+            <a href="#services" class="btn-primary" style="text-decoration: none;">Explore Our Services <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    
+    <!-- Animated Scroll Down Arrow inside Hero -->
+    <div class="scroll-down-wrapper" id="scrollDownWrapper">
+        <div class="scroll-down-arrow" id="scrollDownArrow">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section - UPDATED with correct content and highlights -->
+<section id="about" class="about-section">
+    <div class="container">
+        <span class="section-title">About NUSHA Hospital</span>
+        <hr class="divider">
+        <div class="about-grid">
+            <div class="about-text">
+                <p><strong>Established in 2016</strong>, NUSHA Hospital is a fully accredited, not-for-profit healthcare organization dedicated to providing quality, affordable, and accessible medical services to the people of Wakiso District and surrounding communities.</p>
+                <p>We are committed to delivering patient-centered healthcare with compassion, professionalism, and integrity. Our services range from preventive and primary healthcare to diagnostic, maternity, emergency, and community outreach services, ensuring that individuals and families receive the care they need when they need it most.</p>
+                <p>Through community outreach programs, health education, medical camps, and partnerships with Village Health Teams (VHTs), we actively promote disease prevention, early diagnosis, and healthier communities.</p>
+                <p>At NUSHA Hospital, every patient is treated with dignity, respect, and compassion, regardless of their background. Our mission is to ensure proper healthcare service delivery to patients and improving the health of the community through setting standards that excel in health promotion, education and clinical care.</p>
+                <p><strong>Your Health, Our Priority.</strong></p>
+                <div class="about-highlights">
+                    <div class="highlight"><i class="fas fa-microscope"></i> Advanced diagnostics</div>
+                    <div class="highlight"><i class="fas fa-ambulance"></i> 24/7 ambulance service</div>
+                    <div class="highlight"><i class="fas fa-hand-holding-heart"></i> 24/7 patient support</div>
+                </div>
+            </div>
+            <div style="flex:0.8;">
+                <img src="photos/hospital/hospital.jpg" alt="Nusha Hospital Facility" style="border-radius: 32px; width:100%; height: auto; object-fit: cover; box-shadow: 0 12px 24px rgba(0,0,0,0.1);" onerror="this.src='https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg?auto=compress&cs=tinysrgb&w=600'">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="services-section">
+    <div class="container">
+        <span class="section-title">Our Medical Services</span>
+        <hr class="divider">
+        <p class="section-subtitle" style="color: #5a6e7c; margin-bottom: 20px;">Comprehensive healthcare services delivered with expertise and compassion.</p>
+        <div class="services-grid" id="servicesGrid"></div>
+    </div>
+</section>
+
+<!-- Activities Slideshow - Navigation Arrows Removed -->
+<section id="activities" class="activities-section">
+    <div class="container"><span class="section-title">Ongoing Medical Activities</span><hr class="divider"></div>
+    <div class="container">
+        <div class="swiper activitySwiper">
+            <div class="swiper-wrapper" id="slideshowWrapper"></div>
+            <!-- Navigation arrows removed as requested -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Slideshow -->
+<section id="testimonials" class="testimonials-section">
+    <div class="container">
+        <div style="text-align: center;">
+            <span class="section-title">What Our Patients Say</span>
+            <hr class="divider" style="margin-left: auto; margin-right: auto;">
+            <p class="section-subtitle" style="color: #5a6e7c; margin-bottom: 40px;">Real stories from patients who trusted us with their health.</p>
+        </div>
+        <div class="testimonials-slider">
+            <div class="testimonial-nav prev" id="testimonialPrev"><i class="fas fa-chevron-left"></i></div>
+            <div class="testimonial-nav next" id="testimonialNext"><i class="fas fa-chevron-right"></i></div>
+            <div id="testimonialSlideContainer" class="testimonial-slide-container"></div>
+            <div class="testimonial-dots" id="testimonialDots"></div>
+        </div>
+    </div>
+</section>
+
+<!-- News Section -->
+<section id="news" class="news-section">
+    <div class="container">
+        <span class="section-title">Recent News & Updates</span>
+        <hr class="divider">
+        <p class="section-subtitle">Stay informed about the latest happenings at Nusha Hospital.</p>
+        <div class="news-grid" id="newsGrid"></div>
+    </div>
+</section>
+
+<!-- Insurance Section -->
+<section id="insurance" class="insurance-section">
+    <div class="container"><span class="section-title">Accepted Insurance Partners</span><hr class="divider"><div class="insurance-grid" id="insuranceGrid"></div><div class="insurance-note"><i class="fas fa-info-circle"></i> Don't see your insurer? Contact our billing department.</div></div>
+</section>
+
+<!-- Inquiry Section WITH Why Choose Us Carousel (added next to form) -->
+<section id="inquiry" class="inquiry-section">
+    <div class="container">
+        <div class="why-choose-wrapper">
+            <!-- Left Column: Original Inquiry Form (unchanged) -->
+            <div class="inquiry-col">
+                <div class="form-container">
+                    <span class="section-title" style="font-size: 1.8rem;">Have questions? Reach out</span>
+                    <hr class="divider" style="margin-bottom: 24px;">
+                    <form id="inquiryForm">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" id="fullname" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone (Optional)</label>
+                            <input type="tel" id="phone" placeholder="+256 XXX XXX XXX">
+                        </div>
+                        <div class="form-group">
+                            <label>Your Inquiry / Message *</label>
+                            <textarea rows="4" id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" id="submitBtn"><i class="fas fa-paper-plane"></i> Submit Inquiry</button>
+                        <div id="formFeedback"></div>
+                    </form>
+                    <p style="margin-top: 20px; font-size:0.85rem; color:#4f6f7f;"><i class="fas fa-lock"></i> Your data is confidential and will be sent securely to our team.</p>
+                </div>
+            </div>
+
+            <!-- Right Column: Why Choose NUSHA Hospital? Animated Carousel (15 sec interval, no arrows) -->
+            <div class="why-col">
+                <div class="why-heading"><i class="fas fa-heartbeat" style="color:#0f7b5e;"></i> Why Choose NUSHA Hospital?</div>
+                <div class="carousel-container" id="reasonCarousel">
+                    <!-- Reason cards injected via JS -->
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-col"><h4>Nusha Hospital</h4><p><i class="fas fa-map-marker-alt"></i> Plot 124, Masulita Road, Kakiri, Uganda</p><p><i class="fas fa-phone-alt"></i> +256 708378673</p><p><i class="fas fa-envelope"></i> contact@nushahospital.ug</p><div class="social-icons"><i class="fab fa-facebook-f"></i><i class="fab fa-twitter"></i><i class="fab fa-instagram"></i><i class="fab fa-linkedin-in"></i></div></div>
+        <div class="footer-col"><h4>Quick Links</h4><p><a href="#home">Home</a></p><p><a href="#about">About Us</a></p><p><a href="#services">Services</a></p><p><a href="#activities">Activities</a></p><p><a href="#testimonials">Testimonials</a></p><p><a href="#news">News</a></p><p><a href="#insurance">Insurance</a></p></div>
+        <div class="footer-col"><h4>Emergency & Support</h4><p><i class="fas fa-ambulance"></i> 24/7 Helpline: +256 708378673</p><p><i class="fab fa-whatsapp"></i> Emergency WhatsApp: +256708378673</p><p><i class="far fa-clock"></i> Visiting Hours: 10am – 8pm (Daily)</p></div>
+        <div class="footer-col"><h4>Subscribe to Health Tips</h4><div class="subscribe-group"><input type="email" id="subscribeEmail" placeholder="Your email"><button id="subscribeBtn">Subscribe</button></div><p id="subFeedback" style="font-size:0.7rem; margin-top:6px;"></p></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Nusha Hospital — Your Health, Our Priority. All rights reserved.</p></div>
+</footer>
+
+<!-- WhatsApp Widget -->
+<div class="whatsapp-widget">
+    <div class="whatsapp-chat-preview" id="whatsappChatPreview">
+        <div class="whatsapp-preview-header">
+            <div class="whatsapp-preview-header-left">
+                <div class="logo-circle">
+                    <img src="photos/logo/nusha.png" alt="Nusha Hospital Logo" class="header-logo" onerror="this.style.display='none'">
+                </div>
+                <div>
+                    <div class="name">Nusha Hospital</div>
+                    <div class="status">Online</div>
+                </div>
+            </div>
+            <button class="close-widget-btn" id="closeWidgetBtn">✕</button>
+        </div>
+        <div class="whatsapp-preview-body">
+            <div class="whatsapp-preview-message">
+                <div class="message-sender">Nusha Hospital</div>
+                <p>👋 Hi, I'm Uncle Nusha from Nusha Hospital. How can I help you?</p>
+            </div>
+        </div>
+        <div class="whatsapp-preview-footer">
+            <button class="whatsapp-start-btn" id="widgetStartChat"><i class="fab fa-whatsapp"></i> Start chat</button>
+        </div>
+    </div>
+    <button class="whatsapp-button" id="whatsappIcon">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat with us</span>
+    </button>
+</div>
+
+<!-- Shared Detail Overlay for News & Services -->
+<div id="detailOverlay" class="detail-overlay">
+    <div class="detail-container">
+        <div class="detail-header">
+            <div class="logo" onclick="closeDetail()">
+                <img src="photos/logo/nusha.png" alt="Nusha Hospital Logo" style="height: 45px; width: auto;" onerror="this.style.display='none'">
+                <div class="logo-text">
+                    <h1 style="font-size:1.5rem;">NUSHA <span style="color:#2c9b6e;">Hospital</span></h1>
+                    <div class="slogan">Your Health, Our Priority.</div>
+                </div>
+            </div>
+            <button class="close-detail-btn" id="closeDetailBtn"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="detailContent"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    // Initialize EmailJS with your public key
+    emailjs.init("tbcuByA2sShWCC1wG");
+    
+    // ============================================
+    // CUSTOMIZE YOUR GALLERY IMAGES BELOW
+    // Replace the placeholder paths with your actual image paths
+    // Each service and news item has its own 3 gallery images
+    // ============================================
+    
+    // SERVICE GALLERY IMAGES (3 images per service)
+    const cardiologyGallery = [
+        "photos/services/cardiology.jpg",
+        "photos/services/cardiology.jpg", 
+        "photos/services/cardiology.jpg"
+    ];
+    
+    const maternityGallery = [
+        "photos/services/maternityandchildcare.jpg",
+        "photos/services/maternityandchildcare.jpg",
+        "photos/services/maternityandchildcare.jpg"
+    ];
+    
+    const neurologyGallery = [
+        "photos/services/neurology.jpg",
+        "photos/services/neurology.jpg",
+        "photos/services/neurology.jpg"
+    ];
+    
+    const pediatricsGallery = [
+        "photos/services/pediatrics.jpg",
+        "photos/services/pediatrics.jpg",
+        "photos/services/pediatrics.jpg"
+    ];
+    
+    // NEWS GALLERY IMAGES (3 images per news item)
+    const mriNewsGallery = [
+        "photos/news/new_mri.jpg",
+        "photos/news/new_mri.jpg",
+        "photos/news/new_mri.jpg"
+    ];
+    
+    const medicalCampGallery = [
+        "photos/news/free_medical_camp.jpg",
+        "photos/news/free_medical_camp.jpg",
+        "photos/news/free_medical_camp.jpg"
+    ];
+    
+    const partnershipGallery = [
+        "photos/news/partnership.jpg",
+        "photos/news/partnership.jpg",
+        "photos/news/partnership.jpg"
+    ];
+    
+    // Rotating Hero Background (30 seconds interval)
+    const bgElements = [
+        document.getElementById('heroBg1'),
+        document.getElementById('heroBg2'),
+        document.getElementById('heroBg3'),
+        document.getElementById('heroBg4'),
+        document.getElementById('heroBg5'),
+        document.getElementById('heroBg6')
+    ];
+    let currentBgIndex = 0;
+    
+    if (bgElements[0]) bgElements[0].classList.add('active');
+    
+    function rotateHeroBackground() {
+        if (bgElements[currentBgIndex]) bgElements[currentBgIndex].classList.remove('active');
+        currentBgIndex = (currentBgIndex + 1) % bgElements.length;
+        if (bgElements[currentBgIndex]) bgElements[currentBgIndex].classList.add('active');
+    }
+    setInterval(rotateHeroBackground, 30000);
+
+    // Scroll Down Arrow - Fade out on scroll
+    const scrollDownWrapper = document.getElementById('scrollDownWrapper');
+    const aboutSection = document.getElementById('about');
+    
+    function handleScrollFade() {
+        if (!scrollDownWrapper || !aboutSection) return;
+        const aboutTop = aboutSection.offsetTop;
+        const scrollY = window.scrollY;
+        if (scrollY + 100 > aboutTop - 50) {
+            scrollDownWrapper.classList.add('fade-out');
+        } else {
+            scrollDownWrapper.classList.remove('fade-out');
+        }
+    }
+    window.addEventListener('scroll', handleScrollFade);
+    handleScrollFade();
+
+    document.getElementById('scrollDownArrow')?.addEventListener('click', () => {
+        if (aboutSection) aboutSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.getElementById('ambulanceBtn')?.addEventListener('click', () => {
+        window.location.href = 'tel:0800123456';
+    });
+
+    // WhatsApp functionality
+    const whatsappNumber = '256708378673';
+    const inquiryMessage = "Hi, I have an inquiry";
+    
+    const openWhatsApp = () => {
+        const whatsappUrl = `https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodeURIComponent(inquiryMessage)}&type=phone_number&app_absent=0`;
+        try {
+            window.open(whatsappUrl, '_blank');
+        } catch (error) {
+            window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(inquiryMessage)}`;
+        }
+    };
+    
+    document.getElementById('whatsappIcon')?.addEventListener('click', openWhatsApp);
+    document.getElementById('widgetStartChat')?.addEventListener('click', openWhatsApp);
+    
+    const closeWidgetBtn = document.getElementById('closeWidgetBtn');
+    const chatPreview = document.getElementById('whatsappChatPreview');
+    closeWidgetBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        chatPreview.classList.add('hidden');
+    });
+
+    // Activities Data (YOUR ORIGINAL DATA)
+    const slidesData = [
+        { img: "photos/activities/cardiacscreening.jpg", title: "Free Cardiac Screening Camp", doctor: "Dr. Aisha Nabukenya", spec: "Cardiologist", note: "Every Saturday in April: ECG, blood pressure checks, and expert consultation. Walk-ins welcome." },
+        { img: "photos/activities/childwellness.jpg", title: "Child Wellness & Vaccination Drive", doctor: "Dr. Moses Okello", spec: "Pediatrician", note: "Immunization for children under 5. Nutritional counseling every Tuesday. Bring immunization card." },
+        { img: "photos/activities/maternalhealth.jpg", title: "Maternal Health Outreach", doctor: "Dr. Sarah Namutebi", spec: "OB/GYN", note: "Antenatal classes every Thursday. Free ultrasound for first 20 registrations each week." },
+        { img: "photos/activities/neurologyawareness.jpg", title: "Neurology Awareness Workshop", doctor: "Dr. Grace Atim", spec: "Neurologist", note: "Stroke prevention & migraine management. Next session: 12th April, 2pm @ Conference Hall." }
+    ];
+    const wrapper = document.getElementById('slideshowWrapper');
+    slidesData.forEach(s => {
+        wrapper.innerHTML += `<div class="swiper-slide"><img src="${s.img}" class="activity-slide-img" alt="${s.title}" onerror="this.src='https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=600'"><div class="activity-slide-content"><h3>${s.title}</h3><div class="doctor-name"><i class="fas fa-user-md"></i> ${s.doctor} (${s.spec})</div><div class="activity-note"><i class="fas fa-calendar-alt"></i> ${s.note}</div></div></div>`;
+    });
+    // Swiper initialization WITHOUT navigation arrows
+    new Swiper('.activitySwiper', { 
+        loop: true, 
+        slidesPerView: 1, 
+        spaceBetween: 24, 
+        pagination: { el: '.swiper-pagination', clickable: true }, 
+        autoplay: { delay: 4000 }, 
+        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } } 
+    });
+
+    // Testimonials Data (YOUR ORIGINAL DATA)
+    const testimonialsData = [
+        { name: "Sarah K., Kampala", condition: "Maternity Care", text: "The maternity team at Nusha Hospital was incredible! The nurses were so supportive during my delivery. I felt safe and cared for throughout my stay.", stars: 5, initial: "S" },
+        { name: "John M., Jinja", condition: "Cardiology", text: "After my heart surgery, the recovery was smooth thanks to Dr. Nabukenya and the cardiology team. World-class care right here in Uganda.", stars: 5, initial: "J" },
+        { name: "Grace A., Entebbe", condition: "Pediatrics", text: "My son received excellent treatment for pneumonia. The pediatric ward is child-friendly and the doctors explained everything clearly.", stars: 5, initial: "G" },
+        { name: "David L., Kampala", condition: "Orthopedics", text: "The physiotherapy team helped me walk again after my accident. I'm forever grateful for their dedication and expertise.", stars: 4, initial: "D" }
+    ];
+    
+    let currentTestimonialIndex = 0;
+    let testimonialInterval;
+    const testimonialContainer = document.getElementById('testimonialSlideContainer');
+    const dotsContainer = document.getElementById('testimonialDots');
+    
+    function renderTestimonial(index) {
+        const t = testimonialsData[index];
+        testimonialContainer.innerHTML = `<div class="testimonial-slide"><div class="quote-icon"><i class="fas fa-quote-left"></i></div><p class="testimonial-text">"${t.text}"</p><div class="patient-avatar">${t.initial}</div><div class="patient-name">${t.name}</div><div class="patient-condition">${t.condition}</div><div class="stars">${'★'.repeat(t.stars)}${'☆'.repeat(5 - t.stars)}</div></div>`;
+        document.querySelectorAll('.testimonial-dot').forEach((dot, i) => dot.classList.toggle('active', i === index));
+    }
+    
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        testimonialsData.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'testimonial-dot';
+            if (i === currentTestimonialIndex) dot.classList.add('active');
+            dot.addEventListener('click', () => { stopAutoSlide(); currentTestimonialIndex = i; renderTestimonial(currentTestimonialIndex); startAutoSlide(); });
+            dotsContainer.appendChild(dot);
+        });
+    }
+    
+    function nextTestimonial() { currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialsData.length; renderTestimonial(currentTestimonialIndex); }
+    function prevTestimonial() { currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonialsData.length) % testimonialsData.length; renderTestimonial(currentTestimonialIndex); }
+    function startAutoSlide() { if (testimonialInterval) clearInterval(testimonialInterval); testimonialInterval = setInterval(nextTestimonial, 8000); }
+    function stopAutoSlide() { if (testimonialInterval) { clearInterval(testimonialInterval); testimonialInterval = null; } }
+    
+    renderTestimonial(0);
+    createDots();
+    startAutoSlide();
+    document.getElementById('testimonialPrev')?.addEventListener('click', () => { stopAutoSlide(); prevTestimonial(); startAutoSlide(); });
+    document.getElementById('testimonialNext')?.addEventListener('click', () => { stopAutoSlide(); nextTestimonial(); startAutoSlide(); });
+    const sliderContainer = document.querySelector('.testimonials-slider');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+        sliderContainer.addEventListener('mouseleave', startAutoSlide);
+    }
+
+    // Shared Detail Overlay Functions - FIXED: Now only ONE scrollbar appears
+    const detailOverlay = document.getElementById('detailOverlay');
+    const detailContentDiv = document.getElementById('detailContent');
+    
+    function openDetail(title, mainImg, galleryImgs, fullDescription, extraInfo) {
+        let galleryHtml = '<div class="gallery-grid">';
+        if (galleryImgs && galleryImgs.length) {
+            galleryImgs.forEach(img => {
+                galleryHtml += `<img src="${img}" class="gallery-img" alt="Gallery image" onerror="this.src='https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg?auto=compress&cs=tinysrgb&w=600'">`;
+            });
+        } else {
+            for (let i = 0; i < 3; i++) {
+                galleryHtml += `<img src="https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg?auto=compress&cs=tinysrgb&w=600" class="gallery-img" alt="Gallery image">`;
+            }
+        }
+        galleryHtml += '</div>';
+        
+        detailContentDiv.innerHTML = `
+            <img src="${mainImg}" class="detail-full-image" alt="${title}" onerror="this.src='https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg?auto=compress&cs=tinysrgb&w=1200'">
+            <div class="detail-content">
+                <h1 class="detail-title">${title}</h1>
+                <div class="detail-body">
+                    <p>${fullDescription}</p>
+                    ${galleryHtml}
+                    <p>${extraInfo}</p>
+                    <button class="back-to-home-btn" id="backFromDetailBtn">← Back to Home</button>
+                </div>
+            </div>
+        `;
+        detailOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        document.getElementById('backFromDetailBtn')?.addEventListener('click', closeDetail);
+    }
+    
+    function closeDetail() {
+        detailOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+    }
+    
+    document.getElementById('closeDetailBtn')?.addEventListener('click', closeDetail);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && detailOverlay.classList.contains('active')) closeDetail();
+    });
+
+    // Services Data with YOUR CUSTOM GALLERY IMAGES (ORIGINAL - UNCHANGED)
+    const servicesData = [
+        { id: 1, title: "Cardiology", mainImg: "photos/services/cardiology.jpg", gallery: cardiologyGallery, desc: "Our state-of-the-art cardiology department offers comprehensive heart care including diagnostic testing, interventional procedures, cardiac rehabilitation, and preventive cardiology. Our team of experienced cardiologists uses the latest technology to provide personalized treatment for all heart conditions.", extra: "We perform advanced procedures like coronary angiography, echocardiography, and stress testing. Our cardiac rehab program helps patients recover faster after heart attacks or surgeries. Emergency cardiac care available 24/7." },
+        { id: 2, title: "Maternity & Childcare", mainImg: "photos/services/maternityandchildcare.jpg", gallery: maternityGallery, desc: "Experience compassionate maternity care in our modern birthing suites. From prenatal care to postnatal support, our dedicated team ensures a safe and comfortable journey for both mother and baby. We offer 24/7 emergency obstetric services and neonatal intensive care.", extra: "Our labor and delivery rooms are equipped with fetal monitors and emergency equipment. We also provide lactation consulting, newborn screening, and parenting classes to support new families. Over 2,000 successful deliveries annually." },
+        { id: 3, title: "Neurology", mainImg: "photos/services/neurology.jpg", gallery: neurologyGallery, desc: "Our neurology department specializes in diagnosing and treating disorders of the nervous system. With advanced diagnostic tools and a multidisciplinary approach, we provide expert care for stroke, epilepsy, multiple sclerosis, Parkinson's disease, and other neurological conditions.", extra: "We offer EEG, EMG, and advanced imaging for precise diagnosis. Our stroke unit provides rapid intervention to minimize brain damage. Tele-neurology consultations available for remote patients." },
+        { id: 4, title: "Pediatrics", mainImg: "photos/services/pediatrics.jpg", gallery: pediatricsGallery, desc: "Our child-friendly pediatric department provides comprehensive medical care for infants, children, and adolescents. From routine check-ups to specialized treatments, our pediatricians are dedicated to ensuring the healthy development and well-being of your little ones.", extra: "We have a dedicated pediatric emergency unit, child life specialists, and a play therapy area. Immunizations, growth monitoring, and nutritional guidance are key parts of our well-child services. 24/7 pediatric ICU available." }
+    ];
+    
+    // Build Services Grid dynamically with Learn More buttons (ORIGINAL - UNCHANGED)
+    const servicesGrid = document.getElementById('servicesGrid');
+    servicesData.forEach((service, idx) => {
+        const serviceDiv = document.createElement('div');
+        const reverseClass = (idx % 2 === 1) ? 'reverse' : '';
+        serviceDiv.className = `service-item ${reverseClass}`;
+        serviceDiv.innerHTML = `
+            <div class="service-image">
+                <img src="${service.mainImg}" alt="${service.title}" onerror="this.src='https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=600'">
+            </div>
+            <div class="service-content">
+                <h3>${service.title}</h3>
+                <p>${service.desc.substring(0, 180)}...</p>
+                <button class="service-link" data-id="${service.id}">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+        `;
+        servicesGrid.appendChild(serviceDiv);
+        serviceDiv.querySelector('.service-link').addEventListener('click', () => {
+            openDetail(service.title, service.mainImg, service.gallery, service.desc, service.extra);
+        });
+    });
+
+    // News Data with YOUR CUSTOM GALLERY IMAGES
+    const newsData = [
+        { id: 1, img: "photos/news/new_mri.jpg", date: "March 15, 2025", title: "New MRI Machine Installed", excerpt: "Nusha Hospital unveils state-of-the-art 3T MRI scanner, reducing wait times and improving diagnostic accuracy.", gallery: mriNewsGallery, fullDesc: "We are proud to announce the installation of a brand new 3T MRI machine at Nusha Hospital. This advanced technology provides clearer images, faster scan times, and greater patient comfort. The MRI suite is now open for appointments. This investment represents our commitment to bringing world-class diagnostic capabilities to our community." },
+        { id: 2, img: "photos/news/free_medical_camp.jpg", date: "March 5, 2025", title: "Free Medical Camp in Jinja", excerpt: "Our outreach team served over 500 patients last weekend with free consultations and medications.", gallery: medicalCampGallery, fullDesc: "Nusha Hospital successfully conducted a free medical camp in Jinja serving over 500 patients. Services included medical consultations, blood pressure screening, malaria testing, and free medications. Our next camp is scheduled for April 12th in Mbale. Community outreach remains a core pillar of our mission to improve healthcare access for all Ugandans." },
+        { id: 3, img: "photos/news/partnership.jpg", date: "February 20, 2025", title: "Partnership with International Heart Foundation", excerpt: "New collaboration brings cardiac surgery training and equipment to our hospital.", gallery: partnershipGallery, fullDesc: "Nusha Hospital has partnered with the International Heart Foundation to bring advanced cardiac surgery training to Uganda. This initiative will enhance our capacity to perform complex cardiac procedures. The partnership includes equipment donations, specialist training programs, and ongoing clinical support." }
+    ];
+    
+    const newsGrid = document.getElementById('newsGrid');
+    newsData.forEach(news => {
+        const card = document.createElement('div');
+        card.className = 'news-card';
+        card.innerHTML = `<img src="${news.img}" class="news-img" alt="${news.title}" onerror="this.src='https://images.pexels.com/photos/6646886/pexels-photo-6646886.jpeg?auto=compress&cs=tinysrgb&w=600'"><div class="news-content"><div class="news-date"><i class="far fa-calendar-alt"></i> ${news.date}</div><h3 class="news-title">${news.title}</h3><p class="news-excerpt">${news.excerpt}</p><div class="read-more">Read more <i class="fas fa-arrow-right"></i></div></div>`;
+        card.querySelector('.read-more').addEventListener('click', () => {
+            openDetail(news.title, news.img, news.gallery, news.fullDesc, "For more information, please contact our media relations team at +256 414 123 456 or email media@nushahospital.ug.");
+        });
+        newsGrid.appendChild(card);
+    });
+
+    // Insurance Data (YOUR ORIGINAL DATA)
+    const insurances = [
+        { name: "Britam", icon: "fas fa-building", info: "In-network" },
+        { name: "Jubilee Health", icon: "fas fa-hand-holding-heart", info: "Approved" },
+        { name: "UAP Old Mutual", icon: "fas fa-umbrella", info: "In-network" }
+    ];
+    const insuranceGrid = document.getElementById('insuranceGrid');
+    insurances.forEach(i => { insuranceGrid.innerHTML += `<div class="insurance-card"><i class="${i.icon}"></i><h4>${i.name}</h4><p>${i.info}</p></div>`; });
+
+    // EmailJS Dual Email Submission (YOUR ORIGINAL FUNCTION)
+    const form = document.getElementById('inquiryForm');
+    const feedback = document.getElementById('formFeedback');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const fullname = document.getElementById('fullname').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        if (!fullname || !email || !message) {
+            feedback.innerHTML = '<div class="error-message">❌ All fields are required.</div>';
+            return;
+        }
+        if (!/^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/.test(email)) {
+            feedback.innerHTML = '<div class="error-message">❌ Valid email required.</div>';
+            return;
+        }
+        
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        feedback.innerHTML = '';
+        
+        const templateParams = {
+            name: fullname,
+            email: email,
+            phone: phone || 'Not provided',
+            message: message,
+            subject: `New Inquiry from ${fullname}`
+        };
+        
+        try {
+            const serviceId = 'service_6may74p';
+            const autoReplyTemplateId = 'template_ysz31in';
+            const notificationTemplateId = 'template_up14cln';
+            
+            await Promise.all([
+                emailjs.send(serviceId, autoReplyTemplateId, templateParams),
+                emailjs.send(serviceId, notificationTemplateId, templateParams)
+            ]);
+            
+            feedback.innerHTML = `<div class="success-message">✅ Thank you ${fullname}! A confirmation email has been sent to ${email}. Our team will respond shortly.</div>`;
+            form.reset();
+        } catch (error) {
+            feedback.innerHTML = `<div class="success-message">✅ Thank you ${fullname}! Your inquiry has been received. We'll respond to ${email} within 24 hours.</div>`;
+            form.reset();
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Inquiry';
+            setTimeout(() => { if (feedback.firstChild) feedback.innerHTML = ''; }, 5000);
+        }
+    });
+
+    // Newsletter Subscription (YOUR ORIGINAL FUNCTION)
+    document.getElementById('subscribeBtn')?.addEventListener('click', () => {
+        const email = document.getElementById('subscribeEmail').value.trim();
+        if (!email || !email.includes('@')) {
+            document.getElementById('subFeedback').innerHTML = '<span style="color:#ffaa88;">Valid email required</span>';
+            return;
+        }
+        document.getElementById('subFeedback').innerHTML = '<span style="color:#a5e0c5;">✅ Subscribed!</span>';
+        document.getElementById('subscribeEmail').value = '';
+        setTimeout(() => document.getElementById('subFeedback').innerHTML = '', 3000);
+    });
+
+    // Mobile menu (YOUR ORIGINAL FUNCTION)
+    document.getElementById('mobile-menu')?.addEventListener('click', () => { document.getElementById('nav-links')?.classList.toggle('active'); });
+
+    // Active link highlight (YOUR ORIGINAL FUNCTION)
+    window.addEventListener('scroll', () => {
+        let current = '';
+        document.querySelectorAll('section[id]').forEach(section => {
+            const top = section.offsetTop - 100;
+            if (window.scrollY >= top && window.scrollY < top + section.offsetHeight) current = section.id;
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+        });
+    });
+
+    // ========== Why Choose Us Carousel (15 sec rotation, NO arrows) ==========
+    const reasons = [
+        { icon: "fas fa-hand-holding-heart", title: "Compassionate Patient Care", desc: "We place our patients at the heart of everything we do, ensuring respectful, personalized, and compassionate healthcare for all." },
+        { icon: "fas fa-user-md", title: "Qualified Healthcare Professionals", desc: "Our dedicated team of healthcare professionals is committed to delivering safe, effective, and high-quality medical services." },
+        { icon: "fas fa-coins", title: "Affordable Healthcare Services", desc: "We strive to make quality healthcare accessible and affordable for individuals, families, and organizations." },
+        { icon: "fas fa-microscope", title: "Modern Diagnostic Services", desc: "With reliable laboratory and diagnostic services, we support timely and accurate medical decisions." },
+        { icon: "fas fa-ambulance", title: "Emergency Response Services", desc: "Our standby ambulance and referral network ensure prompt response and continuity of care during emergencies." },
+        { icon: "fas fa-users", title: "Community Outreach Programs", desc: "We actively engage with communities through health education, medical camps, screenings, and disease prevention initiatives." },
+        { icon: "fas fa-star-of-life", title: "Trusted by the Community", desc: "Since 2016, we have served thousands of patients and continue to build trust through integrity, excellence, and quality healthcare." },
+        { icon: "fas fa-map-marker-alt", title: "Accessible and Convenient", desc: "Located in Wakiso District, we provide healthcare services that are easily accessible to the communities we serve." }
+    ];
+
+    let currentReasonIndex = 0;
+    let carouselInterval;
+    const carouselContainerNew = document.getElementById('reasonCarousel');
+    const dotsCarouselNew = document.getElementById('carouselDots');
+
+    function buildCarousel() {
+        carouselContainerNew.innerHTML = '';
+        reasons.forEach((reason, idx) => {
+            const card = document.createElement('div');
+            card.className = `reason-card ${idx === currentReasonIndex ? 'active' : ''}`;
+            card.innerHTML = `<i class="${reason.icon}"></i><h3>${reason.title}</h3><p>${reason.desc}</p>`;
+            carouselContainerNew.appendChild(card);
+        });
+
+        dotsCarouselNew.innerHTML = '';
+        reasons.forEach((_, idx) => {
+            const dot = document.createElement('div');
+            dot.className = `carousel-dot ${idx === currentReasonIndex ? 'active-dot' : ''}`;
+            dot.addEventListener('click', () => {
+                stopCarousel();
+                currentReasonIndex = idx;
+                updateCarouselDisplay();
+                startCarousel();
+            });
+            dotsCarouselNew.appendChild(dot);
+        });
+    }
+
+    function updateCarouselDisplay() {
+        const cards = document.querySelectorAll('.reason-card');
+        const dots = document.querySelectorAll('.carousel-dot');
+        cards.forEach((card, i) => {
+            if (i === currentReasonIndex) card.classList.add('active');
+            else card.classList.remove('active');
+        });
+        dots.forEach((dot, i) => {
+            if (i === currentReasonIndex) dot.classList.add('active-dot');
+            else dot.classList.remove('active-dot');
+        });
+    }
+
+    function nextReason() {
+        currentReasonIndex = (currentReasonIndex + 1) % reasons.length;
+        updateCarouselDisplay();
+    }
+
+    function startCarousel() {
+        if (carouselInterval) clearInterval(carouselInterval);
+        carouselInterval = setInterval(nextReason, 15000);
+    }
+
+    function stopCarousel() {
+        if (carouselInterval) {
+            clearInterval(carouselInterval);
+            carouselInterval = null;
+        }
+    }
+
+    buildCarousel();
+    startCarousel();
+
+    const carouselContainerElement = document.querySelector('.carousel-container');
+    if (carouselContainerElement) {
+        carouselContainerElement.addEventListener('mouseenter', stopCarousel);
+        carouselContainerElement.addEventListener('mouseleave', startCarousel);
+    }
+</script>
+</body>
+</html>
