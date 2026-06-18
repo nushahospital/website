@@ -303,7 +303,7 @@
             background: #f8fefb;
         }
 
-        /* ---------- ABOUT ---------- */
+        /* ---------- ABOUT (modified for mobile: text first, image below) ---------- */
         .about-grid {
             display: flex;
             gap: 50px;
@@ -312,6 +312,19 @@
         }
         .about-text {
             flex: 1.2;
+            min-width: 280px;
+        }
+        .about-image-wrapper {
+            flex: 0.8;
+            min-width: 260px;
+        }
+        .about-image-wrapper img {
+            border-radius: 32px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            display: block;
         }
         .about-highlights {
             display: flex;
@@ -1144,6 +1157,20 @@
             .nav-container {
                 padding: 12px 20px;
             }
+            /* ABOUT: text first, image below on tablets and smaller */
+            .about-grid {
+                flex-direction: column;
+            }
+            .about-text {
+                order: 1;
+            }
+            .about-image-wrapper {
+                order: 2;
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
         }
         @media (max-width: 1024px) {
             .container { padding: 0 20px; }
@@ -1164,6 +1191,9 @@
             .whatsapp-chat-preview { width: 260px; }
             .logo-circle { width: 36px; height: 36px; }
             .logo-circle .header-logo { width: 28px; height: 28px; }
+            .about-image-wrapper {
+                max-width: 100%;
+            }
         }
         @media (max-width: 480px) {
             .hero-content h2 { font-size: 1.65rem; }
@@ -1174,6 +1204,9 @@
             .whatsapp-button span { display: none; }
             .whatsapp-button { width: 55px; height: 55px; border-radius: 50%; justify-content: center; padding: 0; }
             .whatsapp-button i { margin: 0; font-size: 1.5rem; }
+            .about-image-wrapper {
+                max-width: 100%;
+            }
         }
         img {
             max-width: 100%;
@@ -1236,7 +1269,7 @@
         </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
+    <!-- ===== ABOUT (text first, image below on mobile/tablet) ===== -->
     <section id="about" class="about-section">
         <div class="container">
             <span class="section-title">About NUSHA Hospital</span>
@@ -1254,8 +1287,8 @@
                         <div class="highlight"><i class="fas fa-hand-holding-heart"></i> 24/7 patient support</div>
                     </div>
                 </div>
-                <div style="flex:0.8;">
-                    <img src="photos/hospital/hospitalview1.png" alt="Nusha Hospital Facility" style="border-radius: 32px; width:100%; height: auto; object-fit: cover; box-shadow: 0 12px 24px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                <div class="about-image-wrapper">
+                    <img src="photos/hospital/hospitalview1.png" alt="Nusha Hospital Facility" onerror="this.style.display='none'">
                 </div>
             </div>
         </div>
