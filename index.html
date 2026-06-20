@@ -339,7 +339,7 @@
             font-weight: 500;
         }
 
-        /* ---------- SERVICES (main grid) ---------- */
+        /* ---------- SERVICES (main grid) - FIXED FOR FULL IMAGE DISPLAY ---------- */
         .services-grid {
             display: flex;
             flex-direction: column;
@@ -349,8 +349,8 @@
         .service-item {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            gap: 50px;
+            align-items: stretch;
+            gap: 0px;
             background: white;
             border-radius: 32px;
             overflow: hidden;
@@ -364,18 +364,23 @@
             flex-direction: row-reverse;
         }
         .service-image {
-            flex: 1;
-            min-width: 280px;
+            flex: 1 1 45%;
+            min-width: 300px;
+            max-height: 450px;
+            overflow: hidden;
         }
         .service-image img {
             width: 100%;
-            height: 320px;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
         .service-content {
-            flex: 1;
-            padding: 30px;
+            flex: 1 1 45%;
+            padding: 40px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .service-content h3 {
             font-size: 1.8rem;
@@ -1138,13 +1143,6 @@
                 padding: 8px 16px;
                 font-size: 0.75rem;
             }
-            .service-item,
-            .service-item.reverse {
-                flex-direction: column;
-            }
-            .service-image img {
-                height: 250px;
-            }
             .logo img {
                 height: 50px;
             }
@@ -1171,6 +1169,24 @@
                 max-width: 500px;
                 margin: 0 auto;
             }
+            /* SERVICES: stack on mobile */
+            .service-item,
+            .service-item.reverse {
+                flex-direction: column !important;
+            }
+            .service-image {
+                flex: 1 1 auto;
+                min-width: unset;
+                max-height: 300px;
+                width: 100%;
+            }
+            .service-image img {
+                height: 300px;
+                width: 100%;
+            }
+            .service-content {
+                padding: 30px 24px;
+            }
         }
         @media (max-width: 1024px) {
             .container { padding: 0 20px; }
@@ -1185,6 +1201,7 @@
             .hero-content h2 { font-size: 1.9rem; }
             .section-title { font-size: 1.8rem; }
             .service-content h3 { font-size: 1.5rem; }
+            .service-content { padding: 24px 20px; }
             .detail-content { padding: 28px 20px; }
             .detail-title { font-size: 1.7rem; }
             .gallery-img { height: 140px; }
@@ -1194,17 +1211,22 @@
             .about-image-wrapper {
                 max-width: 100%;
             }
-            /* Hero background - use cover to fill the entire section */
             .hero-bg {
                 background-size: cover;
                 background-position: center;
+            }
+            .service-image {
+                max-height: 250px;
+            }
+            .service-image img {
+                height: 250px;
             }
         }
         @media (max-width: 480px) {
             .hero-content h2 { font-size: 1.65rem; }
             .section-title { font-size: 1.55rem; }
             .btn-primary { width: 100%; justify-content: center; }
-            .service-content { padding: 20px 18px; }
+            .service-content { padding: 20px 16px; }
             .form-container { padding: 24px 16px; }
             .whatsapp-button span { display: none; }
             .whatsapp-button { width: 55px; height: 55px; border-radius: 50%; justify-content: center; padding: 0; }
@@ -1213,10 +1235,15 @@
                 max-width: 100%;
             }
             .hero { min-height: 350px; padding: 70px 0 60px; }
-            /* Hero background - use cover to fill the entire section */
             .hero-bg {
                 background-size: cover;
                 background-position: center;
+            }
+            .service-image {
+                max-height: 200px;
+            }
+            .service-image img {
+                height: 200px;
             }
         }
         img {
@@ -1527,31 +1554,25 @@
         }, {
             id: 5,
             title: "Laboratory Services",
-            mainImg: "photos/services/neurology.jpg",
+            mainImg: "photos/services/lab.png",
             gallery: neurologyGallery,
             quick: "Reliable diagnostic testing to support accurate medical decisions.",
             desc: labDescription
         }, {
             id: 6,
             title: "Pharmacy Services",
-            mainImg: "photos/services/cardiology.jpg",
+            mainImg: "photos/services/pharm.png",
             gallery: cardiologyGallery,
             quick: "Safe dispensing of medicines and pharmaceutical counseling.",
             desc: "Our pharmacy provides: Prescription dispensing, Drug counseling, Medication monitoring, Chronic disease medication refills, Health education on medication use. We strive to ensure patients receive safe and effective medicines."
-        }, {
-            id: 7,
-            title: "HIV/AIDS Services",
-            mainImg: "photos/services/neurology.jpg",
-            gallery: neurologyGallery,
-            quick: "Prevention, testing, treatment, and ongoing HIV care.",
-            desc: "We provide comprehensive HIV services including: HIV Counseling and Testing (HCT), ART initiation and management, Viral load monitoring support, Adherence counseling, Prevention services, Prevention of Mother-To-Child Transmission (PMTCT), Community outreach programs. All services are provided confidentially and professionally."
-        }, {
+        },
+            {
             id: 8,
             title: "Family Planning Services",
-            mainImg: "photos/services/maternityandchildcare.jpg",
+            mainImg: "photos/services/familyplanning.png",
             gallery: maternityGallery,
             quick: "Reproductive health services for individuals and families.",
-            desc: "Family planning services include: Counseling and education, Injectable contraceptives, Oral contraceptive pills, Condoms, Implants, Referrals for long-term and permanent methods. We empower individuals and families to make informed reproductive health decisions."
+            desc: "Family planning services include: Counseling and education, Injectable contraceptives, Oral contraceptive pills, Condoms, Implants. We empower individuals and families to make informed reproductive health decisions."
         }, {
             id: 9,
             title: "Child Health Services",
@@ -1562,49 +1583,49 @@
         }, {
             id: 10,
             title: "Emergency and Urgent Care",
-            mainImg: "photos/services/cardiology.jpg",
+            mainImg: "photos/services/emergency.png",
             gallery: cardiologyGallery,
             quick: "Immediate medical attention for urgent health conditions.",
             desc: "Our emergency unit handles: Medical emergencies, Trauma and injuries, Severe infections, Acute asthma attacks, High fevers, Dehydration, Stabilization before referral. Patients receive prompt assessment and treatment."
         }, {
             id: 11,
-            title: "Minor Surgical Procedures",
-            mainImg: "photos/services/neurology.jpg",
+            title: "Theatre Services",
+            mainImg: "photos/services/theatre.png",
             gallery: neurologyGallery,
-            quick: "Safe minor procedures performed by qualified healthcare professionals.",
-            desc: "We offer selected minor procedures including: Wound suturing, Abscess drainage, Dressing and wound management, Removal of foreign bodies, Incision and drainage procedures, Minor lesion excisions. Procedures are performed under sterile conditions."
+            quick: "Safe, sterile surgical care for both minor and major procedures.",
+            desc: "Our theatre services provide safe surgical care for patients requiring minor and major operations. Services include: Pre-operative assessment and preparation, Emergency and planned surgical procedures, Anesthesia support, Minor surgeries such as wound suturing, Abscess drainage and foreign body removal, Major surgeries as advised by the surgical team, Sterile theatre procedures, Post-operative monitoring, Pain management, Wound care, Dressing changes, and Follow-up care."
         }, {
             id: 12,
             title: "Antenatal Care (ANC)",
-            mainImg: "photos/services/maternityandchildcare.jpg",
+            mainImg: "photos/services/maternity.png",
             gallery: maternityGallery,
             quick: "Routine pregnancy monitoring and maternal health support.",
             desc: "ANC services include: Pregnancy assessment, Maternal health screening, Blood pressure monitoring, Laboratory investigations, Nutritional counseling, Birth preparedness education, Risk identification and management. Regular ANC visits help ensure healthy pregnancies."
         }, {
             id: 13,
             title: "Postnatal Care (PNC)",
-            mainImg: "photos/services/maternityandchildcare.jpg",
+            mainImg: "photos/services/postnatal.png",
             gallery: maternityGallery,
             quick: "Healthcare support for mothers and newborns after delivery.",
             desc: "Postnatal services include: Mother and baby assessments, Breastfeeding support, Family planning counseling, Infection monitoring, Newborn health education, Immunization guidance."
         }, {
             id: 14,
-            title: "Tuberculosis (TB) Services",
-            mainImg: "photos/services/neurology.jpg",
+            title: "Dental Services",
+            mainImg: "photos/services/dental.png",
             gallery: neurologyGallery,
-            quick: "Diagnosis, treatment, and monitoring of tuberculosis.",
-            desc: "TB services include: TB screening, Laboratory investigations, Treatment initiation, Directly Observed Therapy (DOT), Follow-up monitoring, Contact tracing and counseling."
+            quick: "Professional dental care for healthy teeth, gums, and a confident smile.",
+            desc: "Our dental services include: Dental consultation and oral examination, Tooth extraction, Dental fillings, Scaling and polishing, Treatment of toothaches and gum disease, Management of dental infections, Oral health education, Dentures, and many more."
         }, {
             id: 15,
             title: "Nutrition and Health Education",
-            mainImg: "photos/services/pediatrics.jpg",
+            mainImg: "photos/services/nutritionhealth.png",
             gallery: pediatricsGallery,
             quick: "Promoting healthy lifestyles and disease prevention.",
             desc: "We provide: Nutrition assessment, Dietary counseling, Malnutrition management, Health talks, Disease prevention education, Lifestyle modification guidance."
         }, {
             id: 16,
             title: "Medical Screening and Wellness Checks",
-            mainImg: "photos/services/cardiology.jpg",
+            mainImg: "photos/services/wellness.png",
             gallery: cardiologyGallery,
             quick: "Preventive healthcare services for early disease detection.",
             desc: "Health screening services include: Blood pressure checks, Blood sugar testing, BMI assessments, HIV screening, General wellness evaluations, Occupational health assessments."
