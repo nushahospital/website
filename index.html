@@ -339,7 +339,7 @@
             font-weight: 500;
         }
 
-        /* ---------- SERVICES (main grid) - FIXED FOR FULL IMAGE DISPLAY ---------- */
+        /* ---------- SERVICES (main grid) ---------- */
         .services-grid {
             display: flex;
             flex-direction: column;
@@ -349,8 +349,8 @@
         .service-item {
             display: flex;
             flex-wrap: wrap;
-            align-items: stretch;
-            gap: 0px;
+            align-items: center;
+            gap: 50px;
             background: white;
             border-radius: 32px;
             overflow: hidden;
@@ -364,23 +364,18 @@
             flex-direction: row-reverse;
         }
         .service-image {
-            flex: 1 1 45%;
-            min-width: 300px;
-            max-height: 450px;
-            overflow: hidden;
+            flex: 1;
+            min-width: 280px;
         }
         .service-image img {
             width: 100%;
-            height: 100%;
+            height: 320px;
             object-fit: cover;
             display: block;
         }
         .service-content {
-            flex: 1 1 45%;
-            padding: 40px 35px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            flex: 1;
+            padding: 30px;
         }
         .service-content h3 {
             font-size: 1.8rem;
@@ -1143,6 +1138,13 @@
                 padding: 8px 16px;
                 font-size: 0.75rem;
             }
+            .service-item,
+            .service-item.reverse {
+                flex-direction: column;
+            }
+            .service-image img {
+                height: 250px;
+            }
             .logo img {
                 height: 50px;
             }
@@ -1169,24 +1171,6 @@
                 max-width: 500px;
                 margin: 0 auto;
             }
-            /* SERVICES: stack on mobile */
-            .service-item,
-            .service-item.reverse {
-                flex-direction: column !important;
-            }
-            .service-image {
-                flex: 1 1 auto;
-                min-width: unset;
-                max-height: 300px;
-                width: 100%;
-            }
-            .service-image img {
-                height: 300px;
-                width: 100%;
-            }
-            .service-content {
-                padding: 30px 24px;
-            }
         }
         @media (max-width: 1024px) {
             .container { padding: 0 20px; }
@@ -1197,11 +1181,10 @@
         @media (max-width: 768px) {
             body { font-size: 15px; }
             .container { padding: 0 16px; }
-            .hero { padding: 100px 0 90px; min-height: 450px; }
+            .hero { padding: 100px 0 90px; }
             .hero-content h2 { font-size: 1.9rem; }
             .section-title { font-size: 1.8rem; }
             .service-content h3 { font-size: 1.5rem; }
-            .service-content { padding: 24px 20px; }
             .detail-content { padding: 28px 20px; }
             .detail-title { font-size: 1.7rem; }
             .gallery-img { height: 140px; }
@@ -1211,39 +1194,18 @@
             .about-image-wrapper {
                 max-width: 100%;
             }
-            .hero-bg {
-                background-size: cover;
-                background-position: center;
-            }
-            .service-image {
-                max-height: 250px;
-            }
-            .service-image img {
-                height: 250px;
-            }
         }
         @media (max-width: 480px) {
             .hero-content h2 { font-size: 1.65rem; }
             .section-title { font-size: 1.55rem; }
             .btn-primary { width: 100%; justify-content: center; }
-            .service-content { padding: 20px 16px; }
+            .service-content { padding: 20px 18px; }
             .form-container { padding: 24px 16px; }
             .whatsapp-button span { display: none; }
             .whatsapp-button { width: 55px; height: 55px; border-radius: 50%; justify-content: center; padding: 0; }
             .whatsapp-button i { margin: 0; font-size: 1.5rem; }
             .about-image-wrapper {
                 max-width: 100%;
-            }
-            .hero { min-height: 350px; padding: 70px 0 60px; }
-            .hero-bg {
-                background-size: cover;
-                background-position: center;
-            }
-            .service-image {
-                max-height: 200px;
-            }
-            .service-image img {
-                height: 200px;
             }
         }
         img {
@@ -1287,11 +1249,11 @@
     <section id="home" class="hero">
         <div class="hero-bg-container">
             <div class="hero-bg" id="heroBg1" style="background-image: url('photos/hero/ambulance.png');"></div>
-            <div class="hero-bg" id="heroBg2" style="background-image: url('photos/hero/baby.png');"></div>
-            <div class="hero-bg" id="heroBg3" style="background-image: url('photos/hero/ward.png');"></div>
-            <div class="hero-bg" id="heroBg4" style="background-image: url('photos/hero/scope.png');"></div>
-            <div class="hero-bg" id="heroBg5" style="background-image: url('photos/hero/ward1.png');"></div>
-            <div class="hero-bg" id="heroBg6" style="background-image: url('photos/hero/ward2.png');"></div>
+            <div class="hero-bg" id="heroBg2" style="background-image: url('photos/hero/baby.jpg');"></div>
+            <div class="hero-bg" id="heroBg3" style="background-image: url('photos/hero/ward.jpg');"></div>
+            <div class="hero-bg" id="heroBg4" style="background-image: url('photos/hero/scope.jpg');"></div>
+            <div class="hero-bg" id="heroBg5" style="background-image: url('photos/hero/ward1.jpg');"></div>
+            <div class="hero-bg" id="heroBg6" style="background-image: url('photos/hero/ward2.jpg');"></div>
         </div>
         <div class="container">
             <div class="hero-content">
@@ -1523,34 +1485,324 @@
 
 <strong>Immunology:</strong> Entails the functioning of the immune systems. It involves immunological assays (ELISA techniques) and serological tests. Tests include; HIV, Hep A, B, C, Hypersensitivity reactions, and Auto immunity.`;
 
+        // OPD Services - Condensed version
+        const opdDescription = `<strong>Outpatient Department (OPD) Services</strong>
+
+Our OPD provides accessible, timely, and patient-centred medical care for patients who do not require admission.
+
+<strong>Consultation & Assessment:</strong> Thorough medical consultations, clinical examinations, and vital-sign checks including blood pressure, temperature, pulse, oxygen levels, weight, and blood sugar.
+
+<strong>Diagnosis & Treatment:</strong> Care for common conditions like fever, malaria, cough, flu, chest infections, stomach pain, diarrhoea, urinary tract infections, headaches, skin conditions, allergies, and minor injuries.
+
+<strong>Laboratory & Diagnostic Tests:</strong> Malaria tests, blood sugar, urine tests, pregnancy tests, HIV testing, blood grouping, complete blood count, and infection screening.
+
+<strong>Minor Procedures & Wound Care:</strong> Wound cleaning and dressing, suturing of minor cuts, abscess drainage, removal of foreign bodies, injections, nebulisation, minor burn care, and emergency first aid.
+
+<strong>Chronic Disease Monitoring:</strong> Regular review and follow-up for hypertension, diabetes, asthma, epilepsy, arthritis, and other long-term illnesses.
+
+<strong>Health Screening & Prevention:</strong> Blood pressure monitoring, blood sugar checks, HIV testing and counselling, pregnancy testing, nutritional assessment, and health education.
+
+<strong>Referral & Admission:</strong> Coordination for specialized care, inpatient admission, or emergency stabilisation when needed.`;
+
+        // IPD Services - Condensed version
+        const ipdDescription = `<strong>Inpatient Department (IPD) Services</strong>
+
+Our IPD provides continued medical care for patients requiring admission, close observation, treatment, nursing support, or recovery care.
+
+<strong>Admission & Ongoing Care:</strong> Detailed patient assessment, development of care plans, medical review, treatment, nursing care, medication administration, and continuous monitoring.
+
+<strong>24/7 Nursing Care:</strong> Continuous nursing support including vital signs monitoring, response to treatment, pain management, fluid balance, and wound assessment.
+
+<strong>Treatment & Medication:</strong> Oral medicines, injections, intravenous fluids, antibiotics, pain management, oxygen support, nebulisation, blood sugar management, and wound care.
+
+<strong>Acute & Chronic Conditions:</strong> Care for severe malaria, pneumonia, dehydration, infections, asthma attacks, uncontrolled hypertension, diabetes complications, severe pain, and anaemia.
+
+<strong>Post-Operative Care:</strong> Monitoring, pain management, wound care, medication, and recovery support after surgical procedures.
+
+<strong>Wound Care:</strong> Regular wound assessment, cleaning, dressing changes, infection prevention, and monitoring of healing.
+
+<strong>Diagnostic Support:</strong> Coordination of laboratory tests, ultrasound scans, and other investigations to guide treatment.
+
+<strong>Nutrition & Counselling:</strong> Guidance on nutrition, medication use, hygiene, disease prevention, and follow-up care.
+
+<strong>Discharge Planning:</strong> Patient review, clear instructions on medication, diet, wound care, follow-up appointments, and danger signs.`;
+
+        // Maternity Services - Detailed version
+        const maternityDescription = `<strong>Maternity Services</strong>
+
+At Nusha Hospital, our maternity services support mothers and babies throughout pregnancy, labour, delivery, and the period after birth. We provide respectful, confidential, and compassionate maternity care in a safe environment, with attention to the health and wellbeing of both mother and child.
+
+<strong>Labour and Delivery Care</strong>
+
+Our maternity team supports women in labour through regular monitoring, clinical assessment, pain support, and safe delivery care. We monitor the mother's progress and the baby's wellbeing throughout labour, and provide timely intervention when needed.
+
+We provide care for normal deliveries and identify mothers who may need additional support, surgical intervention, or referral to a higher-level facility.
+
+<strong>Mother and Newborn Care</strong>
+
+After delivery, both mother and baby are assessed and monitored. We support early breastfeeding, newborn warmth, cord care, maternal recovery, and health education for the family. Mothers are guided on danger signs, hygiene, nutrition, family planning, and follow-up care.
+
+<strong>Management of Pregnancy-Related Conditions</strong>
+
+Our team assesses and manages pregnancy-related concerns such as high blood pressure, bleeding, anaemia, infections, reduced fetal movements, severe vomiting, and other complications. Mothers requiring specialised care are stabilised and referred appropriately.`;
+
+        // Immunization Services - Detailed version
+        const immunizationDescription = `<strong>Immunization Services</strong>
+
+Nusha Hospital provides immunization services to protect children and eligible adults from vaccine-preventable diseases. Immunization is an important part of preventive healthcare because it helps the body develop protection against serious infections before illness occurs.
+
+<strong>Routine Childhood Immunization</strong>
+
+We provide routine vaccines according to the recommended immunization schedule. These may protect children against illnesses such as tuberculosis, polio, measles, rubella, hepatitis B, diphtheria, tetanus, whooping cough, pneumonia, and other vaccine-preventable diseases.
+
+<strong>Immunization Assessment and Guidance</strong>
+
+Our healthcare workers review the child's immunization card, identify any missed doses, guide parents or caregivers on the next appointment, and explain possible mild reactions after vaccination. We encourage caregivers to bring the child's immunization card at every visit.
+
+<strong>Health Education for Parents and Caregivers</strong>
+
+Parents receive guidance on the importance of completing all vaccine doses, keeping immunization records safely, recognizing normal post-vaccination reactions, and returning to the hospital if they have concerns.`;
+
+        // Pharmacy Services - Full detailed
+        const pharmacyDescription = `<strong>Pharmacy Services</strong>
+
+Our pharmacy services ensure that patients receive prescribed medicines safely, correctly, and with clear guidance on their use. The pharmacy works closely with clinicians and other departments to support effective treatment and continuity of care.
+
+<strong>Prescription Dispensing</strong>
+
+Patients can obtain prescribed medicines after consultation or discharge. Pharmacy staff verify prescriptions, provide the correct medication and dosage, and explain how the medicine should be taken.
+
+<strong>Medication Counselling</strong>
+
+Patients receive guidance on the purpose of their medicines, dosage, timing, duration of treatment, possible side effects, storage, and the importance of completing treatment as prescribed.
+
+<strong>Medication Safety</strong>
+
+Our pharmacy team supports safe medicine use by checking prescriptions, advising patients about drug interactions where necessary, and encouraging patients to report allergies, previous side effects, or medicines they are already using.`;
+
+        // Family Planning Services - Full detailed
+        const familyPlanningDescription = `<strong>Family Planning Services</strong>
+
+Nusha Hospital provides confidential family planning services to help individuals and couples make informed decisions about whether to have children, when to have them, and how to space pregnancies safely.
+
+<strong>Family Planning Counselling</strong>
+
+Our healthcare workers provide private counselling on the available family planning methods. Patients are supported to choose a method based on their health needs, personal preferences, reproductive goals, and medical history.
+
+<strong>Available Family Planning Methods</strong>
+
+Depending on eligibility and availability, family planning services may include condoms, oral contraceptive pills, injectable contraceptives, implants, intrauterine devices, emergency contraception, fertility awareness guidance, and permanent methods through appropriate referral.
+
+<strong>Follow-Up and Method Review</strong>
+
+We provide follow-up care for clients using family planning methods. This includes managing side effects, reviewing satisfaction with the method, removing implants or devices where appropriate, and helping clients change methods if needed.`;
+
+        // Child Health Services - Full detailed
+        const childHealthDescription = `<strong>Child Health Services</strong>
+
+Our child health services focus on the growth, development, prevention of illness, and treatment needs of infants and children. We provide care in a child-friendly environment and work with parents and caregivers to support healthy childhood development.
+
+<strong>Assessment and Treatment of Childhood Illnesses</strong>
+
+Children are assessed and treated for common illnesses such as fever, malaria, cough, pneumonia, diarrhoea, vomiting, skin infections, ear infections, urinary infections, allergies, and nutritional concerns.
+
+<strong>Growth and Development Monitoring</strong>
+
+We monitor children's weight, height, feeding, developmental milestones, and general wellbeing. This helps identify growth problems, delayed development, or nutritional concerns early.
+
+<strong>Caregiver Education</strong>
+
+Parents and caregivers receive guidance on breastfeeding, complementary feeding, hygiene, immunization, home care for common illnesses, medication use, and danger signs that require urgent medical attention.`;
+
+        // Emergency Services - Full detailed
+        const emergencyDescription = `<strong>Emergency and Urgent Care Services</strong>
+
+Nusha Hospital provides prompt assessment and stabilisation for patients with urgent medical conditions and injuries. Our emergency and urgent care services are designed to identify serious conditions quickly and provide immediate support before further treatment, admission, or referral.
+
+<strong>Rapid Assessment and Triage</strong>
+
+Patients are assessed according to the seriousness of their condition. Those with severe symptoms, injuries, breathing difficulty, heavy bleeding, altered consciousness, severe pain, or other urgent concerns are prioritised for immediate attention.
+
+<strong>Emergency Stabilisation</strong>
+
+Emergency care may include first aid, oxygen support, intravenous fluids, emergency medication, wound care, pain management, nebulisation, glucose management, and monitoring of vital signs.
+
+<strong>Admission and Referral Coordination</strong>
+
+Patients who require continued treatment may be admitted to the inpatient department. Where advanced care, intensive monitoring, specialised surgery, or services not available at the hospital are needed, we stabilise the patient and arrange an appropriate referral.`;
+
+        // Antenatal - Full detailed
+        const antenatalDescription = `<strong>Antenatal Care Services</strong>
+
+At Nusha Hospital, antenatal care supports mothers throughout pregnancy by monitoring the health of the mother and unborn baby, identifying risks early, and preparing families for safe delivery.
+
+<strong>Pregnancy Assessment and Routine Check-Ups</strong>
+
+During antenatal visits, our healthcare team checks the mother's blood pressure, weight, urine, blood levels where required, and general wellbeing. We also assess the baby's growth, position, heartbeat, and movements as pregnancy progresses.
+
+<strong>Laboratory Tests and Preventive Care</strong>
+
+Antenatal clients may receive recommended laboratory tests and preventive interventions to identify conditions such as anaemia, infections, high blood pressure, diabetes, HIV, syphilis, and other health concerns that may affect pregnancy.
+
+<strong>Birth Preparedness and Counselling</strong>
+
+Mothers and families receive guidance on nutrition, medication use, danger signs in pregnancy, delivery planning, breastfeeding, newborn care, and the importance of delivering with skilled healthcare support.`;
+
+        // Postnatal - Full detailed
+        const postnatalDescription = `<strong>Postnatal Care Services</strong>
+
+Postnatal care is the care provided to the mother and baby after delivery. Nusha Hospital provides follow-up services to support recovery, breastfeeding, newborn wellbeing, family planning, and early identification of complications.
+
+<strong>Mother's Recovery Assessment</strong>
+
+Our healthcare team assesses the mother's physical recovery after birth, including bleeding, blood pressure, pain, wound healing after delivery or surgery, breast health, and emotional wellbeing.
+
+<strong>Newborn Assessment and Support</strong>
+
+Babies are checked for feeding, warmth, breathing, weight, jaundice, cord healing, and general wellbeing. Mothers are supported with breastfeeding guidance and newborn care education.
+
+<strong>Postnatal Counselling and Follow-Up</strong>
+
+Mothers receive guidance on hygiene, nutrition, breastfeeding, family planning, immunization, danger signs, and when to return for review or seek urgent care.`;
+
+        // Dental - Full detailed
+        const dentalDescription = `<strong>Dental Consultation and Oral Examination</strong>
+
+Patients receive an oral assessment to identify tooth decay, gum disease, dental pain, mouth infections, broken teeth, and other oral health concerns. A treatment plan is then discussed based on the patient's needs.
+
+<strong>Treatment of Common Dental Conditions</strong>
+
+Dental services may include tooth extraction, treatment of dental pain and infection, scaling and polishing, fillings where available, gum care, management of mouth ulcers, and advice on oral hygiene.
+
+<strong>Oral Health Education</strong>
+
+Patients receive guidance on correct tooth brushing, use of fluoride toothpaste, diet choices that protect teeth, prevention of tooth decay, and the importance of regular dental check-ups.`;
+
+        // Nutrition - Full detailed
+        const nutritionDescription = `<strong>Nutrition and Health Services</strong>
+
+Our nutrition and health services support patients in making informed food and lifestyle choices that promote recovery, healthy growth, disease prevention, and long-term wellbeing.
+
+<strong>Nutritional Assessment</strong>
+
+Patients may be assessed for weight, height, body mass index, growth patterns in children, feeding practices, and signs of undernutrition or overweight. This helps identify nutritional risks and guide appropriate support.
+
+<strong>Nutrition Counselling</strong>
+
+Our team provides practical advice on balanced diets, infant and young child feeding, maternal nutrition, healthy eating during pregnancy, weight management, and dietary support for people living with chronic illnesses.
+
+<strong>Nutrition Support for Medical Conditions</strong>
+
+Nutrition guidance may be provided for patients with diabetes, hypertension, anaemia, malnutrition, gastrointestinal conditions, HIV-related nutritional concerns, and other health conditions where diet plays an important role in treatment and recovery.`;
+
+        // Screening - Full detailed
+        const screeningDescription = `<strong>Medical Screening and Wellness Checks</strong>
+
+Nusha Hospital provides medical screening and wellness checks to help individuals understand their health status, identify possible health risks early, and take steps to prevent serious illness.
+
+<strong>Routine Health Checks</strong>
+
+Wellness checks may include blood pressure measurement, blood sugar testing, weight assessment, body mass index calculation, temperature checks, and general clinical review.
+
+<strong>Early Detection of Health Risks</strong>
+
+Screening can help identify conditions such as hypertension, diabetes, anaemia, infections, malnutrition, obesity, and other health concerns before they become severe or cause complications.
+
+<strong>Personalised Health Guidance</strong>
+
+After screening, patients receive guidance based on their results. This may include lifestyle advice, nutrition counselling, treatment, further laboratory investigations, follow-up appointments, or referral to another department where needed.
+
+<strong>Promoting Preventive Healthcare</strong>
+
+We encourage individuals and families to attend regular wellness checks even when they feel well. Early screening supports timely treatment, healthier lifestyle choices, and better long-term health outcomes.`;
+
+        // Theatre - Full detailed
+        const theatreDescription = `<strong>Theatre Services</strong>
+
+At <strong>Nusha Hospital</strong>, our Theatre Services provide a safe, clean, and controlled environment for surgical and medical procedures that require specialised equipment, sterile techniques, anaesthesia support, and close patient monitoring.
+
+Our theatre team works with clinicians, surgeons, nurses, anaesthesia providers, laboratory staff, and inpatient teams to ensure that patients receive coordinated care before, during, and after a procedure.
+
+<strong>Minor Surgical Procedures</strong>
+
+Our theatre supports selected minor procedures that may be required when treatment cannot be safely completed in the outpatient department. These procedures are carried out using sterile techniques and appropriate pain control.
+
+Minor procedures may include wound suturing, incision and drainage of abscesses, wound debridement, removal of foreign bodies, minor lesion removal, dressing of complex wounds, and other clinically indicated procedures.
+
+<strong>Major Surgical Procedures</strong>
+
+Where available and clinically appropriate, our theatre supports selected major surgical procedures. These may include procedures related to general surgery, obstetrics and gynaecology, emergency surgical care, and other operations based on the patient's condition and the hospital's available surgical capacity.
+
+Every patient is assessed before surgery to ensure that the procedure is appropriate and that the patient is medically prepared. Patients requiring highly specialised surgery or intensive care support may be referred to an appropriate higher-level facility.
+
+<strong>Pre-Operative Assessment and Preparation</strong>
+
+Before surgery, patients undergo a pre-operative assessment to identify any health conditions that may affect the procedure or recovery. This may include a clinical examination, review of medical history, blood tests, blood grouping, imaging where necessary, medication review, and anaesthesia assessment.
+
+Patients and caregivers are given clear information about the procedure, fasting requirements, expected recovery, possible risks, and consent requirements.
+
+<strong>Anaesthesia and Pain Management</strong>
+
+Depending on the procedure, patients may receive local, regional, spinal, or general anaesthesia administered by qualified anaesthesia personnel. The anaesthesia plan is selected based on the type of procedure, the patient's health condition, and safety requirements.
+
+During and after the procedure, patients are monitored for pain, breathing, blood pressure, oxygen levels, pulse rate, and other important clinical signs.
+
+<strong>Sterile Surgical Environment and Infection Prevention</strong>
+
+Our theatre follows strict infection-prevention and control practices to reduce the risk of surgical site infections. This includes proper cleaning and disinfection of theatre areas, sterilisation of surgical instruments, use of sterile supplies, hand hygiene, appropriate protective equipment, and safe waste management.
+
+These measures help protect patients, healthcare workers, and visitors from avoidable infections.
+
+<strong>Emergency Surgical Care</strong>
+
+The theatre team supports emergency procedures for patients with urgent surgical conditions, injuries, bleeding, severe infections, or obstetric emergencies. Emergency cases are assessed promptly, stabilised, and prepared for surgery or referral depending on the patient's needs.
+
+Where advanced emergency surgery is not available, patients are stabilised and referred urgently with appropriate documentation and communication.
+
+<strong>Post-Operative Recovery and Monitoring</strong>
+
+After surgery, patients are taken to a recovery area or admitted to the inpatient ward for close monitoring. Our team observes the patient's breathing, blood pressure, pulse, oxygen levels, pain, wound condition, bleeding, consciousness, and response to anaesthesia.
+
+Patients receive prescribed medication, fluids, wound care, nutrition guidance, and support during recovery. Any signs of complications are identified early and managed promptly.
+
+<strong>Post-Operative Wound Care and Follow-Up</strong>
+
+After discharge, patients may return for wound review, dressing changes, stitch removal, pain assessment, and follow-up consultations. Patients and caregivers receive instructions on medication use, wound hygiene, activity restrictions, nutrition, warning signs of infection, and when to return urgently.
+
+<strong>Patient Safety, Privacy, and Respectful Care</strong>
+
+Patient safety is central to every theatre procedure. Our team confirms the patient's identity, procedure, consent, allergies, and clinical readiness before surgery. We maintain patient privacy, dignity, and clear communication throughout the surgical journey.
+
+At Nusha Hospital, we are committed to providing safe, respectful, and coordinated theatre care from pre-operative assessment through recovery and follow-up.`;
+
         const fullServices = [{
             id: 1,
             title: "Outpatient Services (OPD)",
             mainImg: "photos/services/opd.png",
             gallery: cardiologyGallery,
             quick: "General consultations, diagnosis, treatment, follow-up care, health screening, and referrals.",
-            desc: "Our Outpatient Department serves as the first point of contact for patients seeking medical attention. We provide: General medical consultations, Diagnosis and treatment of common illnesses, Management of chronic diseases, Health assessments and screenings, Minor procedures and wound care, Referrals to specialists and higher-level facilities when necessary. Conditions commonly managed include: Malaria, Typhoid fever, Respiratory infections, Hypertension, Diabetes, Gastrointestinal disorders, Skin conditions, Urinary tract infections."
+            desc: opdDescription
         }, {
             id: 2,
-            title: "Inpatient Services",
+            title: "Inpatient Services (IPD)",
             mainImg: "photos/services/ipd.png",
             gallery: cardiologyGallery,
             quick: "Admission and continuous medical care for patients requiring observation or treatment.",
-            desc: "Patients requiring close monitoring and extended treatment can be admitted to our inpatient wards. Services include: Medical admissions, Observation and monitoring, Intravenous therapy, Post-treatment recovery, Nursing care 24/7, Chronic disease management. Our dedicated nursing and medical teams ensure patients receive compassionate and professional care throughout their stay."
+            desc: ipdDescription
         }, {
             id: 3,
             title: "Maternity Services",
             mainImg: "photos/services/maternity.png",
             gallery: maternityGallery,
             quick: "Comprehensive maternal healthcare from pregnancy through delivery and postnatal care.",
-            desc: "We support mothers throughout pregnancy and childbirth through: Antenatal Care (ANC), Routine pregnancy monitoring, Ultrasound Scan, Safe delivery services, Management of normal labor, Emergency obstetric care, C-Section, Postnatal care, Family planning counseling. Our goal is to ensure safe motherhood and healthy newborn outcomes."
+            desc: maternityDescription
         }, {
             id: 4,
             title: "Immunization Services",
             mainImg: "photos/services/immunization.png",
             gallery: pediatricsGallery,
             quick: "Vaccination services for children, adolescents, and adults.",
-            desc: "Our immunization clinic provides protection against vaccine-preventable diseases through routine vaccination programs including: Childhood immunizations, Maternal tetanus vaccination, HPV vaccination, Catch-up immunization schedules, Community vaccination campaigns. Vaccination services follow national immunization guidelines."
+            desc: immunizationDescription
         }, {
             id: 5,
             title: "Laboratory Services",
@@ -1564,71 +1816,77 @@
             mainImg: "photos/services/pharm.png",
             gallery: cardiologyGallery,
             quick: "Safe dispensing of medicines and pharmaceutical counseling.",
-            desc: "Our pharmacy provides: Prescription dispensing, Drug counseling, Medication monitoring, Chronic disease medication refills, Health education on medication use. We strive to ensure patients receive safe and effective medicines."
-        },
-            {
+            desc: pharmacyDescription
+        }, {
+            id: 7,
+            title: "HIV/AIDS Services",
+            mainImg: "photos/services/hiv.png",
+            gallery: neurologyGallery,
+            quick: "Prevention, testing, treatment, and ongoing HIV care.",
+            desc: "We provide comprehensive HIV services including: HIV Counseling and Testing (HCT), ART initiation and management, Viral load monitoring support, Adherence counseling, Prevention services, Prevention of Mother-To-Child Transmission (PMTCT), Community outreach programs. All services are provided confidentially and professionally."
+        }, {
             id: 8,
             title: "Family Planning Services",
             mainImg: "photos/services/familyplanning.png",
             gallery: maternityGallery,
             quick: "Reproductive health services for individuals and families.",
-            desc: "Family planning services include: Counseling and education, Injectable contraceptives, Oral contraceptive pills, Condoms, Implants. We empower individuals and families to make informed reproductive health decisions."
+            desc: familyPlanningDescription
         }, {
             id: 9,
             title: "Child Health Services",
             mainImg: "photos/services/childhealth.png",
             gallery: pediatricsGallery,
             quick: "Comprehensive healthcare for infants and children.",
-            desc: "Services include: Growth monitoring, Nutritional assessment, Immunization, Management of childhood illnesses, Deworming, Vitamin supplementation, Health education for parents. Our pediatric-focused services promote healthy growth and development."
+            desc: childHealthDescription
         }, {
             id: 10,
             title: "Emergency and Urgent Care",
             mainImg: "photos/services/emergency.png",
             gallery: cardiologyGallery,
             quick: "Immediate medical attention for urgent health conditions.",
-            desc: "Our emergency unit handles: Medical emergencies, Trauma and injuries, Severe infections, Acute asthma attacks, High fevers, Dehydration, Stabilization before referral. Patients receive prompt assessment and treatment."
+            desc: emergencyDescription
         }, {
             id: 11,
             title: "Theatre Services",
             mainImg: "photos/services/theatre.png",
             gallery: neurologyGallery,
             quick: "Safe, sterile surgical care for both minor and major procedures.",
-            desc: "Our theatre services provide safe surgical care for patients requiring minor and major operations. Services include: Pre-operative assessment and preparation, Emergency and planned surgical procedures, Anesthesia support, Minor surgeries such as wound suturing, Abscess drainage and foreign body removal, Major surgeries as advised by the surgical team, Sterile theatre procedures, Post-operative monitoring, Pain management, Wound care, Dressing changes, and Follow-up care."
+            desc: theatreDescription
         }, {
             id: 12,
             title: "Antenatal Care (ANC)",
             mainImg: "photos/services/maternity.png",
             gallery: maternityGallery,
             quick: "Routine pregnancy monitoring and maternal health support.",
-            desc: "ANC services include: Pregnancy assessment, Maternal health screening, Blood pressure monitoring, Laboratory investigations, Nutritional counseling, Birth preparedness education, Risk identification and management. Regular ANC visits help ensure healthy pregnancies."
+            desc: antenatalDescription
         }, {
             id: 13,
             title: "Postnatal Care (PNC)",
             mainImg: "photos/services/postnatal.png",
             gallery: maternityGallery,
             quick: "Healthcare support for mothers and newborns after delivery.",
-            desc: "Postnatal services include: Mother and baby assessments, Breastfeeding support, Family planning counseling, Infection monitoring, Newborn health education, Immunization guidance."
+            desc: postnatalDescription
         }, {
             id: 14,
             title: "Dental Services",
             mainImg: "photos/services/dental.png",
             gallery: neurologyGallery,
             quick: "Professional dental care for healthy teeth, gums, and a confident smile.",
-            desc: "Our dental services include: Dental consultation and oral examination, Tooth extraction, Dental fillings, Scaling and polishing, Treatment of toothaches and gum disease, Management of dental infections, Oral health education, Dentures, and many more."
+            desc: dentalDescription
         }, {
             id: 15,
             title: "Nutrition and Health Education",
             mainImg: "photos/services/nutritionhealth.png",
             gallery: pediatricsGallery,
             quick: "Promoting healthy lifestyles and disease prevention.",
-            desc: "We provide: Nutrition assessment, Dietary counseling, Malnutrition management, Health talks, Disease prevention education, Lifestyle modification guidance."
+            desc: nutritionDescription
         }, {
             id: 16,
             title: "Medical Screening and Wellness Checks",
             mainImg: "photos/services/wellness.png",
             gallery: cardiologyGallery,
             quick: "Preventive healthcare services for early disease detection.",
-            desc: "Health screening services include: Blood pressure checks, Blood sugar testing, BMI assessments, HIV screening, General wellness evaluations, Occupational health assessments."
+            desc: screeningDescription
         }];
 
         const newsData = [{
