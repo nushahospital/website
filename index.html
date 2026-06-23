@@ -339,7 +339,7 @@
             font-weight: 500;
         }
 
-        /* ---------- SERVICES (main grid) ---------- */
+        /* ---------- SERVICES (main grid) - FIXED FOR FULL IMAGE DISPLAY ---------- */
         .services-grid {
             display: flex;
             flex-direction: column;
@@ -349,8 +349,8 @@
         .service-item {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            gap: 50px;
+            align-items: stretch;
+            gap: 0px;
             background: white;
             border-radius: 32px;
             overflow: hidden;
@@ -364,18 +364,23 @@
             flex-direction: row-reverse;
         }
         .service-image {
-            flex: 1;
-            min-width: 280px;
+            flex: 1 1 45%;
+            min-width: 300px;
+            max-height: 450px;
+            overflow: hidden;
         }
         .service-image img {
             width: 100%;
-            height: 320px;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
         .service-content {
-            flex: 1;
-            padding: 30px;
+            flex: 1 1 45%;
+            padding: 40px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .service-content h3 {
             font-size: 1.8rem;
@@ -1138,13 +1143,6 @@
                 padding: 8px 16px;
                 font-size: 0.75rem;
             }
-            .service-item,
-            .service-item.reverse {
-                flex-direction: column;
-            }
-            .service-image img {
-                height: 250px;
-            }
             .logo img {
                 height: 50px;
             }
@@ -1171,6 +1169,24 @@
                 max-width: 500px;
                 margin: 0 auto;
             }
+            /* SERVICES: stack on mobile */
+            .service-item,
+            .service-item.reverse {
+                flex-direction: column !important;
+            }
+            .service-image {
+                flex: 1 1 auto;
+                min-width: unset;
+                max-height: 300px;
+                width: 100%;
+            }
+            .service-image img {
+                height: 300px;
+                width: 100%;
+            }
+            .service-content {
+                padding: 30px 24px;
+            }
         }
         @media (max-width: 1024px) {
             .container { padding: 0 20px; }
@@ -1181,10 +1197,11 @@
         @media (max-width: 768px) {
             body { font-size: 15px; }
             .container { padding: 0 16px; }
-            .hero { padding: 100px 0 90px; }
+            .hero { padding: 100px 0 90px; min-height: 450px; }
             .hero-content h2 { font-size: 1.9rem; }
             .section-title { font-size: 1.8rem; }
             .service-content h3 { font-size: 1.5rem; }
+            .service-content { padding: 24px 20px; }
             .detail-content { padding: 28px 20px; }
             .detail-title { font-size: 1.7rem; }
             .gallery-img { height: 140px; }
@@ -1194,18 +1211,39 @@
             .about-image-wrapper {
                 max-width: 100%;
             }
+            .hero-bg {
+                background-size: cover;
+                background-position: center;
+            }
+            .service-image {
+                max-height: 250px;
+            }
+            .service-image img {
+                height: 250px;
+            }
         }
         @media (max-width: 480px) {
             .hero-content h2 { font-size: 1.65rem; }
             .section-title { font-size: 1.55rem; }
             .btn-primary { width: 100%; justify-content: center; }
-            .service-content { padding: 20px 18px; }
+            .service-content { padding: 20px 16px; }
             .form-container { padding: 24px 16px; }
             .whatsapp-button span { display: none; }
             .whatsapp-button { width: 55px; height: 55px; border-radius: 50%; justify-content: center; padding: 0; }
             .whatsapp-button i { margin: 0; font-size: 1.5rem; }
             .about-image-wrapper {
                 max-width: 100%;
+            }
+            .hero { min-height: 350px; padding: 70px 0 60px; }
+            .hero-bg {
+                background-size: cover;
+                background-position: center;
+            }
+            .service-image {
+                max-height: 200px;
+            }
+            .service-image img {
+                height: 200px;
             }
         }
         img {
@@ -1398,23 +1436,16 @@
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container footer-grid">
-            <div class="footer-col">
-                <h4>Nusha Hospital</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Plot 124, Masulita Road, Kakiri, Uganda</p>
-                <p style="margin-bottom: 6px;"><i class="fas fa-phone-alt"></i> <strong>Phone Numbers:</strong></p>
+            <div class="footer-col"><h4>Nusha Hospital</h4><p><i class="fas fa-map-marker-alt"></i> Plot 124, Masulita Road, Kakiri, Uganda</p>
+                <p style="margin-bottom: 4px;"><i class="fas fa-phone-alt"></i> <strong>Phone Numbers:</strong></p>
                 <div style="padding-left: 20px; margin-bottom: 10px;">
-                    <p style="margin-bottom: 3px;"><i class="fas fa-phone" style="font-size: 0.7rem; color: #2c9b6e;"></i> <a href="tel:+256708378673">+256 708 378 673</a></p>
-                    <p style="margin-bottom: 3px;"><i class="fas fa-phone" style="font-size: 0.7rem; color: #2c9b6e;"></i> <a href="tel:+256704308025">+256 704 308 025</a></p>
-                    <p style="margin-bottom: 3px;"><i class="fas fa-phone" style="font-size: 0.7rem; color: #2c9b6e;"></i> <a href="tel:+256702228333">+256 702 228 333</a></p>
-                    <p style="margin-bottom: 3px;"><i class="fas fa-phone" style="font-size: 0.7rem; color: #2c9b6e;"></i> <a href="tel:+256392965394">+256 392 965 394</a></p>
+                    <p style="margin-bottom: 2px; font-size: 0.9rem;"><i class="fas fa-phone" style="font-size: 0.7rem; color: #2c9b6e; width: 16px;"></i> <a href="tel:+256775059503" style="color: #b8dfd0; text-decoration: none;">+256 775 059 503</a></p>
+                    <p style="margin-bottom: 2px; font-size: 0.9rem;"><i class="fas fa-phone" style="font-size: 0.7rem; color: #2c9b6e; width: 16px;"></i> <a href="tel:+256704308025" style="color: #b8dfd0; text-decoration: none;">+256 704 308 025</a></p>
+                    <p style="margin-bottom: 2px; font-size: 0.9rem;"><i class="fas fa-phone" style="font-size: 0.7rem; color: #2c9b6e; width: 16px;"></i> <a href="tel:+256702228333" style="color: #b8dfd0; text-decoration: none;">+256 702 228 333</a></p>
+                    <p style="margin-bottom: 2px; font-size: 0.9rem;"><i class="fas fa-phone" style="font-size: 0.7rem; color: #2c9b6e; width: 16px;"></i> <a href="tel:+256392965394" style="color: #b8dfd0; text-decoration: none;">+256 392 965 394</a></p>
                 </div>
                 <p><i class="fas fa-envelope"></i> nushahospital07@gmail.com</p>
-                <div class="social-icons">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-linkedin-in"></i>
-                </div>
+                <div class="social-icons"><i class="fab fa-facebook-f"></i><i class="fab fa-twitter"></i><i class="fab fa-instagram"></i><i class="fab fa-linkedin-in"></i></div>
             </div>
             <div class="footer-col"><h4>Quick Links</h4><p><a href="#home">Home</a></p><p><a href="#about">About Us</a></p><p><a href="#services">Services</a></p><p><a href="#activities">Activities</a></p><p><a href="#testimonials">Testimonials</a></p><p><a href="#news">News</a></p><p><a href="#insurance">Insurance</a></p></div>
             <div class="footer-col"><h4>Emergency & Support</h4><p><i class="fas fa-ambulance"></i> 24/7 Helpline: +256 704308025</p><p><i class="fab fa-whatsapp"></i> Emergency WhatsApp: +256704308025</p><p><i class="far fa-clock"></i> Visiting Hours: 10am – 8pm (Daily)</p></div>
@@ -1907,7 +1938,7 @@ At Nusha Hospital, we are committed to providing safe, respectful, and coordinat
             date: "June 14, 2026",
             title: "Free Family Planning Camp",
             excerpt: "Nusha Hospital, in partnership with Marie Stopes Uganda, invites the community to a free Family Planning Camp.",
-            gallery: ["photos/news/familyplanning2.png"],
+            //gallery: ["photos/news/family-planning-camp-1.jpg", "photos/news/family-planning-camp-2.jpg", "photos/news/family-planning-camp-3.jpg"],
             fullDesc: `<strong>Nusha Hospital</strong>, in partnership with <strong>Marie Stopes Uganda</strong>, is pleased to invite members of the community to a <strong>Free Family Planning Camp</strong> on <strong>Sunday, June 14, 2026</strong>.<br><br>
 
 The camp will provide confidential counselling and family planning services to help individuals and couples make informed choices about pregnancy planning, child spacing, and reproductive health.<br><br>
@@ -1936,7 +1967,7 @@ Our trained healthcare providers will offer respectful, private, and non-judgmen
             date: "June 10, 2026",
             title: "School Health Talk on Hygiene and Wellness",
             excerpt: "Nusha Hospital conducted an engaging health education talk for students, focusing on practical knowledge for healthier choices.",
-            gallery: ["photos/news/healthtalk.png"],
+            //gallery: ["photos/news/school-health-talk-1.jpg", "photos/news/school-health-talk-2.jpg", "photos/news/school-health-talk-3.jpg"],
             fullDesc: `<strong>Nusha Hospital</strong> conducted a health education talk for students as part of our commitment to promoting healthier communities through awareness, prevention, and early health-seeking behaviour.<br><br>
 
 The session provided students with practical and age-appropriate information to help them make informed decisions about their health and wellbeing. Our healthcare team encouraged learners to ask questions, share their experiences, and understand the importance of seeking help early when they have health concerns.<br><br>
@@ -1960,7 +1991,7 @@ The students actively participated in the discussion, asked important questions,
             date: "May 25, 2026",
             title: "Free Medical Camp at Nusha Hospital",
             excerpt: "Community members accessed free consultations, screening services, health education, and treatment during our successful medical camp.",
-            gallery: ["photos/news/outreach.png"],
+            //gallery: ["photos/news/medical-camp-1.jpg", "photos/news/medical-camp-2.jpg", "photos/news/medical-camp-3.jpg"],
             fullDesc: `<strong>Nusha Hospital</strong> successfully hosted a free medical camp aimed at improving access to essential healthcare services within the community. The event brought together healthcare professionals, support staff, and community members in a shared effort to promote preventive healthcare and early disease detection.<br><br>
 
 Throughout the camp, community members received free medical consultations, health screening services, treatment, counselling, and health education. Our healthcare team assessed patients with a variety of health concerns and provided appropriate care, treatment, and referrals where necessary.<br><br>
