@@ -1280,7 +1280,7 @@
 
     <!-- ===== AMBULANCE ===== -->
     <div class="ambulance-corner">
-        <button class="ambulance-btn" id="ambulanceBtn"><i class="fas fa-ambulance"></i> Call Ambulance: +256708378673</button>
+        <button class="ambulance-btn" id="ambulanceBtn"><i class="fas fa-ambulance"></i> Call Ambulance: +256704308025</button>
     </div>
 
     <!-- ===== HERO ===== -->
@@ -1436,9 +1436,9 @@
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container footer-grid">
-            <div class="footer-col"><h4>Nusha Hospital</h4><p><i class="fas fa-map-marker-alt"></i> Plot 124, Masulita Road, Kakiri, Uganda</p><p><i class="fas fa-phone-alt"></i> +256 708378673</p><p><i class="fas fa-envelope"></i> contact@nushahospital.ug</p><div class="social-icons"><i class="fab fa-facebook-f"></i><i class="fab fa-twitter"></i><i class="fab fa-instagram"></i><i class="fab fa-linkedin-in"></i></div></div>
+            <div class="footer-col"><h4>Nusha Hospital</h4><p><i class="fas fa-map-marker-alt"></i> Plot 124, Masulita Road, Kakiri, Uganda</p><p><i class="fas fa-phone-alt"></i> +256 708378673</p><p><i class="fas fa-envelope"></i> nushahospital07@gmail.com</p><div class="social-icons"><i class="fab fa-facebook-f"></i><i class="fab fa-twitter"></i><i class="fab fa-instagram"></i><i class="fab fa-linkedin-in"></i></div></div>
             <div class="footer-col"><h4>Quick Links</h4><p><a href="#home">Home</a></p><p><a href="#about">About Us</a></p><p><a href="#services">Services</a></p><p><a href="#activities">Activities</a></p><p><a href="#testimonials">Testimonials</a></p><p><a href="#news">News</a></p><p><a href="#insurance">Insurance</a></p></div>
-            <div class="footer-col"><h4>Emergency & Support</h4><p><i class="fas fa-ambulance"></i> 24/7 Helpline: +256 708378673</p><p><i class="fab fa-whatsapp"></i> Emergency WhatsApp: +256708378673</p><p><i class="far fa-clock"></i> Visiting Hours: 10am – 8pm (Daily)</p></div>
+            <div class="footer-col"><h4>Emergency & Support</h4><p><i class="fas fa-ambulance"></i> 24/7 Helpline: +256 704308025</p><p><i class="fab fa-whatsapp"></i> Emergency WhatsApp: +256708378673</p><p><i class="far fa-clock"></i> Visiting Hours: 10am – 8pm (Daily)</p></div>
             <div class="footer-col"><h4>Subscribe to Health Tips</h4><div class="subscribe-group"><input type="email" id="subscribeEmail" placeholder="Your email"><button id="subscribeBtn">Subscribe</button></div><p id="subFeedback" style="font-size:0.7rem; margin-top:6px;"></p></div>
         </div>
         <div class="footer-bottom"><p>&copy; 2026 Nusha Hospital — Your Health, Our Priority. All rights reserved.</p></div>
@@ -1921,31 +1921,90 @@ At Nusha Hospital, we are committed to providing safe, respectful, and coordinat
             desc: screeningDescription
         }];
 
+        // Updated News Data
         const newsData = [{
             id: 1,
-            img: "photos/news/new_mri.jpg",
-            date: "March 15, 2025",
-            title: "New MRI Machine Installed",
-            excerpt: "Nusha Hospital unveils state-of-the-art 3T MRI scanner, reducing wait times and improving diagnostic accuracy.",
-            gallery: ["photos/news/new_mri.jpg", "photos/news/new_mri.jpg", "photos/news/new_mri.jpg"],
-            fullDesc: "We are proud to announce the installation of a brand new 3T MRI machine at Nusha Hospital. This advanced technology provides clearer images, faster scan times, and greater patient comfort. The MRI suite is now open for appointments. This investment represents our commitment to bringing world-class diagnostic capabilities to our community."
+            img: "photos/news/family-planning-camp-1.jpg",
+            date: "June 14, 2026",
+            title: "Free Family Planning Camp",
+            excerpt: "Nusha Hospital, in partnership with Marie Stopes Uganda, invites the community to a free Family Planning Camp.",
+            //gallery: ["photos/news/family-planning-camp-1.jpg", "photos/news/family-planning-camp-2.jpg", "photos/news/family-planning-camp-3.jpg"],
+            fullDesc: `<strong>Nusha Hospital</strong>, in partnership with <strong>Marie Stopes Uganda</strong>, is pleased to invite members of the community to a <strong>Free Family Planning Camp</strong> on <strong>Sunday, June 14, 2026</strong>.<br><br>
+
+The camp will provide confidential counselling and family planning services to help individuals and couples make informed choices about pregnancy planning, child spacing, and reproductive health.<br><br>
+
+<strong>Services Expected at the Camp</strong><br>
+<ul>
+    <li>Free family planning counselling</li>
+    <li>Information about available family planning methods</li>
+    <li>Family planning method selection based on individual needs</li>
+    <li>Short-term family planning methods</li>
+    <li>Long-term family planning methods, including implants and IUCDs where eligible</li>
+    <li>Follow-up support and management of family planning concerns</li>
+    <li>Health education on healthy pregnancy spacing and reproductive health</li>
+</ul><br>
+
+Our trained healthcare providers will offer respectful, private, and non-judgmental services. Clients will be guided to choose a method that is safe and suitable for their health needs and future plans.<br><br>
+
+<strong>Come with your partner, friend, or family member and take a positive step towards informed reproductive health choices.</strong><br><br>
+
+<strong>Date:</strong> Sunday, June 14, 2026<br>
+<strong>Venue:</strong> Nusha Hospital<br>
+<strong>Cost:</strong> Free`
         }, {
             id: 2,
-            img: "photos/news/free_medical_camp.jpg",
-            date: "March 5, 2025",
-            title: "Free Medical Camp at the Facility",
-            excerpt: "Our outreach team served over 200 patients with free consultations and medications.",
-            gallery: ["photos/news/free_medical_camp.jpg", "photos/news/free_medical_camp.jpg", "photos/news/free_medical_camp.jpg"
-            ],
-            fullDesc: "Nusha Hospital successfully conducted a free medical camp at the facility serving over 200 patients. Services included medical consultations, blood pressure screening, malaria testing, and free medications. Community outreach remains a core pillar of our mission to improve healthcare access for all Ugandans."
+            img: "photos/news/school-health-talk-1.jpg",
+            date: "June 10, 2026",
+            title: "School Health Talk on Hygiene and Wellness",
+            excerpt: "Nusha Hospital conducted an engaging health education talk for students, focusing on practical knowledge for healthier choices.",
+            //gallery: ["photos/news/school-health-talk-1.jpg", "photos/news/school-health-talk-2.jpg", "photos/news/school-health-talk-3.jpg"],
+            fullDesc: `<strong>Nusha Hospital</strong> conducted a health education talk for students as part of our commitment to promoting healthier communities through awareness, prevention, and early health-seeking behaviour.<br><br>
+
+The session provided students with practical and age-appropriate information to help them make informed decisions about their health and wellbeing. Our healthcare team encouraged learners to ask questions, share their experiences, and understand the importance of seeking help early when they have health concerns.<br><br>
+
+<strong>Topics Covered During the Health Talk</strong><br>
+<ul>
+    <li><strong>Personal hygiene:</strong> Proper handwashing, bathing, oral hygiene, menstrual hygiene, and keeping the school environment clean.</li>
+    <li><strong>Prevention of communicable diseases:</strong> How infections spread, the importance of hand hygiene, safe coughing and sneezing practices, and early reporting of symptoms.</li>
+    <li><strong>Mental health and stress management:</strong> Recognising stress, talking to trusted adults, supporting friends, and seeking help when feeling overwhelmed.</li>
+    <li><strong>Drug abuse, substance use, and drug misuse:</strong> The risks of alcohol, tobacco, illegal drugs, and misuse of prescription or over-the-counter medicines.</li>
+    <li><strong>Digital health and responsible social media use:</strong> Avoiding harmful online content, protecting personal information, managing screen time, and verifying health information before sharing it.</li>
+    <li><strong>Healthy lifestyle choices:</strong> Balanced nutrition, physical activity, adequate sleep, and avoiding behaviours that may affect health and future goals.</li>
+</ul><br>
+
+The students actively participated in the discussion, asked important questions, and received health guidance from the Nusha Hospital team. We appreciate the school administration, teachers, and students for welcoming us and supporting this important health awareness activity.<br><br>
+
+<strong>Nusha Hospital remains committed to working with schools and communities to promote health education, disease prevention, and healthier futures for young people.</strong>`
         }, {
             id: 3,
-            img: "photos/news/partnership.jpg",
-            date: "February 20, 2025",
-            title: "Partnership with International Heart Foundation",
-            excerpt: "New collaboration brings cardiac surgery training and equipment to our hospital.",
-            gallery: ["photos/news/partnership.jpg", "photos/news/partnership.jpg", "photos/news/partnership.jpg"],
-            fullDesc: "Nusha Hospital has partnered with the International Heart Foundation to bring advanced cardiac surgery training to Uganda. This initiative will enhance our capacity to perform complex cardiac procedures. The partnership includes equipment donations, specialist training programs, and ongoing clinical support."
+            img: "photos/news/outreach.png",
+            date: "May 25, 2026",
+            title: "Free Medical Camp at Nusha Hospital",
+            excerpt: "Community members accessed free consultations, screening services, health education, and treatment during our successful medical camp.",
+            //gallery: ["photos/news/medical-camp-1.jpg", "photos/news/medical-camp-2.jpg", "photos/news/medical-camp-3.jpg"],
+            fullDesc: `<strong>Nusha Hospital</strong> successfully hosted a free medical camp aimed at improving access to essential healthcare services within the community. The event brought together healthcare professionals, support staff, and community members in a shared effort to promote preventive healthcare and early disease detection.<br><br>
+
+Throughout the camp, community members received free medical consultations, health screening services, treatment, counselling, and health education. Our healthcare team assessed patients with a variety of health concerns and provided appropriate care, treatment, and referrals where necessary.<br><br>
+
+<strong>Services Offered During the Medical Camp</strong><br>
+<ul>
+    <li>General medical consultations</li>
+    <li>Blood pressure screening</li>
+    <li>Blood sugar testing</li>
+    <li>Malaria testing and treatment</li>
+    <li>HIV counselling and testing</li>
+    <li>Family planning counselling</li>
+    <li>Health education and disease prevention awareness</li>
+    <li>Nutrition counselling</li>
+    <li>Medication dispensing</li>
+    <li>Referral services for further care where needed</li>
+</ul><br>
+
+The medical camp provided an opportunity for community members to learn more about their health status, receive professional medical advice, and access healthcare services at no cost. Particular emphasis was placed on early detection of disease, healthy lifestyle practices, and the importance of seeking medical care promptly.<br><br>
+
+We extend our sincere appreciation to all community members who participated, as well as the healthcare workers and partners who contributed to the success of the event.<br><br>
+
+<strong>At Nusha Hospital, community outreach remains an important part of our mission to improve health outcomes and bring quality healthcare services closer to the people we serve.</strong>`
         }];
 
         // ---------- HERO ROTATION ----------
