@@ -2133,7 +2133,7 @@ We extend our sincere appreciation to all community members who participated, as
         const slidesData = [
             { img: "photos/activities/ccs.png", note: "Every Saturday in April: Free Cervical cancer screening, and expert consultation. Walk-ins welcome." },
             { img: "photos/activities/immunizationdrive.png", note: "Immunization for children under 5. Nutritional counseling every Tuesday. Bring immunization card." },
-            { img: "photos/activities/maternaleducation.png", note: "Antenatal classes every Thursday. Empowering mothers with the knowledge and care they need for a safe pregnancy, safe delivery, and healthy baby." },
+            { img: "photos/activities/maternaleducation.png", note: "Antenatal classes every Thursday." },
         ];
         const wrapper = document.getElementById('slideshowWrapper');
         slidesData.forEach(s => {
@@ -2227,12 +2227,12 @@ We extend our sincere appreciation to all community members who participated, as
                 galleryArray = [mainImg, mainImg, mainImg];
             }
             
-            let galleryHtml = '<div class="gallery-grid">';
+            let galleryHtml = '<!-- <div class="gallery-grid">';
             galleryArray.forEach(img => {
                 galleryHtml +=
                     `<img src="${img}" class="gallery-img" alt="Gallery image" onerror="this.style.display='none'">`;
             });
-            galleryHtml += '</div>';
+            galleryHtml += '</div> -->';
 
             // Parse description with HTML formatting (for bold headings)
             const formattedDesc = fullDescription.replace(/\n/g, '<br>');
