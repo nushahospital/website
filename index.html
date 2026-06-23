@@ -460,6 +460,105 @@
             display: none;
         }
 
+        /* ---------- NEWS (grid & swiper) ---------- */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 30px;
+        }
+        .news-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+        }
+        .news-card:hover {
+            transform: translateY(-4px);
+        }
+        .news-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-content {
+            padding: 24px;
+        }
+        .news-date {
+            font-size: 0.75rem;
+            color: #0f7b5e;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .news-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #144d5e;
+            margin-bottom: 12px;
+        }
+        .news-excerpt {
+            color: #5a6e7c;
+            margin-bottom: 16px;
+        }
+        .read-more {
+            color: #0f7b5e;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        /* News Swiper for mobile */
+        .newsSwiper {
+            display: none;
+            padding: 30px 0 60px;
+        }
+        .newsSwiper .swiper-slide {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            height: auto;
+        }
+        .newsSwiper .swiper-slide .news-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .newsSwiper .swiper-slide .news-content {
+            padding: 24px;
+        }
+        .newsSwiper .swiper-slide .news-date {
+            font-size: 0.75rem;
+            color: #0f7b5e;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .newsSwiper .swiper-slide .news-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #144d5e;
+            margin-bottom: 12px;
+        }
+        .newsSwiper .swiper-slide .news-excerpt {
+            color: #5a6e7c;
+            margin-bottom: 16px;
+        }
+        .newsSwiper .swiper-slide .read-more {
+            color: #0f7b5e;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .newsSwiper .swiper-pagination {
+            position: relative;
+            margin-top: 20px;
+        }
+
         /* ---------- TESTIMONIALS ---------- */
         .testimonials-slider {
             max-width: 900px;
@@ -732,56 +831,6 @@
             padding: 10px;
             border-radius: 48px;
             margin-top: 12px;
-        }
-
-        /* ---------- NEWS ---------- */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            margin-top: 30px;
-        }
-        .news-card {
-            background: white;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            cursor: pointer;
-        }
-        .news-card:hover {
-            transform: translateY(-4px);
-        }
-        .news-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .news-content {
-            padding: 24px;
-        }
-        .news-date {
-            font-size: 0.75rem;
-            color: #0f7b5e;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .news-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #144d5e;
-            margin-bottom: 12px;
-        }
-        .news-excerpt {
-            color: #5a6e7c;
-            margin-bottom: 16px;
-        }
-        .read-more {
-            color: #0f7b5e;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
         }
 
         /* ---------- INSURANCE ---------- */
@@ -1187,6 +1236,13 @@
             .service-content {
                 padding: 30px 24px;
             }
+            /* NEWS: show swiper on smaller screens, hide grid */
+            .news-grid {
+                display: none;
+            }
+            .newsSwiper {
+                display: block;
+            }
         }
         @media (max-width: 1024px) {
             .container { padding: 0 20px; }
@@ -1379,7 +1435,13 @@
             <span class="section-title">Recent News & Updates</span>
             <hr class="divider">
             <p>Stay informed about the latest happenings at Nusha Hospital.</p>
+            <!-- Grid view for larger screens -->
             <div class="news-grid" id="newsGrid"></div>
+            <!-- Swiper view for smaller screens -->
+            <div class="swiper newsSwiper" id="newsSwiper">
+                <div class="swiper-wrapper" id="newsSwiperWrapper"></div>
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
     </section>
 
@@ -1938,7 +2000,6 @@ At Nusha Hospital, we are committed to providing safe, respectful, and coordinat
             date: "June 14, 2026",
             title: "Free Family Planning Camp",
             excerpt: "Nusha Hospital, in partnership with Marie Stopes Uganda, invites the community to a free Family Planning Camp.",
-            //gallery: ["photos/news/family-planning-camp-1.jpg", "photos/news/family-planning-camp-2.jpg", "photos/news/family-planning-camp-3.jpg"],
             fullDesc: `<strong>Nusha Hospital</strong>, in partnership with <strong>Marie Stopes Uganda</strong>, is pleased to invite members of the community to a <strong>Free Family Planning Camp</strong> on <strong>Sunday, June 14, 2026</strong>.<br><br>
 
 The camp will provide confidential counselling and family planning services to help individuals and couples make informed choices about pregnancy planning, child spacing, and reproductive health.<br><br>
@@ -1967,7 +2028,6 @@ Our trained healthcare providers will offer respectful, private, and non-judgmen
             date: "June 10, 2026",
             title: "School Health Talk on Hygiene and Wellness",
             excerpt: "Nusha Hospital conducted an engaging health education talk for students, focusing on practical knowledge for healthier choices.",
-            //gallery: ["photos/news/school-health-talk-1.jpg", "photos/news/school-health-talk-2.jpg", "photos/news/school-health-talk-3.jpg"],
             fullDesc: `<strong>Nusha Hospital</strong> conducted a health education talk for students as part of our commitment to promoting healthier communities through awareness, prevention, and early health-seeking behaviour.<br><br>
 
 The session provided students with practical and age-appropriate information to help them make informed decisions about their health and wellbeing. Our healthcare team encouraged learners to ask questions, share their experiences, and understand the importance of seeking help early when they have health concerns.<br><br>
@@ -1991,7 +2051,6 @@ The students actively participated in the discussion, asked important questions,
             date: "May 25, 2026",
             title: "Free Medical Camp at Nusha Hospital",
             excerpt: "Community members accessed free consultations, screening services, health education, and treatment during our successful medical camp.",
-            //gallery: ["photos/news/medical-camp-1.jpg", "photos/news/medical-camp-2.jpg", "photos/news/medical-camp-3.jpg"],
             fullDesc: `<strong>Nusha Hospital</strong> successfully hosted a free medical camp aimed at improving access to essential healthcare services within the community. The event brought together healthcare professionals, support staff, and community members in a shared effort to promote preventive healthcare and early disease detection.<br><br>
 
 Throughout the camp, community members received free medical consultations, health screening services, treatment, counselling, and health education. Our healthcare team assessed patients with a variety of health concerns and provided appropriate care, treatment, and referrals where necessary.<br><br>
@@ -2332,20 +2391,67 @@ We extend our sincere appreciation to all community members who participated, as
             openViewAllServices();
         });
 
-        // ---------- NEWS ----------
-        const newsGrid = document.getElementById('newsGrid');
-        newsData.forEach(news => {
-            const card = document.createElement('div');
-            card.className = 'news-card';
-            card.innerHTML =
-                `<img src="${news.img}" class="news-img" alt="${news.title}" onerror="this.style.display='none'"><div class="news-content"><div class="news-date"><i class="far fa-calendar-alt"></i> ${news.date}</div><h3 class="news-title">${news.title}</h3><p class="news-excerpt">${news.excerpt}</p><div class="read-more">Read more <i class="fas fa-arrow-right"></i></div></div>`;
-            card.querySelector('.read-more').addEventListener('click', () => {
-                openDetail(news.title, news.img, news.gallery, news.fullDesc,
-                    "For more information, please contact our media relations team at +256 414 123 456 or email media@nushahospital.ug."
+        // ---------- RENDER NEWS (both grid and swiper) ----------
+        function renderNews() {
+            const grid = document.getElementById('newsGrid');
+            const swiperWrapper = document.getElementById('newsSwiperWrapper');
+            
+            newsData.forEach(news => {
+                // Grid card
+                const card = document.createElement('div');
+                card.className = 'news-card';
+                card.innerHTML = `
+                    <img src="${news.img}" class="news-img" alt="${news.title}" onerror="this.style.display='none'">
+                    <div class="news-content">
+                        <div class="news-date"><i class="far fa-calendar-alt"></i> ${news.date}</div>
+                        <h3 class="news-title">${news.title}</h3>
+                        <p class="news-excerpt">${news.excerpt}</p>
+                        <div class="read-more">Read more <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                `;
+                card.querySelector('.read-more').addEventListener('click', () => {
+                    openDetail(news.title, news.img, news.gallery, news.fullDesc,
+                        "For more information, please contact our media relations team at +256 414 123 456 or email media@nushahospital.ug."
                     );
+                });
+                grid.appendChild(card);
+
+                // Swiper slide (same content but for carousel)
+                const slide = document.createElement('div');
+                slide.className = 'swiper-slide';
+                slide.innerHTML = `
+                    <img src="${news.img}" class="news-img" alt="${news.title}" onerror="this.style.display='none'">
+                    <div class="news-content">
+                        <div class="news-date"><i class="far fa-calendar-alt"></i> ${news.date}</div>
+                        <h3 class="news-title">${news.title}</h3>
+                        <p class="news-excerpt">${news.excerpt}</p>
+                        <div class="read-more">Read more <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                `;
+                slide.querySelector('.read-more').addEventListener('click', () => {
+                    openDetail(news.title, news.img, news.gallery, news.fullDesc,
+                        "For more information, please contact our media relations team at +256 414 123 456 or email media@nushahospital.ug."
+                    );
+                });
+                swiperWrapper.appendChild(slide);
             });
-            newsGrid.appendChild(card);
-        });
+
+            // Initialize News Swiper
+            new Swiper('.newsSwiper', {
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 24,
+                pagination: { el: '.swiper-pagination', clickable: true },
+                autoplay: { delay: 5000 },
+                breakpoints: {
+                    480: { slidesPerView: 1 },
+                    768: { slidesPerView: 2 }
+                }
+            });
+        }
+
+        // Call renderNews
+        renderNews();
 
         // ---------- INSURANCE ----------
         const insurances = [
