@@ -2129,19 +2129,15 @@ We extend our sincere appreciation to all community members who participated, as
             document.getElementById('whatsappChatPreview').classList.add('hidden');
         });
 
-        // ---------- ACTIVITIES SWIPER ----------
+        // ---------- ACTIVITIES SWIPER (UPDATED: removed doctor and title, only note/description remains) ----------
         const slidesData = [
-            { img: "photos/activities/ccs.png", title: "Free Cervical Cancer Screening Camp", doctor: "Dr. Aisha Nabukenya",
-                spec: "OB/GYN", note: "Every Saturday in April: Free Cervical cancer screening, and expert consultation. Walk-ins welcome." },
-            { img: "photos/activities/immunizationdrive.png", title: "Child Wellness & Vaccination Drive",
-                doctor: "Dr. Moses Okello", spec: "Pediatrician",
-                note: "Immunization for children under 5. Nutritional counseling every Tuesday. Bring immunization card." },
-            { img: "photos/activities/maternaleducation.png", title: "Maternal Health Outreach", doctor: "Dr. Sarah Namutebi",
-                spec: "OB/GYN", note: "Antenatal classes every Thursday." },
+            { img: "photos/activities/ccs.png", note: "Every Saturday in April: Free Cervical cancer screening, and expert consultation. Walk-ins welcome." },
+            { img: "photos/activities/immunizationdrive.png", note: "Immunization for children under 5. Nutritional counseling every Tuesday. Bring immunization card." },
+            { img: "photos/activities/maternaleducation.png", note: "Antenatal classes every Thursday." },
         ];
         const wrapper = document.getElementById('slideshowWrapper');
         slidesData.forEach(s => {
-            wrapper.innerHTML += `<div class="swiper-slide"><img src="${s.img}" class="activity-slide-img" alt="${s.title}" onerror="this.style.display='none'"><div class="activity-slide-content"><h3>${s.title}</h3><div class="doctor-name"><i class="fas fa-user-md"></i> ${s.doctor} (${s.spec})</div><div class="activity-note"><i class="fas fa-calendar-alt"></i> ${s.note}</div></div></div>`;
+            wrapper.innerHTML += `<div class="swiper-slide"><img src="${s.img}" class="activity-slide-img" alt="Activity" onerror="this.style.display='none'"><div class="activity-slide-content"><div class="activity-note"><i class="fas fa-calendar-alt"></i> ${s.note}</div></div></div>`;
         });
         new Swiper('.activitySwiper', {
             loop: true,
