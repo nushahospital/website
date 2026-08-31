@@ -833,26 +833,48 @@
             margin-top: 12px;
         }
 
-        /* ---------- INSURANCE ---------- */
+        /* ---------- INSURANCE (updated with logos, white background cards) ---------- */
         .insurance-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
+            align-items: center;
+            gap: 30px 50px;
             margin-top: 40px;
         }
         .insurance-card {
-            background: #f8fefb;
+            background: #ffffff;
             border-radius: 24px;
-            padding: 24px 32px;
+            padding: 20px 32px;
             text-align: center;
-            min-width: 160px;
+            min-width: 140px;
             border: 1px solid #e2f0ea;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
-        .insurance-card i {
-            font-size: 2.5rem;
-            color: #0f7b5e;
-            margin-bottom: 12px;
+        .insurance-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+        }
+        .insurance-card img {
+            max-width: 120px;
+            height: auto;
+            max-height: 70px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            filter: none;
+        }
+        .insurance-card h4 {
+            margin-top: 12px;
+            font-weight: 600;
+            color: #144d5e;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
         }
         .insurance-note {
             text-align: center;
@@ -1277,6 +1299,17 @@
             .service-image img {
                 height: 250px;
             }
+            .insurance-grid {
+                gap: 20px 30px;
+            }
+            .insurance-card {
+                min-width: 100px;
+                padding: 16px 20px;
+            }
+            .insurance-card img {
+                max-width: 90px;
+                max-height: 55px;
+            }
         }
         @media (max-width: 480px) {
             .hero-content h2 { font-size: 1.65rem; }
@@ -1300,6 +1333,21 @@
             }
             .service-image img {
                 height: 200px;
+            }
+            .insurance-grid {
+                gap: 16px 20px;
+            }
+            .insurance-card {
+                min-width: 80px;
+                padding: 12px 16px;
+            }
+            .insurance-card img {
+                max-width: 70px;
+                max-height: 45px;
+            }
+            .insurance-card h4 {
+                font-size: 0.8rem;
+                margin-top: 8px;
             }
         }
         img {
@@ -1445,7 +1493,7 @@
         </div>
     </section>
 
-    <!-- ===== INSURANCE ===== -->
+    <!-- ===== INSURANCE (updated with logos, white background cards) ===== -->
     <section id="insurance" class="insurance-section">
         <div class="container">
             <span class="section-title">Accepted Insurance Partners</span>
@@ -1888,7 +1936,7 @@ Patient safety is central to every theatre procedure. Our team confirms the pati
 
 At Nusha Hospital, we are committed to providing safe, respectful, and coordinated theatre care from pre-operative assessment through recovery and follow-up.`;
 
-        // Ultrasonography Description with all scan types
+        // Ultrasonography Description
         const ultraDescription = `<strong>Ultrasonography (Ultrasound Imaging)</strong>
 
 Nusha Hospital offers a comprehensive range of ultrasound diagnostic services to support accurate and timely medical evaluations. Our ultrasound services are performed by trained and experienced professionals using modern imaging equipment.
@@ -1953,7 +2001,8 @@ A specialized pelvic ultrasound performed using a small probe inserted into the 
             gallery: cardiologyGallery,
             quick: "Safe dispensing of medicines and pharmaceutical counseling.",
             desc: pharmacyDescription
-        }, {
+        },
+            {
             id: 7,
             title: "Ultrasonography",
             mainImg: "photos/services/ultra.JPG",
@@ -2481,16 +2530,23 @@ We extend our sincere appreciation to all community members who participated, as
         // Call renderNews
         renderNews();
 
-        // ---------- INSURANCE (added APA, removed status text) ----------
+        // ---------- INSURANCE (updated with real logos, white background cards) ----------
         const insurances = [
-            { name: "Britam", icon: "fas fa-building" },
-            { name: "Jubilee Health", icon: "fas fa-hand-holding-heart" },
-            { name: "UAP Old Mutual", icon: "fas fa-umbrella" },
-            { name: "APA", icon: "fas fa-shield-alt" }
+            { name: "Britam", logo: "photos/insurance/britam.png" },
+            { name: "Jubilee Health", logo: "photos/insurance/jubilee.png" },
+            { name: "UAP Old Mutual", logo: "photos/insurance/uap.png" },
+            { name: "APA", logo: "photos/insurance/apa.png" }
         ];
         const insuranceGrid = document.getElementById('insuranceGrid');
-        insurances.forEach(i => { insuranceGrid.innerHTML +=
-                `<div class="insurance-card"><i class="${i.icon}"></i><h4>${i.name}</h4></div>`; });
+        insurances.forEach(i => {
+            const card = document.createElement('div');
+            card.className = 'insurance-card';
+            card.innerHTML = `
+                <img src="${i.logo}" alt="${i.name} logo" loading="lazy" onerror="this.style.display='none'">
+                <h4>${i.name}</h4>
+            `;
+            insuranceGrid.appendChild(card);
+        });
 
         // ---------- FORM ----------
         const form = document.getElementById('inquiryForm');
