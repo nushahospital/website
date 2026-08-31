@@ -1583,6 +1583,9 @@
         const pediatricsGallery = ["photos/services/pediatrics.jpg", "photos/services/pediatrics.jpg",
             "photos/services/pediatrics.jpg"
         ];
+        const ultraGallery = ["photos/services/ultra.JPG", "photos/services/ultra.JPG",
+            "photos/services/ultra.JPG"
+        ];
 
         // Laboratory Services detailed description with bold headings
         const labDescription = `Diagnostic Laboratory is equipped with sophisticated automated systems which ensure quality, timely, reliable and affordable services to our clients. The laboratory is sectioned into different section, inclusive:
@@ -1885,6 +1888,29 @@ Patient safety is central to every theatre procedure. Our team confirms the pati
 
 At Nusha Hospital, we are committed to providing safe, respectful, and coordinated theatre care from pre-operative assessment through recovery and follow-up.`;
 
+        // Ultrasonography Description with all scan types
+        const ultraDescription = `<strong>Ultrasonography (Ultrasound Imaging)</strong>
+
+Nusha Hospital offers a comprehensive range of ultrasound diagnostic services to support accurate and timely medical evaluations. Our ultrasound services are performed by trained and experienced professionals using modern imaging equipment.
+
+<strong>Small Parts Scan</strong>
+A detailed ultrasound examination of small body structures including thyroid, breast, testes, and other superficial organs. This scan helps assess size, structure, and detect any abnormal growths or masses.
+
+<strong>Obstetrics Scan</strong>
+Ultrasound imaging to monitor pregnancy progression, fetal development, growth, position, and wellbeing. Routine obstetric scans help assess the baby's heart rate, placenta position, amniotic fluid levels, and detect any congenital abnormalities.
+
+<strong>Musculoskeletal Scan</strong>
+Evaluation of muscles, tendons, ligaments, and joints. This scan helps diagnose tears, inflammation, fluid collections, and other soft tissue injuries affecting the musculoskeletal system.
+
+<strong>Neck Ultrasound Scan</strong>
+Assessment of neck structures including thyroid gland, parathyroid glands, lymph nodes, and blood vessels. Useful for evaluating neck masses, swelling, or thyroid disorders.
+
+<strong>Knee Ultrasound Scan</strong>
+Focused assessment of the knee joint and its surrounding soft tissues, including tendons, ligaments, and fluid collections. Useful in evaluating injuries, inflammation, and chronic knee pain.
+
+<strong>Endo-Vaginal Scan</strong>
+A specialized pelvic ultrasound performed using a small probe inserted into the vagina. Provides high-resolution imaging of the uterus, ovaries, and other pelvic structures. Helpful for evaluating pelvic pain, abnormal bleeding, follicle monitoring, and early pregnancy assessment.`;
+
         const fullServices = [{
             id: 1,
             title: "Outpatient Services (OPD)",
@@ -1927,8 +1953,14 @@ At Nusha Hospital, we are committed to providing safe, respectful, and coordinat
             gallery: cardiologyGallery,
             quick: "Safe dispensing of medicines and pharmaceutical counseling.",
             desc: pharmacyDescription
-        },
-            {
+        }, {
+            id: 7,
+            title: "Ultrasonography",
+            mainImg: "photos/services/ultra.JPG",
+            gallery: ultraGallery,
+            quick: "Advanced ultrasound imaging including small parts, obstetrics, musculoskeletal, neck, knee, and endo-vaginal scans.",
+            desc: ultraDescription
+        }, {
             id: 8,
             title: "Family Planning Services",
             mainImg: "photos/services/familyplanning.png",
@@ -2129,7 +2161,7 @@ We extend our sincere appreciation to all community members who participated, as
             document.getElementById('whatsappChatPreview').classList.add('hidden');
         });
 
-        // ---------- ACTIVITIES SWIPER (UPDATED: removed doctor and title, only note/description remains) ----------
+        // ---------- ACTIVITIES SWIPER (EXACTLY AS ORIGINAL - UNCHANGED) ----------
         const slidesData = [
             { img: "photos/activities/ccs.png", note: "Every Saturday in April: Free Cervical cancer screening, and expert consultation. Walk-ins welcome." },
             { img: "photos/activities/immunizationdrive.png", note: "Immunization for children under 5. Nutritional counseling every Tuesday. Bring immunization card." },
@@ -2266,7 +2298,7 @@ We extend our sincere appreciation to all community members who participated, as
             if (e.key === 'Escape' && detailOverlay.classList.contains('active')) closeDetail();
         });
 
-        // ---------- RENDER SERVICES (initial 4) ----------
+        // ---------- RENDER SERVICES (initial 5 including Ultrasonography) ----------
         function renderServices(services) {
             const grid = document.getElementById('servicesGrid');
             grid.innerHTML = '';
@@ -2308,8 +2340,8 @@ We extend our sincere appreciation to all community members who participated, as
             });
         }
 
-        // Initial: first 4 services
-        renderServices(fullServices.slice(0, 4));
+        // Initial: first 5 services (including Ultrasonography)
+        renderServices(fullServices.slice(0, 5));
 
         // ---------- FUNCTION TO OPEN VIEW ALL SERVICES ----------
         function openViewAllServices() {
@@ -2449,15 +2481,16 @@ We extend our sincere appreciation to all community members who participated, as
         // Call renderNews
         renderNews();
 
-        // ---------- INSURANCE ----------
+        // ---------- INSURANCE (added APA, removed status text) ----------
         const insurances = [
-            { name: "Britam", icon: "fas fa-building", info: "In-network" },
-            { name: "Jubilee Health", icon: "fas fa-hand-holding-heart", info: "Approved" },
-            { name: "UAP Old Mutual", icon: "fas fa-umbrella", info: "In-network" }
+            { name: "Britam", icon: "fas fa-building" },
+            { name: "Jubilee Health", icon: "fas fa-hand-holding-heart" },
+            { name: "UAP Old Mutual", icon: "fas fa-umbrella" },
+            { name: "APA", icon: "fas fa-shield-alt" }
         ];
         const insuranceGrid = document.getElementById('insuranceGrid');
         insurances.forEach(i => { insuranceGrid.innerHTML +=
-                `<div class="insurance-card"><i class="${i.icon}"></i><h4>${i.name}</h4><p>${i.info}</p></div>`; });
+                `<div class="insurance-card"><i class="${i.icon}"></i><h4>${i.name}</h4></div>`; });
 
         // ---------- FORM ----------
         const form = document.getElementById('inquiryForm');
