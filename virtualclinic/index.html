@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nusha Virtual Clinic | Dr Nashiba Namutebi</title>
+<meta name="description" content="Request a virtual weight assessment and management consultation with Dr Nashiba Namutebi at Nusha Hospital.">
+<style>
+:root{--navy:#092d60;--red:#d92c45;--ink:#253953;--muted:#627288}
+*{box-sizing:border-box}
+body{margin:0;background:#f7f9fc;color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+header{background:white;border-bottom:1px solid #e2e8f0;padding:18px max(6vw,20px);display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand img{height:56px;width:auto;object-fit:contain;flex-shrink:0}
+.brand-text{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.brand-name{font-size:23px;color:var(--navy);font-weight:900;letter-spacing:1px;line-height:1.1}
+.brand-name span{color:var(--red)}
+.tag{font-size:11px;letter-spacing:.5px;font-weight:500;margin-top:2px}
+a{color:var(--navy)}
+header a{text-decoration:none;font-size:14px;white-space:nowrap}
+.layout{max-width:1160px;margin:auto;padding:64px 24px;display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:start}
+.eyebrow{color:var(--red);font-weight:750;letter-spacing:2px;font-size:12px;text-transform:uppercase}
+h1{font:500 clamp(38px,4.6vw,60px)/1.12 Georgia,serif;letter-spacing:-1px;color:var(--navy);margin:20px 0}
+h2{font-size:24px;color:var(--navy);line-height:1.3;margin:0 0 8px}
+p{margin:12px 0}
+.intro{font-size:18px;color:var(--muted)}
+.doctor{border-left:3px solid var(--red);padding-left:20px;margin:32px 0}
+.doctor strong{display:block;font-size:20px;color:var(--navy)}
+.doctor small{color:var(--muted)}
+.facts{display:flex;gap:35px;margin:28px 0}
+.facts strong{display:block;font-size:23px;color:var(--navy)}
+.facts span{font-size:13px;color:var(--muted)}
+.steps{border-top:1px solid #dce4ef;margin-top:30px;padding-top:20px}
+.steps p{font-size:14px}
+.steps b{color:var(--red);margin-right:10px}
+
+/* ---- NEW: nutrition image section ---- */
+.nutrition-section{margin:34px 0 8px}
+.nutrition-title{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:10px}
+.nutrition-grid{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:260px}
+.nutrition-grid figure{margin:0;position:relative;overflow:hidden;border-radius:14px;background:#e7eef7}
+.nutrition-grid figure:first-child{grid-row:span 2}
+.nutrition-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.nutrition-grid figure:hover img{transform:scale(1.04)}
+.nutrition-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 14px 10px;font-size:12px;color:#fff;background:linear-gradient(to top,rgba(9,45,96,.82),rgba(9,45,96,0));font-weight:600;letter-spacing:.2px}
+.nutrition-note{font-size:12px;color:var(--muted);margin-top:8px}
+
+/* ---- NEW: small gallery inside booking card ---- */
+.card-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0 4px}
+.card-gallery img{width:100%;height:64px;object-fit:cover;border-radius:8px;border:1px solid #e0e7ef;display:block}
+.card-gallery-cap{font-size:11px;color:var(--muted);margin:4px 0 0}
+
+.card{background:white;border:1px solid #e0e7ef;box-shadow:0 18px 55px #092d600c;border-radius:20px;padding:32px}
+.sub{font-size:14px;color:var(--muted)}
+label,legend{display:block;font-size:14px;font-weight:650;margin:20px 0 7px}
+input,select{font:inherit;width:100%;border:1px solid #cbd5e1;border-radius:8px;background:white;padding:12px;color:var(--ink)}
+input:focus,select:focus{outline:3px solid #e0eafa;border-color:var(--navy)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+fieldset{border:0;padding:0;margin:0}
+.platforms{display:flex;gap:12px}
+.choice{flex:1;border:1px solid #cbd5e1;border-radius:9px;padding:12px;margin:0;font-size:14px;cursor:pointer}
+.choice:has(input:checked){background:#edf4fc;border-color:var(--navy)}
+input[type=radio],input[type=checkbox]{width:auto;margin-right:7px;accent-color:var(--navy)}
+.consent{font-weight:400;font-size:12px;display:flex;align-items:start}
+.notice{padding:13px 15px;background:#f0f5fb;border-radius:8px;font-size:12px;margin-top:20px}
+button,.button{display:block;width:100%;border:0;background:var(--navy);color:white;padding:15px;border-radius:9px;text-align:center;font:650 15px system-ui;cursor:pointer;text-decoration:none;margin-top:18px}
+button:hover,.button:hover{background:#16477f}
+.error{color:#b21d35;font-size:13px}
+#review{border-top:1px solid #ddd;margin-top:24px;padding-top:24px}
+#review dl{font-size:14px}
+dt{color:var(--muted)}
+dd{margin:0 0 10px;font-weight:600}
+footer{border-top:1px solid #e0e7ef;padding:28px 24px;text-align:center;font-size:12px;color:var(--muted)}
+[hidden]{display:none!important}
+
+@media(max-width:800px){
+  .layout{grid-template-columns:1fr;gap:30px;padding-top:35px}
+  .card{padding:24px}
+  .row{grid-template-columns:1fr}
+  .facts{gap:25px}
+  header a{font-size:12px}
+  h1{max-width:550px}
+  .nutrition-grid{height:220px}
+}
+@media(max-width:560px){
+  .brand img{height:44px}
+  .brand-name{font-size:1.15rem;white-space:nowrap}
+  .tag{font-size:.6rem}
+  header{padding:12px 16px;gap:8px}
+  header a{font-size:11px}
+  .nutrition-grid{height:200px;grid-template-columns:1fr 1fr;grid-template-rows:1.3fr 1fr}
+  .nutrition-grid figure:first-child{grid-row:span 1;grid-column:span 2}
+  .card-gallery img{height:54px}
+}
+</style>
+<header>
+  <div class="brand">
+    <img src="photos/logo/nusha.png" alt="Nusha Hospital Logo" onerror="this.style.display='none'">
+    <div class="brand-text">
+      <div class="brand-name">NUSHA <span>HOSPITAL</span></div>
+      <div class="tag">Your Health, Our Priority.</div>
+    </div>
+  </div>
+  <a href="https://nushahospital.com/">Hospital website ↗</a>
+</header>
+<main class="layout">
+  <section>
+    <div class="eyebrow">Nusha virtual clinic</div>
+    <h1>A healthier you.<br>One conversation<br>at a time.</h1>
+    <p class="intro">Personalised weight assessment and management, from wherever you feel comfortable.</p>
+    <div class="doctor">
+      <strong>Dr Nashiba Namutebi</strong>
+      <small>MBChB, PGDSBA, MDS</small>
+      <p>Discuss your health, nutrition habits and weight-management goals, with practical guidance on your next steps.</p>
+    </div>
+    <div class="facts">
+      <div><strong>30 minutes</strong><span>Dedicated consultation</span></div>
+      <div><strong>UGX 30,000</strong><span>Book first. Pay before your visit.</span></div>
+    </div>
+
+    <!-- NEW: Nutrition & weight-management photo gallery -->
+    <div class="nutrition-section">
+      <div class="nutrition-title">Nutrition &amp; weight management</div>
+      <div class="nutrition-grid">
+        <figure>
+          <img src="photos/nutrition/healthy-plate.jfif" alt="Balanced healthy meal plate with vegetables, protein and whole grains" loading="lazy" onerror="this.style.display='none'">
+          <figcaption>Balanced, everyday eating</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/nutrition/consultation.jfif" alt="Nutritionist guiding a patient through a meal plan" loading="lazy" onerror="this.style.display='none'">
+          <figcaption>One-to-one guidance</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/nutrition/progress.jfif" alt="Patient tracking weight and activity progress" loading="lazy" onerror="this.style.display='none'">
+          <figcaption>Measured progress</figcaption>
+        </figure>
+      </div>
+      <p class="nutrition-note">Practical, sustainable habits — not crash diets. Your plan is tailored to your health, culture and routine.</p>
+    </div>
+
+    <p class="sub">Monday–Saturday · 9:00 am–3:00 pm<br>All appointment times are Uganda time (EAT / UTC+3).</p>
+    <div class="steps">
+      <div class="eyebrow">How it works</div>
+      <p><b>01</b> Choose a doctor, consultation reason, preferred time and video platform.</p>
+      <p><b>02</b> Send your request on WhatsApp for availability confirmation.</p>
+      <p><b>03</b> Receive payment and joining instructions before your visit.</p>
+    </div>
+    <p class="sub">Questions? <a href="https://wa.me/256703883166">WhatsApp +256 703 883166</a><br><a href="mailto:nushahospital07@gmail.com">nushahospital07@gmail.com</a></p>
+  </section>
+
+  <section class="card">
+    <h2>Request your consultation</h2>
+    <p class="sub">Choose what works for you. The clinic will confirm your appointment personally.</p>
+
+    <!-- NEW: small illustrative strip inside the card -->
+    <div class="card-gallery">
+      <img src="photos/nutrition/meal-prep.jfif" alt="Prepared healthy meals" loading="lazy" onerror="this.style.display='none'">
+      <img src="photos/nutrition/fruit-veg.jfif" alt="Fresh fruit and vegetables" loading="lazy" onerror="this.style.display='none'">
+      <img src="photos/nutrition/activity.jfif" alt="Gentle physical activity" loading="lazy" onerror="this.style.display='none'">
+    </div>
+    <p class="card-gallery-cap">Nutrition, movement and medical review — handled together.</p>
+
+    <form id="booking">
+      <label for="doctor">Choose doctor</label>
+      <select id="doctor" required>
+        <option value="">Select a doctor</option>
+        <option value="Dr Nashiba Namutebi — MBChB, PGDSBA, MDS" selected>Dr Nashiba Namutebi — MBChB, PGDSBA, MDS</option>
+      </select>
+
+      <label for="reason">Choose consultation reason</label>
+      <select id="reason" required>
+        <option value="">Select a reason</option>
+        <option value="Weight assessment & management">Weight assessment & management</option>
+        <option value="Nutrition & dietary planning">Nutrition & dietary planning</option>
+        <option value="Metabolic health review">Metabolic health review</option>
+        <option value="Follow-up / progress review">Follow-up / progress review</option>
+        <option value="General health & lifestyle advice">General health & lifestyle advice</option>
+      </select>
+
+      <div class="row">
+        <div>
+          <label for="date">Preferred date</label>
+          <input id="date" type="date" required>
+        </div>
+        <div>
+          <label for="time">Preferred time · EAT</label>
+          <select id="time" required><option value="">Choose a time</option></select>
+        </div>
+      </div>
+
+      <fieldset>
+        <legend>How would you like to meet?</legend>
+        <div class="platforms">
+          <label class="choice"><input type="radio" name="platform" value="WhatsApp video" required checked>WhatsApp video</label>
+          <label class="choice"><input type="radio" name="platform" value="Google Meet">Google Meet</label>
+        </div>
+      </fieldset>
+
+      <label for="name">Full name</label>
+      <input id="name" autocomplete="name" maxlength="100" required>
+
+      <label for="phone">WhatsApp number, including country code</label>
+      <input id="phone" type="tel" placeholder="+256…" autocomplete="tel" pattern="\+?[0-9 ()-]{9,20}" required>
+
+      <label for="email">Email <span id="emailHint">(optional)</span></label>
+      <input id="email" type="email" autocomplete="email" maxlength="200">
+
+      <div class="notice">
+        <strong>Book first, pay before your consultation.</strong><br>
+        The clinic will provide payment instructions. Medication and laboratory tests are charged separately. The UGX 30,000 fee covers the virtual doctor’s consultation.
+      </div>
+
+      <label class="consent">
+        <input id="consent" type="checkbox" required>
+        <span>I agree to share these booking details with the clinic via WhatsApp and be contacted about my appointment. I understand this is a request until the clinic confirms availability.</span>
+      </label>
+
+      <p class="sub" style="font-size:12px">Please do not enter medical records or sensitive health details here. This form does not reserve a slot or send an automatic invitation.</p>
+      <p id="error" class="error" role="alert"></p>
+      <button type="submit">Review booking request →</button>
+    </form>
+
+    <div id="review" hidden aria-live="polite">
+      <h2>Check your request</h2>
+      <dl id="summary"></dl>
+      <p class="sub">Next, WhatsApp will open with your request ready. Press Send there to deliver it to the clinic.</p>
+      <a id="send" class="button" target="_blank" rel="noopener">Continue to WhatsApp ↗</a>
+      <p class="sub">Your appointment is confirmed only after the clinic replies. A Google Meet link, if selected, will be shared separately.</p>
+    </div>
+  </section>
+</main>
+<footer>
+  Nusha Hospital · Virtual weight assessment & management<br>
+  This service is for scheduled consultations. For urgent medical needs, seek immediate in-person care.
+</footer>
+<script>
+const $=id=>document.getElementById(id);
+const nowEAT=()=>new Date(new Date().toLocaleString('en-US',{timeZone:'Africa/Kampala'}));
+const dayString=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+$('date').min=dayString(nowEAT());
+
+function slots(){
+  const old=$('time').value;
+  $('time').replaceChildren(new Option('Choose a time',''));
+
+  // Sunday check only when a date is chosen
+  if($('date').value){
+    const d=new Date($('date').value+'T12:00:00');
+    if(d.getDay()===0){
+      $('error').textContent='Please choose Monday–Saturday. The clinic is closed on Sundays.';
+      return;
+    }
+  }
+
+  const n=nowEAT();
+  $('error').textContent='';
+
+  for(let m=540;m<900;m+=30){
+    // Only filter out past times when the chosen date is today
+    if($('date').value && $('date').value===dayString(n) && m<=n.getHours()*60+n.getMinutes()) continue;
+    const v=String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+    const label=(Math.floor(m/60)%12||12)+':'+String(m%60).padStart(2,'0')+(m<720?' am':' pm');
+    $('time').add(new Option(label,v));
+  }
+  if([...$('time').options].some(o=>o.value===old))$('time').value=old;
+}
+
+$('date').addEventListener('change',slots);
+
+// Populate the time dropdown immediately on page load
+slots();
+
+document.querySelectorAll('[name=platform]').forEach(e=>e.addEventListener('change',()=>{
+  const meet=document.querySelector('[name=platform]:checked').value==='Google Meet';
+  $('email').required=meet;
+  $('emailHint').textContent=meet?'(required for Google Meet)':'(optional)';
+}));
+
+$('booking').addEventListener('input',()=>{$('review').hidden=true});
+
+$('booking').addEventListener('submit',e=>{
+  e.preventDefault();
+
+  const doctor=$('doctor').value;
+  const reason=$('reason').value;
+  if(!doctor){
+    $('error').textContent='Please select a doctor.';
+    return;
+  }
+  if(!reason){
+    $('error').textContent='Please select a consultation reason.';
+    return;
+  }
+
+  const t=$('time').value;
+  slots();
+  if(!t||$('time').value!==t||$('date').value<dayString(nowEAT())){
+    $('error').textContent='Please choose a future consultation time, Monday–Saturday, 9 am–3 pm EAT.';
+    return;
+  }
+
+  const date=new Date($('date').value+'T12:00:00').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  const time=$('time').selectedOptions[0].textContent;
+  const platform=document.querySelector('[name=platform]:checked').value;
+
+  const entries=[
+    ['Doctor', doctor],
+    ['Consultation reason', reason],
+    ['Preferred appointment', date+' at '+time+' EAT'],
+    ['Duration & fee', '30 minutes · UGX 30,000'],
+    ['Platform', platform],
+    ['Patient', $('name').value.trim()],
+    ['WhatsApp', $('phone').value.trim()]
+  ];
+  if($('email').value)entries.push(['Email',$('email').value.trim()]);
+
+  $('summary').replaceChildren();
+  entries.forEach(([k,v])=>{
+    const dt=document.createElement('dt'),dd=document.createElement('dd');
+    dt.textContent=k;dd.textContent=v;
+    $('summary').append(dt,dd);
+  });
+
+  const msg='Hello Nusha Hospital, I would like to request a virtual weight assessment and management consultation.\n\n'+
+    entries.map(([k,v])=>k+': '+v).join('\n')+
+    '\n\nPlease confirm availability and share payment instructions. I will pay before the consultation.';
+
+  $('send').href='https://wa.me/256703883166?text='+encodeURIComponent(msg);
+  $('review').hidden=false;
+  $('review').scrollIntoView({behavior:'smooth',block:'nearest'});
+});
+</script>
+</html>
