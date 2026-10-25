@@ -9,15 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
         /* ---------- RESET & BASE ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #fafcff;
@@ -28,21 +23,15 @@
             overflow-x: hidden;
             padding-top: 85px;
         }
-        @media (max-width: 768px) {
-            body { padding-top: 72px; }
-        }
-        @media (max-width: 480px) {
-            body { padding-top: 68px; }
-        }
+        @media (max-width: 768px) { body { padding-top: 72px; } }
+        @media (max-width: 480px) { body { padding-top: 68px; } }
 
         /* ---------- FIXED HEADER ---------- */
         .navbar {
             background-color: #ffffff;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+            top: 0; left: 0; width: 100%;
             z-index: 1000;
             transition: all 0.2s ease;
         }
@@ -55,76 +44,27 @@
             max-width: 1320px;
             margin: 0 auto;
         }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .logo img {
-            height: 65px;
-            width: auto;
-            object-fit: contain;
-        }
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #0b5e7e;
-            line-height: 1.2;
-        }
-        .logo span {
-            color: #2c9b6e;
-        }
-        .slogan {
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: #0f7b5e;
-            letter-spacing: 0.5px;
-            margin-top: 2px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { height: 65px; width: auto; object-fit: contain; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo h1 { font-size: 1.8rem; font-weight: 800; color: #0b5e7e; line-height: 1.2; }
+        .logo span { color: #2c9b6e; }
+        .slogan { font-size: 0.7rem; font-weight: 500; color: #0f7b5e; letter-spacing: 0.5px; margin-top: 2px; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
-            text-decoration: none;
-            font-weight: 600;
-            color: #1f3b4c;
-            transition: 0.2s;
+            text-decoration: none; font-weight: 600; color: #1f3b4c; transition: 0.2s;
         }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #0f7b5e;
-            border-bottom: 2px solid #0f7b5e;
-            padding-bottom: 4px;
+        .nav-links a:hover, .nav-links a.active {
+            color: #0f7b5e; border-bottom: 2px solid #0f7b5e; padding-bottom: 4px;
         }
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: #0b5e7e;
-        }
+        .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: #0b5e7e; }
         .btn-primary {
-            background-color: #0f7b5e;
-            color: white;
-            border: none;
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.2s;
-            font-size: 1rem;
+            background-color: #0f7b5e; color: white; border: none;
+            padding: 14px 32px; border-radius: 50px; font-weight: 600; cursor: pointer;
+            display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; font-size: 1rem;
         }
         .btn-primary:hover {
-            background-color: #0a5f48;
-            transform: translateY(-2px);
+            background-color: #0a5f48; transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(15, 123, 94, 0.2);
         }
 
@@ -132,539 +72,434 @@
         .hero {
             position: relative;
             background: linear-gradient(135deg, #e8f5f0 0%, #d4ede4 100%);
-            padding: 80px 0;
-            overflow: hidden;
-            min-height: 550px;
-            margin-top: 0;
+            padding: 80px 0; overflow: hidden; min-height: 550px; margin-top: 0;
         }
-        .hero-bg-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
+        .hero-bg-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
         .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: opacity 1.5s ease-in-out;
-            opacity: 0;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            transition: opacity 1.5s ease-in-out; opacity: 0;
         }
-        .hero-bg.active {
-            opacity: 1;
-        }
+        .hero-bg.active { opacity: 1; }
         .hero-bg::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.3) 100%);
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.3) 100%);
         }
-        .hero-content {
-            max-width: 550px;
-            position: relative;
-            z-index: 2;
-            color: white;
-        }
+        .hero-content { max-width: 550px; position: relative; z-index: 2; color: white; }
         .hero-content h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            white-space: nowrap;
+            font-size: 3rem; font-weight: 800; color: white; margin-bottom: 20px;
+            line-height: 1.2; white-space: nowrap;
         }
         .hero-content p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 32px;
-            line-height: 1.6;
+            font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 32px; line-height: 1.6;
         }
         .scroll-down-wrapper {
-            position: absolute;
-            bottom: 30px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            z-index: 10;
+            position: absolute; bottom: 30px; left: 0; right: 0;
+            display: flex; justify-content: center; z-index: 10;
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
-        .scroll-down-wrapper.fade-out {
-            opacity: 0;
-            visibility: hidden;
-        }
+        .scroll-down-wrapper.fade-out { opacity: 0; visibility: hidden; }
         .scroll-down-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(4px);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: bounceSlide 2s infinite;
+            display: flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px); border-radius: 50%; cursor: pointer;
+            transition: all 0.3s ease; animation: bounceSlide 2s infinite;
         }
-        .scroll-down-arrow i {
-            font-size: 1.2rem;
-            color: white;
-        }
+        .scroll-down-arrow i { font-size: 1.2rem; color: white; }
         @keyframes bounceSlide {
-            0%,
-            20%,
-            50%,
-            80%,
-            100% { transform: translateY(0); }
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-10px); }
             60% { transform: translateY(-5px); }
         }
 
         /* ---------- AMBULANCE ---------- */
-        .ambulance-corner {
-            position: fixed;
-            top: 100px;
-            right: 24px;
-            z-index: 999;
-        }
+        .ambulance-corner { position: fixed; top: 100px; right: 24px; z-index: 999; }
         .ambulance-btn {
-            background-color: #dc2626;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 40px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background-color: #dc2626; color: white; border: none;
+            padding: 12px 24px; border-radius: 40px; font-weight: 700;
+            font-size: 0.9rem; cursor: pointer; display: inline-flex;
+            align-items: center; gap: 10px; transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             animation: gentlePulse 2s ease-in-out infinite;
         }
-        .ambulance-btn:hover {
-            background-color: #b91c1c;
-            transform: scale(1.02);
-            animation: none;
-        }
+        .ambulance-btn:hover { background-color: #b91c1c; transform: scale(1.02); animation: none; }
         @keyframes gentlePulse {
-            0%,
-            100% { opacity: 1; transform: scale(1); }
+            0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.92; transform: scale(1.01); }
         }
 
         /* ---------- COMMON SECTIONS ---------- */
-        .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
+        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .section-title { font-size: 2.2rem; font-weight: 700; color: #144d5e; }
+        hr.divider { width: 70px; height: 4px; background: #2c9b6e; border: none; margin: 12px 0 28px 0; }
+        .about-section, .services-section, .activities-section, .testimonials-section,
+        .news-section, .insurance-section, .inquiry-section { padding: 70px 0; }
+        .about-section, .testimonials-section, .insurance-section { background: white; }
+        .services-section, .activities-section, .news-section, .inquiry-section { background: #f8fefb; }
+
+        /* ---------- ABOUT ---------- */
+        .about-grid { display: flex; gap: 50px; flex-wrap: wrap; align-items: center; }
+        .about-text { flex: 1.2; min-width: 280px; }
+        .about-image-wrapper { flex: 0.8; min-width: 260px; }
+        .about-image-wrapper img {
+            border-radius: 32px; width: 100%; height: auto; object-fit: cover;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1); display: block;
         }
-        .section-title {
+        .about-highlights { display: flex; gap: 20px; margin-top: 25px; flex-wrap: wrap; }
+        .highlight { background: #f0f8f4; padding: 12px 20px; border-radius: 60px; font-weight: 500; }
+
+        /* ---------- SERVICES ---------- */
+        .services-grid { display: flex; flex-direction: column; gap: 60px; margin-top: 40px; }
+        .service-item {
+            display: flex; flex-wrap: wrap; align-items: stretch; gap: 0px;
+            background: white; border-radius: 32px; overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05); transition: transform 0.3s ease;
+        }
+        .service-item:hover { transform: translateY(-5px); }
+        .service-item.reverse { flex-direction: row-reverse; }
+        .service-image { flex: 1 1 45%; min-width: 300px; max-height: 450px; overflow: hidden; }
+        .service-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .service-content {
+            flex: 1 1 45%; padding: 40px 35px;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .service-content h3 { font-size: 1.8rem; color: #144d5e; margin-bottom: 15px; }
+        .service-content p { color: #5a6e7c; line-height: 1.7; margin-bottom: 20px; }
+        .service-link {
+            color: #0f7b5e; font-weight: 600; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: 0.2s; cursor: pointer; background: none; border: none; font-size: 1rem;
+        }
+        .service-link:hover { gap: 12px; }
+        .view-all-wrapper { text-align: center; margin-top: 50px; }
+        .view-all-btn {
+            background: #0f7b5e; color: white; border: none;
+            padding: 16px 48px; border-radius: 60px; font-weight: 700;
+            font-size: 1.1rem; cursor: pointer; transition: 0.2s;
+            box-shadow: 0 8px 20px rgba(15, 123, 94, 0.25);
+        }
+        .view-all-btn:hover { background: #0a5f48; transform: scale(1.02); }
+
+        /* ================================================================
+           VIRTUAL CLINIC – NUTRITION & WEIGHT MANAGEMENT
+           (blended with the site's existing style)
+           ================================================================ */
+        .virtual-section {
+            padding: 70px 0;
+            background: #f8fefb;
+            border-top: 1px solid #e2f0ea;
+            border-bottom: 1px solid #e2f0ea;
+        }
+
+        .virtual-header {
+            max-width: 760px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+        .virtual-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0f8f4;
+            color: #0f7b5e;
+            font-weight: 600;
+            font-size: 0.78rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: 60px;
+            margin-bottom: 16px;
+        }
+        .virtual-header h2 {
             font-size: 2.2rem;
             font-weight: 700;
             color: #144d5e;
+            line-height: 1.25;
+            margin-bottom: 12px;
         }
-        hr.divider {
-            width: 70px;
-            height: 4px;
-            background: #2c9b6e;
-            border: none;
-            margin: 12px 0 28px 0;
-        }
-        .about-section,
-        .services-section,
-        .activities-section,
-        .testimonials-section,
-        .news-section,
-        .insurance-section,
-        .inquiry-section {
-            padding: 70px 0;
-        }
-        .about-section,
-        .testimonials-section,
-        .insurance-section {
-            background: white;
-        }
-        .services-section,
-        .activities-section,
-        .news-section,
-        .inquiry-section {
-            background: #f8fefb;
+        .virtual-header h2 span { color: #0f7b5e; }
+        .virtual-header p {
+            font-size: 1rem;
+            color: #5a6e7c;
+            line-height: 1.7;
+            max-width: 620px;
+            margin: 0 auto;
         }
 
-        /* ---------- ABOUT (modified for mobile: text first, image below) ---------- */
-        .about-grid {
-            display: flex;
-            gap: 50px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        .about-text {
-            flex: 1.2;
-            min-width: 280px;
-        }
-        .about-image-wrapper {
-            flex: 0.8;
-            min-width: 260px;
-        }
-        .about-image-wrapper img {
-            border-radius: 32px;
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-            display: block;
-        }
-        .about-highlights {
-            display: flex;
-            gap: 20px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-        .highlight {
-            background: #f0f8f4;
-            padding: 12px 20px;
-            border-radius: 60px;
-            font-weight: 500;
-        }
-
-        /* ---------- SERVICES (main grid) - FIXED FOR FULL IMAGE DISPLAY ---------- */
-        .services-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 60px;
-            margin-top: 40px;
-        }
-        .service-item {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: stretch;
-            gap: 0px;
+        .virtual-card {
             background: white;
             border-radius: 32px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
         }
-        .service-item:hover {
-            transform: translateY(-5px);
-        }
-        .service-item.reverse {
-            flex-direction: row-reverse;
-        }
-        .service-image {
+
+        /* Image collage side */
+        .virtual-visual {
             flex: 1 1 45%;
             min-width: 300px;
-            max-height: 450px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 8px;
+            padding: 8px;
+            background: #f8fefb;
+        }
+        .virtual-visual figure {
+            margin: 0;
+            border-radius: 20px;
             overflow: hidden;
+            position: relative;
+            background: #e9f5f0;
         }
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        .virtual-visual figure:first-child {
+            grid-row: span 2;
+            border-radius: 24px;
         }
-        .service-content {
+        .virtual-visual img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform 0.5s ease;
+        }
+        .virtual-visual figure:hover img { transform: scale(1.05); }
+        .virtual-visual figcaption {
+            position: absolute; left: 0; right: 0; bottom: 0;
+            padding: 16px 12px 8px;
+            font-size: 0.72rem; font-weight: 600; color: #fff;
+            letter-spacing: 0.2px;
+            background: linear-gradient(to top, rgba(20,77,94,0.85), rgba(20,77,94,0));
+        }
+        .virtual-badge {
+            position: absolute;
+            top: 16px; left: 16px;
+            background: #ffffff;
+            color: #0f7b5e;
+            padding: 8px 14px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 2;
+            letter-spacing: 0.3px;
+        }
+
+        /* Copy side */
+        .virtual-copy {
             flex: 1 1 45%;
+            min-width: 300px;
             padding: 40px 35px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-        .service-content h3 {
-            font-size: 1.8rem;
+        .virtual-copy h3 {
+            font-size: 1.6rem;
             color: #144d5e;
-            margin-bottom: 15px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            line-height: 1.3;
         }
-        .service-content p {
+        .virtual-copy > p {
             color: #5a6e7c;
             line-height: 1.7;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
-        .service-link {
+        .virtual-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 20px;
+            margin: 0 0 24px 0;
+            list-style: none;
+            padding: 0;
+        }
+        .virtual-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.92rem;
+            color: #1f3b4c;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        .virtual-features li i {
+            color: #0f7b5e;
+            font-size: 0.95rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .virtual-facts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            padding: 18px 22px;
+            background: #f8fefb;
+            border: 1px solid #e2f0ea;
+            border-radius: 20px;
+            margin-bottom: 26px;
+        }
+        .virtual-fact strong {
+            display: block;
+            font-size: 1.3rem;
+            color: #144d5e;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .virtual-fact span {
+            font-size: 0.8rem;
+            color: #6c8a9a;
+            font-weight: 500;
+        }
+
+        .virtual-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+        }
+        .virtual-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0f7b5e;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 8px 20px rgba(15, 123, 94, 0.25);
+            transition: 0.2s;
+        }
+        .virtual-cta:hover {
+            background: #0a5f48;
+            transform: translateY(-2px);
+            gap: 12px;
+        }
+
+        .virtual-contact {
+            font-size: 0.88rem;
+            color: #4a6272;
+        }
+        .virtual-contact a {
             color: #0f7b5e;
             font-weight: 600;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.2s;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-size: 1rem;
         }
-        .service-link:hover {
-            gap: 12px;
-        }
+        .virtual-contact a:hover { text-decoration: underline; }
 
-        .view-all-wrapper {
-            text-align: center;
-            margin-top: 50px;
+        .virtual-disclaimer {
+            margin-top: 22px;
+            font-size: 0.78rem;
+            color: #7a8f9d;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.5;
         }
-        .view-all-btn {
-            background: #0f7b5e;
-            color: white;
-            border: none;
-            padding: 16px 48px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 8px 20px rgba(15, 123, 94, 0.25);
+        .virtual-disclaimer i { color: #0f7b5e; margin-top: 2px; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .virtual-card { flex-direction: column; }
+            .virtual-visual {
+                height: 340px;
+                padding: 8px 8px 0 8px;
+            }
+            .virtual-copy { padding: 30px 24px; }
+            .virtual-header h2 { font-size: 1.9rem; }
         }
-        .view-all-btn:hover {
-            background: #0a5f48;
-            transform: scale(1.02);
+        @media (max-width: 600px) {
+            .virtual-section { padding: 55px 0; }
+            .virtual-visual { height: 260px; }
+            .virtual-features { grid-template-columns: 1fr; }
+            .virtual-header h2 { font-size: 1.6rem; }
+            .virtual-copy h3 { font-size: 1.35rem; }
+            .virtual-cta { width: 100%; justify-content: center; }
+            .virtual-cta-row { flex-direction: column; align-items: stretch; }
+            .virtual-badge { font-size: 0.65rem; padding: 6px 12px; }
         }
+        /* ================================================================
+           END VIRTUAL CLINIC SECTION
+           ================================================================ */
 
         /* ---------- ACTIVITIES (swiper) ---------- */
-        .swiper {
-            padding: 30px 0 60px;
-        }
+        .swiper { padding: 30px 0 60px; }
         .swiper-slide {
-            background: white;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            background: white; border-radius: 28px; overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
         }
-        .activity-slide-img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-        }
-        .activity-slide-content {
-            padding: 24px;
-        }
-        .doctor-name {
-            font-weight: 700;
-            color: #0f7b5e;
-            margin: 10px 0;
-            display: flex;
-            gap: 8px;
-        }
+        .activity-slide-img { width: 100%; height: 260px; object-fit: cover; }
+        .activity-slide-content { padding: 24px; }
+        .doctor-name { font-weight: 700; color: #0f7b5e; margin: 10px 0; display: flex; gap: 8px; }
         .activitySwiper .swiper-button-next,
-        .activitySwiper .swiper-button-prev {
-            display: none;
-        }
+        .activitySwiper .swiper-button-prev { display: none; }
 
-        /* ---------- NEWS (grid & swiper) ---------- */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            margin-top: 30px;
-        }
+        /* ---------- NEWS ---------- */
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 30px; }
         .news-card {
-            background: white;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            cursor: pointer;
+            background: white; border-radius: 28px; overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05); cursor: pointer;
         }
-        .news-card:hover {
-            transform: translateY(-4px);
-        }
-        .news-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .news-content {
-            padding: 24px;
-        }
-        .news-date {
-            font-size: 0.75rem;
-            color: #0f7b5e;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .news-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #144d5e;
-            margin-bottom: 12px;
-        }
-        .news-excerpt {
-            color: #5a6e7c;
-            margin-bottom: 16px;
-        }
-        .read-more {
-            color: #0f7b5e;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-        }
+        .news-card:hover { transform: translateY(-4px); }
+        .news-img { width: 100%; height: 200px; object-fit: cover; }
+        .news-content { padding: 24px; }
+        .news-date { font-size: 0.75rem; color: #0f7b5e; font-weight: 600; margin-bottom: 8px; }
+        .news-title { font-size: 1.25rem; font-weight: 700; color: #144d5e; margin-bottom: 12px; }
+        .news-excerpt { color: #5a6e7c; margin-bottom: 16px; }
+        .read-more { color: #0f7b5e; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
 
-        /* News Swiper for mobile */
-        .newsSwiper {
-            display: none;
-            padding: 30px 0 60px;
-        }
+        .newsSwiper { display: none; padding: 30px 0 60px; }
         .newsSwiper .swiper-slide {
-            background: white;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-            height: auto;
+            background: white; border-radius: 28px; overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08); height: auto;
         }
-        .newsSwiper .swiper-slide .news-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .newsSwiper .swiper-slide .news-content {
-            padding: 24px;
-        }
-        .newsSwiper .swiper-slide .news-date {
-            font-size: 0.75rem;
-            color: #0f7b5e;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .newsSwiper .swiper-slide .news-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #144d5e;
-            margin-bottom: 12px;
-        }
-        .newsSwiper .swiper-slide .news-excerpt {
-            color: #5a6e7c;
-            margin-bottom: 16px;
-        }
-        .newsSwiper .swiper-slide .read-more {
-            color: #0f7b5e;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-        }
-        .newsSwiper .swiper-pagination {
-            position: relative;
-            margin-top: 20px;
-        }
+        .newsSwiper .swiper-slide .news-img { width: 100%; height: 200px; object-fit: cover; }
+        .newsSwiper .swiper-slide .news-content { padding: 24px; }
+        .newsSwiper .swiper-pagination { position: relative; margin-top: 20px; }
 
         /* ---------- TESTIMONIALS ---------- */
-        .testimonials-slider {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
+        .testimonials-slider { max-width: 900px; margin: 0 auto; position: relative; }
         .testimonial-slide {
-            background: #f8fefb;
-            border-radius: 28px;
-            padding: 48px 40px;
-            text-align: center;
-            border: 1px solid #e2f0ea;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+            background: #f8fefb; border-radius: 28px; padding: 48px 40px;
+            text-align: center; border: 1px solid #e2f0ea;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
         }
-        .quote-icon {
-            font-size: 3rem;
-            color: #0f7b5e;
-            opacity: 0.3;
-            margin-bottom: 20px;
-        }
+        .quote-icon { font-size: 3rem; color: #0f7b5e; opacity: 0.3; margin-bottom: 20px; }
         .testimonial-text {
-            font-size: 1.15rem;
-            line-height: 1.7;
-            color: #2d3e4e;
-            font-style: italic;
-            margin-bottom: 28px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.15rem; line-height: 1.7; color: #2d3e4e;
+            font-style: italic; margin-bottom: 28px; max-width: 700px;
+            margin-left: auto; margin-right: auto;
         }
         .patient-avatar {
-            width: 70px;
-            height: 70px;
-            background: #0f7b5e;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.6rem;
-            margin: 0 auto 12px;
+            width: 70px; height: 70px; background: #0f7b5e; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: bold; font-size: 1.6rem; margin: 0 auto 12px;
         }
-        .patient-name {
-            font-weight: 700;
-            color: #1b4e62;
-            font-size: 1.1rem;
-        }
-        .patient-condition {
-            font-size: 0.85rem;
-            color: #6c8a9a;
-            margin-top: 4px;
-        }
-        .stars {
-            color: #f5b042;
-            margin-top: 10px;
-            font-size: 1rem;
-        }
-        .testimonial-dots {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 32px;
-        }
+        .patient-name { font-weight: 700; color: #1b4e62; font-size: 1.1rem; }
+        .patient-condition { font-size: 0.85rem; color: #6c8a9a; margin-top: 4px; }
+        .stars { color: #f5b042; margin-top: 10px; font-size: 1rem; }
+        .testimonial-dots { display: flex; justify-content: center; gap: 12px; margin-top: 32px; }
         .testimonial-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #cbdbe0;
-            cursor: pointer;
-            transition: 0.2s;
+            width: 10px; height: 10px; border-radius: 50%;
+            background: #cbdbe0; cursor: pointer; transition: 0.2s;
         }
-        .testimonial-dot.active {
-            background: #0f7b5e;
-            width: 24px;
-            border-radius: 5px;
-        }
+        .testimonial-dot.active { background: #0f7b5e; width: 24px; border-radius: 5px; }
         .testimonial-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: white;
-            border: 1px solid #e2f0ea;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.2s;
-            color: #0f7b5e;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: white; border: 1px solid #e2f0ea;
+            width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.2s; color: #0f7b5e; font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        .testimonial-nav:hover {
-            background: #0f7b5e;
-            color: white;
-            border-color: #0f7b5e;
-        }
-        .testimonial-nav.prev {
-            left: -60px;
-        }
-        .testimonial-nav.next {
-            right: -60px;
-        }
+        .testimonial-nav:hover { background: #0f7b5e; color: white; border-color: #0f7b5e; }
+        .testimonial-nav.prev { left: -60px; }
+        .testimonial-nav.next { right: -60px; }
         @media (max-width: 1000px) {
             .testimonial-nav.prev { left: -20px; }
             .testimonial-nav.next { right: -20px; }
@@ -676,114 +511,52 @@
         }
 
         /* ---------- WHY CHOOSE + INQUIRY ---------- */
-        .why-choose-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            margin-top: 20px;
-        }
-        .inquiry-col {
-            flex: 1.2;
-            min-width: 280px;
-        }
+        .why-choose-wrapper { display: flex; flex-wrap: wrap; gap: 50px; margin-top: 20px; }
+        .inquiry-col { flex: 1.2; min-width: 280px; }
         .why-col {
-            flex: 1;
-            min-width: 300px;
-            background: rgba(15, 123, 94, 0.03);
-            border-radius: 48px;
-            padding: 28px 24px;
-            backdrop-filter: blur(2px);
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+            flex: 1; min-width: 300px;
+            background: rgba(15,123,94,0.03); border-radius: 48px;
+            padding: 28px 24px; backdrop-filter: blur(2px);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
             border: 1px solid #e2f0ea;
         }
         .why-heading {
-            font-size: 1.9rem;
-            font-weight: 800;
-            color: #144d5e;
-            margin-bottom: 28px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-left: 5px solid #2c9b6e;
-            padding-left: 20px;
+            font-size: 1.9rem; font-weight: 800; color: #144d5e;
+            margin-bottom: 28px; display: flex; align-items: center; gap: 12px;
+            border-left: 5px solid #2c9b6e; padding-left: 20px;
         }
         .carousel-container {
-            position: relative;
-            min-height: 420px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative; min-height: 420px;
+            display: flex; align-items: center; justify-content: center;
         }
         .reason-card {
-            background: white;
-            border-radius: 32px;
-            padding: 32px 28px;
-            text-align: center;
-            transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(44, 155, 110, 0.2);
-            width: 100%;
-            opacity: 0;
-            transform: translateX(25px) scale(0.96);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            pointer-events: none;
-            backdrop-filter: blur(0px);
+            background: white; border-radius: 32px; padding: 32px 28px;
+            text-align: center; transition: all 0.5s cubic-bezier(0.2,0.9,0.4,1.1);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+            border: 1px solid rgba(44,155,110,0.2);
+            width: 100%; opacity: 0; transform: translateX(25px) scale(0.96);
+            position: absolute; top: 0; left: 0; right: 0;
+            pointer-events: none; backdrop-filter: blur(0px);
         }
         .reason-card.active {
-            opacity: 1;
-            transform: translateX(0) scale(1);
-            position: relative;
-            pointer-events: auto;
-            box-shadow: 0 28px 40px -12px rgba(15, 123, 94, 0.2);
+            opacity: 1; transform: translateX(0) scale(1);
+            position: relative; pointer-events: auto;
+            box-shadow: 0 28px 40px -12px rgba(15,123,94,0.2);
         }
         .reason-card i {
-            font-size: 3.2rem;
-            color: #0f7b5e;
-            background: #e9f5f0;
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            transition: 0.3s;
+            font-size: 3.2rem; color: #0f7b5e; background: #e9f5f0;
+            width: 80px; height: 80px; line-height: 80px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            margin-bottom: 24px; transition: 0.3s;
         }
-        .reason-card h3 {
-            font-size: 1.7rem;
-            font-weight: 700;
-            color: #144d5e;
-            margin-bottom: 16px;
-        }
-        .reason-card p {
-            color: #4a6272;
-            line-height: 1.6;
-            font-size: 1rem;
-            margin-top: 8px;
-        }
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 40px;
-        }
+        .reason-card h3 { font-size: 1.7rem; font-weight: 700; color: #144d5e; margin-bottom: 16px; }
+        .reason-card p { color: #4a6272; line-height: 1.6; font-size: 1rem; margin-top: 8px; }
+        .carousel-dots { display: flex; justify-content: center; gap: 12px; margin-top: 40px; }
         .carousel-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #cbdbe0;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            width: 10px; height: 10px; border-radius: 50%;
+            background: #cbdbe0; transition: all 0.3s ease; cursor: pointer;
         }
-        .carousel-dot.active-dot {
-            background: #0f7b5e;
-            width: 28px;
-            border-radius: 8px;
-        }
+        .carousel-dot.active-dot { background: #0f7b5e; width: 28px; border-radius: 8px; }
         @media (max-width: 850px) {
             .why-choose-wrapper { flex-direction: column; }
             .reason-card h3 { font-size: 1.4rem; }
@@ -793,478 +566,184 @@
 
         /* ---------- FORM ---------- */
         .form-container {
-            width: 100%;
-            max-width: 700px;
-            background: white;
-            border-radius: 32px;
-            padding: 40px;
-            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.05);
+            width: 100%; max-width: 700px; background: white;
+            border-radius: 32px; padding: 40px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.05);
             border: 1px solid #e4f0ea;
         }
-        .form-group {
-            margin-bottom: 24px;
-        }
-        .form-group label {
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 18px;
-            border: 1px solid #cbdbe0;
-            border-radius: 24px;
-            font-family: inherit;
+        .form-group { margin-bottom: 24px; }
+        .form-group label { font-weight: 600; margin-bottom: 8px; display: block; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 14px 18px; border: 1px solid #cbdbe0;
+            border-radius: 24px; font-family: inherit;
         }
         .success-message {
-            background: #dff0e8;
-            color: #0a5f48;
-            padding: 12px;
-            border-radius: 48px;
-            margin-top: 20px;
-            text-align: center;
+            background: #dff0e8; color: #0a5f48; padding: 12px;
+            border-radius: 48px; margin-top: 20px; text-align: center;
         }
         .error-message {
-            background: #ffe9e9;
-            color: #b33;
-            padding: 10px;
-            border-radius: 48px;
-            margin-top: 12px;
+            background: #ffe9e9; color: #b33; padding: 10px;
+            border-radius: 48px; margin-top: 12px;
         }
 
-        /* ---------- INSURANCE (updated with logos, white background cards) ---------- */
+        /* ---------- INSURANCE ---------- */
         .insurance-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 30px 50px;
-            margin-top: 40px;
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: center; gap: 30px 50px; margin-top: 40px;
         }
         .insurance-card {
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 20px 32px;
-            text-align: center;
-            min-width: 140px;
-            border: 1px solid #e2f0ea;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background: #ffffff; border-radius: 24px; padding: 20px 32px;
+            text-align: center; min-width: 140px; border: 1px solid #e2f0ea;
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; transition: transform 0.2s ease, box-shadow 0.2s ease;
             box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
-        .insurance-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-        }
+        .insurance-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
         .insurance-card img {
-            max-width: 120px;
-            height: auto;
-            max-height: 70px;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto;
-            filter: none;
+            max-width: 120px; height: auto; max-height: 70px;
+            object-fit: contain; display: block; margin: 0 auto; filter: none;
         }
-        .insurance-card h4 {
-            margin-top: 12px;
-            font-weight: 600;
-            color: #144d5e;
-            font-size: 1rem;
-            letter-spacing: 0.3px;
-        }
+        .insurance-card h4 { margin-top: 12px; font-weight: 600; color: #144d5e; font-size: 1rem; letter-spacing: 0.3px; }
         .insurance-note {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            background: #e8f5f0;
-            border-radius: 48px;
+            text-align: center; margin-top: 40px; padding: 20px;
+            background: #e8f5f0; border-radius: 48px;
         }
 
-        /* ---------- DETAIL OVERLAY (full-page) ---------- */
+        /* ---------- DETAIL OVERLAY ---------- */
         .detail-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            z-index: 2000;
-            overflow-y: auto;
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background: white;
+            z-index: 2000; overflow-y: auto;
         }
-        .detail-overlay.active {
-            display: block;
-        }
-        .detail-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: white;
-            min-height: 100vh;
-        }
+        .detail-overlay.active { display: block; }
+        .detail-container { max-width: 1100px; margin: 0 auto; background: white; min-height: 100vh; }
         .detail-header {
-            position: sticky;
-            top: 0;
-            background: white;
-            padding: 20px 30px;
-            border-bottom: 1px solid #e2f0ea;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.95);
-            z-index: 10;
+            position: sticky; top: 0; background: white; padding: 20px 30px;
+            border-bottom: 1px solid #e2f0ea; display: flex;
+            justify-content: space-between; align-items: center;
+            background: rgba(255,255,255,0.95); z-index: 10;
         }
         .close-detail-btn {
-            background: #0f7b5e;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
+            background: #0f7b5e; color: white; border: none;
+            width: 40px; height: 40px; border-radius: 50%;
+            font-size: 1.2rem; cursor: pointer;
         }
-        .detail-full-image {
-            width: 100%;
-            max-height: 550px;
-            object-fit: cover;
-        }
-        .detail-content {
-            padding: 48px;
-        }
-        .detail-title {
-            color: #144d5e;
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 24px;
-        }
-        .detail-body {
-            color: #2d3e4e;
-            line-height: 1.8;
-        }
-        .detail-body p {
-            margin-bottom: 20px;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        .gallery-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+        .detail-full-image { width: 100%; max-height: 550px; object-fit: cover; }
+        .detail-content { padding: 48px; }
+        .detail-title { color: #144d5e; font-size: 2.2rem; font-weight: 800; margin-bottom: 24px; }
+        .detail-body { color: #2d3e4e; line-height: 1.8; }
+        .detail-body p { margin-bottom: 20px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }
+        .gallery-img { width: 100%; height: 180px; object-fit: cover; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         .back-to-home-btn {
-            background: #0f7b5e;
-            color: white;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 40px;
-            margin-top: 40px;
-            cursor: pointer;
+            background: #0f7b5e; color: white; border: none;
+            padding: 12px 28px; border-radius: 40px;
+            margin-top: 40px; cursor: pointer;
         }
 
         /* ---------- WHATSAPP ---------- */
         .whatsapp-widget {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+            position: fixed; bottom: 24px; right: 24px; z-index: 1000;
+            display: flex; flex-direction: column; align-items: flex-end;
         }
         .whatsapp-chat-preview {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            width: 280px;
-            margin-bottom: 12px;
-            overflow: hidden;
+            background: white; border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            width: 280px; margin-bottom: 12px; overflow: hidden;
             transition: all 0.25s ease;
         }
-        .whatsapp-chat-preview.hidden {
-            display: none;
-        }
+        .whatsapp-chat-preview.hidden { display: none; }
         .whatsapp-preview-header {
-            background: #075e54;
-            color: white;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            background: #075e54; color: white; padding: 12px 16px;
+            display: flex; align-items: center; justify-content: space-between;
         }
-        .whatsapp-preview-header-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .whatsapp-preview-header-left { display: flex; align-items: center; gap: 12px; }
         .logo-circle {
-            background: white;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+            background: white; width: 42px; height: 42px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
-        .logo-circle .header-logo {
-            width: 32px;
-            height: 32px;
-            object-fit: contain;
-        }
-        .whatsapp-preview-header-left .name {
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        .whatsapp-preview-header-left .status {
-            font-size: 0.7rem;
-            opacity: 0.8;
-            margin-left: 5px;
-        }
+        .logo-circle .header-logo { width: 32px; height: 32px; object-fit: contain; }
+        .whatsapp-preview-header-left .name { font-size: 0.9rem; font-weight: 600; }
+        .whatsapp-preview-header-left .status { font-size: 0.7rem; opacity: 0.8; margin-left: 5px; }
         .close-widget-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.1rem;
-            cursor: pointer;
-            padding: 0 5px;
-            opacity: 0.8;
+            background: none; border: none; color: white;
+            font-size: 1.1rem; cursor: pointer; padding: 0 5px; opacity: 0.8;
         }
-        .close-widget-btn:hover {
-            opacity: 1;
-        }
+        .close-widget-btn:hover { opacity: 1; }
         .whatsapp-preview-body {
             padding: 16px;
             background-image: url('https://wallpapercave.com/wp/wp4044079.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
+            background-size: cover; background-position: center; position: relative;
         }
         .whatsapp-preview-body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.1);
-            pointer-events: none;
+            content: ''; position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.1); pointer-events: none;
         }
         .whatsapp-preview-message {
-            background: white;
-            padding: 10px 12px;
-            border-radius: 12px;
-            border-bottom-left-radius: 2px;
-            font-size: 0.85rem;
-            color: #1f2f3e;
-            max-width: 90%;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-            position: relative;
-            z-index: 1;
+            background: white; padding: 10px 12px; border-radius: 12px;
+            border-bottom-left-radius: 2px; font-size: 0.85rem;
+            color: #1f2f3e; max-width: 90%;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05); position: relative; z-index: 1;
         }
-        .message-sender {
-            font-weight: 700;
-            color: #075e54;
-            font-size: 0.75rem;
-            margin-bottom: 4px;
-        }
-        .whatsapp-preview-message p {
-            margin: 0;
-        }
-        .whatsapp-preview-footer {
-            padding: 12px 16px;
-            background: white;
-            border-top: 1px solid #eee;
-        }
+        .message-sender { font-weight: 700; color: #075e54; font-size: 0.75rem; margin-bottom: 4px; }
+        .whatsapp-preview-message p { margin: 0; }
+        .whatsapp-preview-footer { padding: 12px 16px; background: white; border-top: 1px solid #eee; }
         .whatsapp-start-btn {
-            background: #25d366;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
+            background: #25d366; color: white; border: none;
+            padding: 8px 16px; border-radius: 30px; font-weight: 600;
+            font-size: 0.8rem; cursor: pointer; display: flex;
+            align-items: center; justify-content: center; gap: 8px; width: 100%;
         }
-        .whatsapp-start-btn:hover {
-            background: #20b859;
-        }
+        .whatsapp-start-btn:hover { background: #20b859; }
         .whatsapp-button {
-            background-color: #25d366;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-            transition: 0.2s;
-            border: none;
-            font-size: 0.9rem;
+            background-color: #25d366; color: white; padding: 10px 20px;
+            border-radius: 50px; display: flex; align-items: center; gap: 10px;
+            font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer; transition: 0.2s; border: none; font-size: 0.9rem;
         }
-        .whatsapp-button i {
-            font-size: 1.3rem;
-        }
-        .whatsapp-button:hover {
-            transform: scale(1.03);
-            background-color: #20b859;
-        }
+        .whatsapp-button i { font-size: 1.3rem; }
+        .whatsapp-button:hover { transform: scale(1.03); background-color: #20b859; }
 
         /* ---------- FOOTER ---------- */
-        .footer {
-            background: #0d2c38;
-            color: #cddfe6;
-            padding: 48px 0 28px;
-        }
-        .footer-grid {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        .footer-col h4 {
-            margin-bottom: 16px;
-            color: white;
-        }
-        .footer-col p,
-        .footer-col a {
-            margin-bottom: 10px;
-            color: #b8dfd0;
-            text-decoration: none;
-        }
-        .social-icons {
-            display: flex;
-            gap: 16px;
-            margin-top: 12px;
-        }
-        .social-icons i {
-            font-size: 1.3rem;
-            cursor: pointer;
-        }
-        .subscribe-group {
-            display: flex;
-            margin-top: 8px;
-        }
-        .subscribe-group input {
-            padding: 8px 12px;
-            border-radius: 40px;
-            border: none;
-            flex: 1;
-        }
+        .footer { background: #0d2c38; color: #cddfe6; padding: 48px 0 28px; }
+        .footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+        .footer-col h4 { margin-bottom: 16px; color: white; }
+        .footer-col p, .footer-col a { margin-bottom: 10px; color: #b8dfd0; text-decoration: none; }
+        .social-icons { display: flex; gap: 16px; margin-top: 12px; }
+        .social-icons i { font-size: 1.3rem; cursor: pointer; }
+        .subscribe-group { display: flex; margin-top: 8px; }
+        .subscribe-group input { padding: 8px 12px; border-radius: 40px; border: none; flex: 1; }
         .subscribe-group button {
-            background: #2c9b6e;
-            border: none;
-            border-radius: 40px;
-            padding: 8px 16px;
-            margin-left: 8px;
-            color: white;
-            cursor: pointer;
+            background: #2c9b6e; border: none; border-radius: 40px;
+            padding: 8px 16px; margin-left: 8px; color: white; cursor: pointer;
         }
-        .footer-bottom {
-            text-align: center;
-            margin-top: 48px;
-            border-top: 1px solid #2d5464;
-            padding-top: 24px;
-        }
+        .footer-bottom { text-align: center; margin-top: 48px; border-top: 1px solid #2d5464; padding-top: 24px; }
 
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 850px) {
             .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                background: white;
-                padding: 20px;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                display: none; width: 100%; flex-direction: column;
+                background: white; padding: 20px; position: absolute;
+                top: 100%; left: 0; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             }
-            .nav-links.active {
-                display: flex;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            .hero-content h2 {
-                font-size: 2rem;
-                white-space: normal;
-            }
-            .ambulance-corner {
-                top: 80px;
-                right: 16px;
-            }
-            .ambulance-btn {
-                padding: 8px 16px;
-                font-size: 0.75rem;
-            }
-            .logo img {
-                height: 50px;
-            }
-            .logo h1 {
-                font-size: 1.4rem;
-            }
-            .slogan {
-                font-size: 0.6rem;
-            }
-            .nav-container {
-                padding: 12px 20px;
-            }
-            /* ABOUT: text first, image below on tablets and smaller */
-            .about-grid {
-                flex-direction: column;
-            }
-            .about-text {
-                order: 1;
-            }
-            .about-image-wrapper {
-                order: 2;
-                flex: 0 0 auto;
-                width: 100%;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-            /* SERVICES: stack on mobile */
-            .service-item,
-            .service-item.reverse {
-                flex-direction: column !important;
-            }
-            .service-image {
-                flex: 1 1 auto;
-                min-width: unset;
-                max-height: 300px;
-                width: 100%;
-            }
-            .service-image img {
-                height: 300px;
-                width: 100%;
-            }
-            .service-content {
-                padding: 30px 24px;
-            }
-            /* NEWS: show swiper on smaller screens, hide grid */
-            .news-grid {
-                display: none;
-            }
-            .newsSwiper {
-                display: block;
-            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .hero-content h2 { font-size: 2rem; white-space: normal; }
+            .ambulance-corner { top: 80px; right: 16px; }
+            .ambulance-btn { padding: 8px 16px; font-size: 0.75rem; }
+            .logo img { height: 50px; }
+            .logo h1 { font-size: 1.4rem; }
+            .slogan { font-size: 0.6rem; }
+            .nav-container { padding: 12px 20px; }
+            .about-grid { flex-direction: column; }
+            .about-text { order: 1; }
+            .about-image-wrapper { order: 2; flex: 0 0 auto; width: 100%; max-width: 500px; margin: 0 auto; }
+            .service-item, .service-item.reverse { flex-direction: column !important; }
+            .service-image { flex: 1 1 auto; min-width: unset; max-height: 300px; width: 100%; }
+            .service-image img { height: 300px; width: 100%; }
+            .service-content { padding: 30px 24px; }
+            .news-grid { display: none; }
+            .newsSwiper { display: block; }
         }
         @media (max-width: 1024px) {
             .container { padding: 0 20px; }
@@ -1286,30 +765,13 @@
             .whatsapp-chat-preview { width: 260px; }
             .logo-circle { width: 36px; height: 36px; }
             .logo-circle .header-logo { width: 28px; height: 28px; }
-            .about-image-wrapper {
-                max-width: 100%;
-            }
-            .hero-bg {
-                background-size: cover;
-                background-position: center;
-            }
-            .service-image {
-                max-height: 250px;
-            }
-            .service-image img {
-                height: 250px;
-            }
-            .insurance-grid {
-                gap: 20px 30px;
-            }
-            .insurance-card {
-                min-width: 100px;
-                padding: 16px 20px;
-            }
-            .insurance-card img {
-                max-width: 90px;
-                max-height: 55px;
-            }
+            .about-image-wrapper { max-width: 100%; }
+            .hero-bg { background-size: cover; background-position: center; }
+            .service-image { max-height: 250px; }
+            .service-image img { height: 250px; }
+            .insurance-grid { gap: 20px 30px; }
+            .insurance-card { min-width: 100px; padding: 16px 20px; }
+            .insurance-card img { max-width: 90px; max-height: 55px; }
         }
         @media (max-width: 480px) {
             .hero-content h2 { font-size: 1.65rem; }
@@ -1320,40 +782,17 @@
             .whatsapp-button span { display: none; }
             .whatsapp-button { width: 55px; height: 55px; border-radius: 50%; justify-content: center; padding: 0; }
             .whatsapp-button i { margin: 0; font-size: 1.5rem; }
-            .about-image-wrapper {
-                max-width: 100%;
-            }
+            .about-image-wrapper { max-width: 100%; }
             .hero { min-height: 350px; padding: 70px 0 60px; }
-            .hero-bg {
-                background-size: cover;
-                background-position: center;
-            }
-            .service-image {
-                max-height: 200px;
-            }
-            .service-image img {
-                height: 200px;
-            }
-            .insurance-grid {
-                gap: 16px 20px;
-            }
-            .insurance-card {
-                min-width: 80px;
-                padding: 12px 16px;
-            }
-            .insurance-card img {
-                max-width: 70px;
-                max-height: 45px;
-            }
-            .insurance-card h4 {
-                font-size: 0.8rem;
-                margin-top: 8px;
-            }
+            .hero-bg { background-size: cover; background-position: center; }
+            .service-image { max-height: 200px; }
+            .service-image img { height: 200px; }
+            .insurance-grid { gap: 16px 20px; }
+            .insurance-card { min-width: 80px; padding: 12px 16px; }
+            .insurance-card img { max-width: 70px; max-height: 45px; }
+            .insurance-card h4 { font-size: 0.8rem; margin-top: 8px; }
         }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
+        img { max-width: 100%; height: auto; }
     </style>
 </head>
 <body>
@@ -1373,6 +812,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#virtual-clinic">Virtual Clinic</a></li>
                 <li><a href="#activities">Activities</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#news">News</a></li>
@@ -1411,7 +851,7 @@
         </div>
     </section>
 
-    <!-- ===== ABOUT (text first, image below on mobile/tablet) ===== -->
+    <!-- ===== ABOUT ===== -->
     <section id="about" class="about-section">
         <div class="container">
             <span class="section-title">About NUSHA Hospital</span>
@@ -1449,6 +889,85 @@
         </div>
     </section>
 
+    <!-- ============================================================
+         VIRTUAL CLINIC – NUTRITION & WEIGHT MANAGEMENT
+         ============================================================ -->
+    <section id="virtual-clinic" class="virtual-section">
+        <div class="container">
+            <div class="virtual-header">
+                <div class="virtual-eyebrow"><i class="fas fa-video"></i> Nusha Virtual Clinic</div>
+                <h2>Nutrition &amp; <span>Weight Management</span></h2>
+                <p>Personalised, doctor-led weight assessment and nutrition care — from wherever you feel most comfortable. Begin with a 30-minute virtual consultation with Dr Nashiba Namutebi.</p>
+            </div>
+
+            <div class="virtual-card">
+                <!-- Image collage -->
+                <div class="virtual-visual">
+                    <div class="virtual-badge"><i class="fas fa-shield-heart"></i> Doctor-led · Private</div>
+                    <figure>
+                        <img src="photos/nutrition/healthy-plate.jfif" alt="Balanced healthy meal with vegetables, protein and whole grains" loading="lazy" onerror="this.style.display='none'">
+                        <figcaption>Balanced, everyday eating</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="photos/nutrition/consultation.jfif" alt="Doctor guiding a patient through a personalised nutrition plan" loading="lazy" onerror="this.style.display='none'">
+                        <figcaption>One-to-one guidance</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="photos/nutrition/progress.jfif" alt="Patient tracking weight and activity progress" loading="lazy" onerror="this.style.display='none'">
+                        <figcaption>Measured progress</figcaption>
+                    </figure>
+                </div>
+
+                <!-- Copy + CTA -->
+                <div class="virtual-copy">
+                    <h3>A healthier you. One conversation at a time.</h3>
+                    <p>Whether you are managing your weight, planning meals for a health condition, or simply want to eat better, our virtual clinic gives you practical, sustainable guidance tailored to your health, culture and daily routine — no crash diets, no guesswork.</p>
+
+                    <ul class="virtual-features">
+                        <li><i class="fas fa-user-md"></i> Personalised weight assessment</li>
+                        <li><i class="fas fa-utensils"></i> Nutrition &amp; meal planning</li>
+                        <li><i class="fas fa-heart-pulse"></i> Metabolic health review</li>
+                        <li><i class="fas fa-chart-line"></i> Progress &amp; follow-up reviews</li>
+                        <li><i class="fas fa-comments"></i> WhatsApp video or Google Meet</li>
+                        <li><i class="fas fa-lock"></i> Private &amp; confidential</li>
+                    </ul>
+
+                    <div class="virtual-facts">
+                        <div class="virtual-fact">
+                            <strong>30 minutes</strong>
+                            <span>Dedicated consultation</span>
+                        </div>
+                        <div class="virtual-fact">
+                            <strong>UGX 30,000</strong>
+                            <span>Book first · pay before visit</span>
+                        </div>
+                        <div class="virtual-fact">
+                            <strong>Mon–Sat</strong>
+                            <span>9:00 am – 3:00 pm EAT</span>
+                        </div>
+                    </div>
+
+                    <div class="virtual-cta-row">
+                        <a href="virtualclinic.html" class="virtual-cta">
+                            Book Your Virtual Consultation <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <div class="virtual-contact">
+                            Questions? <a href="https://wa.me/256703883166">WhatsApp +256 703 883166</a>
+                        </div>
+                    </div>
+
+                    <div class="virtual-disclaimer">
+                        <i class="fas fa-circle-info"></i>
+                        <span>This service is for scheduled virtual consultations. For urgent medical needs, please seek immediate in-person care or call our 24/7 ambulance line.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ============================================================
+         END VIRTUAL CLINIC SECTION
+         ============================================================ -->
+
     <!-- ===== ACTIVITIES ===== -->
     <section id="activities" class="activities-section">
         <div class="container"><span class="section-title">Ongoing Medical Activities</span><hr class="divider"></div>
@@ -1483,9 +1002,7 @@
             <span class="section-title">Recent News & Updates</span>
             <hr class="divider">
             <p>Stay informed about the latest happenings at Nusha Hospital.</p>
-            <!-- Grid view for larger screens -->
             <div class="news-grid" id="newsGrid"></div>
-            <!-- Swiper view for smaller screens -->
             <div class="swiper newsSwiper" id="newsSwiper">
                 <div class="swiper-wrapper" id="newsSwiperWrapper"></div>
                 <div class="swiper-pagination"></div>
@@ -1493,7 +1010,7 @@
         </div>
     </section>
 
-    <!-- ===== INSURANCE (updated with logos, white background cards) ===== -->
+    <!-- ===== INSURANCE ===== -->
     <section id="insurance" class="insurance-section">
         <div class="container">
             <span class="section-title">Accepted Insurance Partners</span>
@@ -1557,7 +1074,7 @@
                 <p><i class="fas fa-envelope"></i> nushahospital07@gmail.com</p>
                 <div class="social-icons"><i class="fab fa-facebook-f"></i><i class="fab fa-twitter"></i><i class="fab fa-instagram"></i><i class="fab fa-linkedin-in"></i></div>
             </div>
-            <div class="footer-col"><h4>Quick Links</h4><p><a href="#home">Home</a></p><p><a href="#about">About Us</a></p><p><a href="#services">Services</a></p><p><a href="#activities">Activities</a></p><p><a href="#testimonials">Testimonials</a></p><p><a href="#news">News</a></p><p><a href="#insurance">Insurance</a></p></div>
+            <div class="footer-col"><h4>Quick Links</h4><p><a href="#home">Home</a></p><p><a href="#about">About Us</a></p><p><a href="#services">Services</a></p><p><a href="#virtual-clinic">Virtual Clinic</a></p><p><a href="#activities">Activities</a></p><p><a href="#testimonials">Testimonials</a></p><p><a href="#news">News</a></p><p><a href="#insurance">Insurance</a></p></div>
             <div class="footer-col"><h4>Emergency & Support</h4><p><i class="fas fa-ambulance"></i> 24/7 Helpline: +256 704308025</p><p><i class="fab fa-whatsapp"></i> Emergency WhatsApp: +256704308025</p><p><i class="far fa-clock"></i> Visiting Hours: 10am – 8pm (Daily)</p></div>
             <div class="footer-col"><h4>Subscribe to Health Tips</h4><div class="subscribe-group"><input type="email" id="subscribeEmail" placeholder="Your email"><button id="subscribeBtn">Subscribe</button></div><p id="subFeedback" style="font-size:0.7rem; margin-top:6px;"></p></div>
         </div>
@@ -1612,30 +1129,18 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         // EmailJS init
         emailjs.init("tbcuByA2sShWCC1wG");
 
         // ---------- DATA ----------
-        const cardiologyGallery = ["photos/services/cardiology.jpg", "photos/services/cardiology.jpg",
-            "photos/services/cardiology.jpg"
-        ];
-        const maternityGallery = ["photos/services/maternityandchildcare.jpg", "photos/services/maternityandchildcare.jpg",
-            "photos/services/maternityandchildcare.jpg"
-        ];
-        const neurologyGallery = ["photos/services/neurology.jpg", "photos/services/neurology.jpg",
-            "photos/services/neurology.jpg"
-        ];
-        const pediatricsGallery = ["photos/services/pediatrics.jpg", "photos/services/pediatrics.jpg",
-            "photos/services/pediatrics.jpg"
-        ];
-        const ultraGallery = ["photos/services/ultra.JPG", "photos/services/ultra.JPG",
-            "photos/services/ultra.JPG"
-        ];
+        const cardiologyGallery = ["photos/services/cardiology.jpg", "photos/services/cardiology.jpg", "photos/services/cardiology.jpg"];
+        const maternityGallery = ["photos/services/maternityandchildcare.jpg", "photos/services/maternityandchildcare.jpg", "photos/services/maternityandchildcare.jpg"];
+        const neurologyGallery = ["photos/services/neurology.jpg", "photos/services/neurology.jpg", "photos/services/neurology.jpg"];
+        const pediatricsGallery = ["photos/services/pediatrics.jpg", "photos/services/pediatrics.jpg", "photos/services/pediatrics.jpg"];
+        const ultraGallery = ["photos/services/ultra.JPG", "photos/services/ultra.JPG", "photos/services/ultra.JPG"];
 
-        // Laboratory Services detailed description with bold headings
         const labDescription = `Diagnostic Laboratory is equipped with sophisticated automated systems which ensure quality, timely, reliable and affordable services to our clients. The laboratory is sectioned into different section, inclusive:
 
 <strong>Hematology:</strong> Tests include; Full haemogram/ Cell blood count, Blood grouping, Hb estimation, Coombs test, Film comment, Hb electrophoresis, Sickling test, Reticulocyte count, Coagulation tests etc.
@@ -1646,7 +1151,6 @@
 
 <strong>Immunology:</strong> Entails the functioning of the immune systems. It involves immunological assays (ELISA techniques) and serological tests. Tests include; HIV, Hep A, B, C, Hypersensitivity reactions, and Auto immunity.`;
 
-        // OPD Services - Condensed version
         const opdDescription = `<strong>Outpatient Department (OPD) Services</strong>
 
 Our OPD provides accessible, timely, and patient-centred medical care for patients who do not require admission.
@@ -1665,7 +1169,6 @@ Our OPD provides accessible, timely, and patient-centred medical care for patien
 
 <strong>Referral & Admission:</strong> Coordination for specialized care, inpatient admission, or emergency stabilisation when needed.`;
 
-        // IPD Services - Condensed version
         const ipdDescription = `<strong>Inpatient Department (IPD) Services</strong>
 
 Our IPD provides continued medical care for patients requiring admission, close observation, treatment, nursing support, or recovery care.
@@ -1688,7 +1191,6 @@ Our IPD provides continued medical care for patients requiring admission, close 
 
 <strong>Discharge Planning:</strong> Patient review, clear instructions on medication, diet, wound care, follow-up appointments, and danger signs.`;
 
-        // Maternity Services - Detailed version
         const maternityDescription = `<strong>Maternity Services</strong>
 
 At Nusha Hospital, our maternity services support mothers and babies throughout pregnancy, labour, delivery, and the period after birth. We provide respectful, confidential, and compassionate maternity care in a safe environment, with attention to the health and wellbeing of both mother and child.
@@ -1707,7 +1209,6 @@ After delivery, both mother and baby are assessed and monitored. We support earl
 
 Our team assesses and manages pregnancy-related concerns such as high blood pressure, bleeding, anaemia, infections, reduced fetal movements, severe vomiting, and other complications. Mothers requiring specialised care are stabilised and referred appropriately.`;
 
-        // Immunization Services - Detailed version
         const immunizationDescription = `<strong>Immunization Services</strong>
 
 Nusha Hospital provides immunization services to protect children and eligible adults from vaccine-preventable diseases. Immunization is an important part of preventive healthcare because it helps the body develop protection against serious infections before illness occurs.
@@ -1724,7 +1225,6 @@ Our healthcare workers review the child's immunization card, identify any missed
 
 Parents receive guidance on the importance of completing all vaccine doses, keeping immunization records safely, recognizing normal post-vaccination reactions, and returning to the hospital if they have concerns.`;
 
-        // Pharmacy Services - Full detailed
         const pharmacyDescription = `<strong>Pharmacy Services</strong>
 
 Our pharmacy services ensure that patients receive prescribed medicines safely, correctly, and with clear guidance on their use. The pharmacy works closely with clinicians and other departments to support effective treatment and continuity of care.
@@ -1741,7 +1241,6 @@ Patients receive guidance on the purpose of their medicines, dosage, timing, dur
 
 Our pharmacy team supports safe medicine use by checking prescriptions, advising patients about drug interactions where necessary, and encouraging patients to report allergies, previous side effects, or medicines they are already using.`;
 
-        // Family Planning Services - Full detailed
         const familyPlanningDescription = `<strong>Family Planning Services</strong>
 
 Nusha Hospital provides confidential family planning services to help individuals and couples make informed decisions about whether to have children, when to have them, and how to space pregnancies safely.
@@ -1758,7 +1257,6 @@ Depending on eligibility and availability, family planning services may include 
 
 We provide follow-up care for clients using family planning methods. This includes managing side effects, reviewing satisfaction with the method, removing implants or devices where appropriate, and helping clients change methods if needed.`;
 
-        // Child Health Services - Full detailed
         const childHealthDescription = `<strong>Child Health Services</strong>
 
 Our child health services focus on the growth, development, prevention of illness, and treatment needs of infants and children. We provide care in a child-friendly environment and work with parents and caregivers to support healthy childhood development.
@@ -1775,7 +1273,6 @@ We monitor children's weight, height, feeding, developmental milestones, and gen
 
 Parents and caregivers receive guidance on breastfeeding, complementary feeding, hygiene, immunization, home care for common illnesses, medication use, and danger signs that require urgent medical attention.`;
 
-        // Emergency Services - Full detailed
         const emergencyDescription = `<strong>Emergency and Urgent Care Services</strong>
 
 Nusha Hospital provides prompt assessment and stabilisation for patients with urgent medical conditions and injuries. Our emergency and urgent care services are designed to identify serious conditions quickly and provide immediate support before further treatment, admission, or referral.
@@ -1792,7 +1289,6 @@ Emergency care may include first aid, oxygen support, intravenous fluids, emerge
 
 Patients who require continued treatment may be admitted to the inpatient department. Where advanced care, intensive monitoring, specialised surgery, or services not available at the hospital are needed, we stabilise the patient and arrange an appropriate referral.`;
 
-        // Antenatal - Full detailed
         const antenatalDescription = `<strong>Antenatal Care Services</strong>
 
 At Nusha Hospital, antenatal care supports mothers throughout pregnancy by monitoring the health of the mother and unborn baby, identifying risks early, and preparing families for safe delivery.
@@ -1809,7 +1305,6 @@ Antenatal clients may receive recommended laboratory tests and preventive interv
 
 Mothers and families receive guidance on nutrition, medication use, danger signs in pregnancy, delivery planning, breastfeeding, newborn care, and the importance of delivering with skilled healthcare support.`;
 
-        // Postnatal - Full detailed
         const postnatalDescription = `<strong>Postnatal Care Services</strong>
 
 Postnatal care is the care provided to the mother and baby after delivery. Nusha Hospital provides follow-up services to support recovery, breastfeeding, newborn wellbeing, family planning, and early identification of complications.
@@ -1826,7 +1321,6 @@ Babies are checked for feeding, warmth, breathing, weight, jaundice, cord healin
 
 Mothers receive guidance on hygiene, nutrition, breastfeeding, family planning, immunization, danger signs, and when to return for review or seek urgent care.`;
 
-        // Dental - Full detailed
         const dentalDescription = `<strong>Dental Consultation and Oral Examination</strong>
 
 Patients receive an oral assessment to identify tooth decay, gum disease, dental pain, mouth infections, broken teeth, and other oral health concerns. A treatment plan is then discussed based on the patient's needs.
@@ -1839,7 +1333,6 @@ Dental services may include tooth extraction, treatment of dental pain and infec
 
 Patients receive guidance on correct tooth brushing, use of fluoride toothpaste, diet choices that protect teeth, prevention of tooth decay, and the importance of regular dental check-ups.`;
 
-        // Nutrition - Full detailed
         const nutritionDescription = `<strong>Nutrition and Health Services</strong>
 
 Our nutrition and health services support patients in making informed food and lifestyle choices that promote recovery, healthy growth, disease prevention, and long-term wellbeing.
@@ -1856,7 +1349,6 @@ Our team provides practical advice on balanced diets, infant and young child fee
 
 Nutrition guidance may be provided for patients with diabetes, hypertension, anaemia, malnutrition, gastrointestinal conditions, HIV-related nutritional concerns, and other health conditions where diet plays an important role in treatment and recovery.`;
 
-        // Screening - Full detailed
         const screeningDescription = `<strong>Medical Screening and Wellness Checks</strong>
 
 Nusha Hospital provides medical screening and wellness checks to help individuals understand their health status, identify possible health risks early, and take steps to prevent serious illness.
@@ -1877,7 +1369,6 @@ After screening, patients receive guidance based on their results. This may incl
 
 We encourage individuals and families to attend regular wellness checks even when they feel well. Early screening supports timely treatment, healthier lifestyle choices, and better long-term health outcomes.`;
 
-        // Theatre - Full detailed
         const theatreDescription = `<strong>Theatre Services</strong>
 
 At <strong>Nusha Hospital</strong>, our Theatre Services provide a safe, clean, and controlled environment for surgical and medical procedures that require specialised equipment, sterile techniques, anaesthesia support, and close patient monitoring.
@@ -1936,7 +1427,6 @@ Patient safety is central to every theatre procedure. Our team confirms the pati
 
 At Nusha Hospital, we are committed to providing safe, respectful, and coordinated theatre care from pre-operative assessment through recovery and follow-up.`;
 
-        // Ultrasonography Description
         const ultraDescription = `<strong>Ultrasonography (Ultrasound Imaging)</strong>
 
 Nusha Hospital offers a comprehensive range of ultrasound diagnostic services to support accurate and timely medical evaluations. Our ultrasound services are performed by trained and experienced professionals using modern imaging equipment.
@@ -1959,132 +1449,32 @@ Focused assessment of the knee joint and its surrounding soft tissues, including
 <strong>Endo-Vaginal Scan</strong>
 A specialized pelvic ultrasound performed using a small probe inserted into the vagina. Provides high-resolution imaging of the uterus, ovaries, and other pelvic structures. Helpful for evaluating pelvic pain, abnormal bleeding, follicle monitoring, and early pregnancy assessment.`;
 
-        const fullServices = [{
-            id: 1,
-            title: "Outpatient Services (OPD)",
-            mainImg: "photos/services/opd.png",
-            gallery: cardiologyGallery,
-            quick: "General consultations, diagnosis, treatment, follow-up care, health screening, and referrals.",
-            desc: opdDescription
-        }, {
-            id: 2,
-            title: "Inpatient Services (IPD)",
-            mainImg: "photos/services/ipd.png",
-            gallery: cardiologyGallery,
-            quick: "Admission and continuous medical care for patients requiring observation or treatment.",
-            desc: ipdDescription
-        }, {
-            id: 3,
-            title: "Maternity Services",
-            mainImg: "photos/services/maternity.png",
-            gallery: maternityGallery,
-            quick: "Comprehensive maternal healthcare from pregnancy through delivery and postnatal care.",
-            desc: maternityDescription
-        }, {
-            id: 4,
-            title: "Immunization Services",
-            mainImg: "photos/services/immunization.png",
-            gallery: pediatricsGallery,
-            quick: "Vaccination services for children, adolescents, and adults.",
-            desc: immunizationDescription
-        }, {
-            id: 5,
-            title: "Laboratory Services",
-            mainImg: "photos/services/lab.png",
-            gallery: neurologyGallery,
-            quick: "Reliable diagnostic testing to support accurate medical decisions.",
-            desc: labDescription
-        }, {
-            id: 6,
-            title: "Pharmacy Services",
-            mainImg: "photos/services/pharm.png",
-            gallery: cardiologyGallery,
-            quick: "Safe dispensing of medicines and pharmaceutical counseling.",
-            desc: pharmacyDescription
-        },
+        const fullServices = [
+            { id: 1, title: "Outpatient Services (OPD)", mainImg: "photos/services/opd.png", gallery: cardiologyGallery, quick: "General consultations, diagnosis, treatment, follow-up care, health screening, and referrals.", desc: opdDescription },
+            { id: 2, title: "Inpatient Services (IPD)", mainImg: "photos/services/ipd.png", gallery: cardiologyGallery, quick: "Admission and continuous medical care for patients requiring observation or treatment.", desc: ipdDescription },
+            { id: 3, title: "Maternity Services", mainImg: "photos/services/maternity.png", gallery: maternityGallery, quick: "Comprehensive maternal healthcare from pregnancy through delivery and postnatal care.", desc: maternityDescription },
+            { id: 4, title: "Immunization Services", mainImg: "photos/services/immunization.png", gallery: pediatricsGallery, quick: "Vaccination services for children, adolescents, and adults.", desc: immunizationDescription },
+            { id: 5, title: "Laboratory Services", mainImg: "photos/services/lab.png", gallery: neurologyGallery, quick: "Reliable diagnostic testing to support accurate medical decisions.", desc: labDescription },
+            { id: 6, title: "Pharmacy Services", mainImg: "photos/services/pharm.png", gallery: cardiologyGallery, quick: "Safe dispensing of medicines and pharmaceutical counseling.", desc: pharmacyDescription },
+            { id: 7, title: "Ultrasonography", mainImg: "photos/services/ultra.JPG", gallery: ultraGallery, quick: "Advanced ultrasound imaging including small parts, obstetrics, musculoskeletal, neck, knee, and endo-vaginal scans.", desc: ultraDescription },
+            { id: 8, title: "Family Planning Services", mainImg: "photos/services/familyplanning.png", gallery: maternityGallery, quick: "Reproductive health services for individuals and families.", desc: familyPlanningDescription },
+            { id: 9, title: "Child Health Services", mainImg: "photos/services/childhealth.png", gallery: pediatricsGallery, quick: "Comprehensive healthcare for infants and children.", desc: childHealthDescription },
+            { id: 10, title: "Emergency and Urgent Care", mainImg: "photos/services/emergency.png", gallery: cardiologyGallery, quick: "Immediate medical attention for urgent health conditions.", desc: emergencyDescription },
+            { id: 11, title: "Theatre Services", mainImg: "photos/services/theatre.png", gallery: neurologyGallery, quick: "Safe, sterile surgical care for both minor and major procedures.", desc: theatreDescription },
+            { id: 12, title: "Antenatal Care (ANC)", mainImg: "photos/services/maternity.png", gallery: maternityGallery, quick: "Routine pregnancy monitoring and maternal health support.", desc: antenatalDescription },
+            { id: 13, title: "Postnatal Care (PNC)", mainImg: "photos/services/postnatal.png", gallery: maternityGallery, quick: "Healthcare support for mothers and newborns after delivery.", desc: postnatalDescription },
+            { id: 14, title: "Dental Services", mainImg: "photos/services/dental.png", gallery: neurologyGallery, quick: "Professional dental care for healthy teeth, gums, and a confident smile.", desc: dentalDescription },
+            { id: 15, title: "Nutrition and Health Education", mainImg: "photos/services/nutritionhealth.png", gallery: pediatricsGallery, quick: "Promoting healthy lifestyles and disease prevention.", desc: nutritionDescription },
+            { id: 16, title: "Medical Screening and Wellness Checks", mainImg: "photos/services/wellness.png", gallery: cardiologyGallery, quick: "Preventive healthcare services for early disease detection.", desc: screeningDescription }
+        ];
+
+        const newsData = [
             {
-            id: 7,
-            title: "Ultrasonography",
-            mainImg: "photos/services/ultra.JPG",
-            gallery: ultraGallery,
-            quick: "Advanced ultrasound imaging including small parts, obstetrics, musculoskeletal, neck, knee, and endo-vaginal scans.",
-            desc: ultraDescription
-        }, {
-            id: 8,
-            title: "Family Planning Services",
-            mainImg: "photos/services/familyplanning.png",
-            gallery: maternityGallery,
-            quick: "Reproductive health services for individuals and families.",
-            desc: familyPlanningDescription
-        }, {
-            id: 9,
-            title: "Child Health Services",
-            mainImg: "photos/services/childhealth.png",
-            gallery: pediatricsGallery,
-            quick: "Comprehensive healthcare for infants and children.",
-            desc: childHealthDescription
-        }, {
-            id: 10,
-            title: "Emergency and Urgent Care",
-            mainImg: "photos/services/emergency.png",
-            gallery: cardiologyGallery,
-            quick: "Immediate medical attention for urgent health conditions.",
-            desc: emergencyDescription
-        }, {
-            id: 11,
-            title: "Theatre Services",
-            mainImg: "photos/services/theatre.png",
-            gallery: neurologyGallery,
-            quick: "Safe, sterile surgical care for both minor and major procedures.",
-            desc: theatreDescription
-        }, {
-            id: 12,
-            title: "Antenatal Care (ANC)",
-            mainImg: "photos/services/maternity.png",
-            gallery: maternityGallery,
-            quick: "Routine pregnancy monitoring and maternal health support.",
-            desc: antenatalDescription
-        }, {
-            id: 13,
-            title: "Postnatal Care (PNC)",
-            mainImg: "photos/services/postnatal.png",
-            gallery: maternityGallery,
-            quick: "Healthcare support for mothers and newborns after delivery.",
-            desc: postnatalDescription
-        }, {
-            id: 14,
-            title: "Dental Services",
-            mainImg: "photos/services/dental.png",
-            gallery: neurologyGallery,
-            quick: "Professional dental care for healthy teeth, gums, and a confident smile.",
-            desc: dentalDescription
-        }, {
-            id: 15,
-            title: "Nutrition and Health Education",
-            mainImg: "photos/services/nutritionhealth.png",
-            gallery: pediatricsGallery,
-            quick: "Promoting healthy lifestyles and disease prevention.",
-            desc: nutritionDescription
-        }, {
-            id: 16,
-            title: "Medical Screening and Wellness Checks",
-            mainImg: "photos/services/wellness.png",
-            gallery: cardiologyGallery,
-            quick: "Preventive healthcare services for early disease detection.",
-            desc: screeningDescription
-        }];
-
-        // Updated News Data
-        const newsData = [{
-            id: 1,
-            img: "photos/news/familyplanning2.png",
-            date: "June 14, 2026",
-            title: "Free Family Planning Camp",
-            excerpt: "Nusha Hospital, in partnership with Marie Stopes Uganda, invites the community to a free Family Planning Camp.",
-            fullDesc: `<strong>Nusha Hospital</strong>, in partnership with <strong>Marie Stopes Uganda</strong>, is pleased to invite members of the community to a <strong>Free Family Planning Camp</strong> on <strong>Sunday, June 14, 2026</strong>.<br><br>
-
+                id: 1, img: "photos/news/familyplanning2.png", date: "June 14, 2026",
+                title: "Free Family Planning Camp",
+                excerpt: "Nusha Hospital, in partnership with Marie Stopes Uganda, invites the community to a free Family Planning Camp.",
+                fullDesc: `<strong>Nusha Hospital</strong>, in partnership with <strong>Marie Stopes Uganda</strong>, is pleased to invite members of the community to a <strong>Free Family Planning Camp</strong> on <strong>Sunday, June 14, 2026</strong>.<br><br>
 The camp will provide confidential counselling and family planning services to help individuals and couples make informed choices about pregnancy planning, child spacing, and reproductive health.<br><br>
-
 <strong>Services Expected at the Camp</strong><br>
 <ul>
     <li>Free family planning counselling</li>
@@ -2095,24 +1485,18 @@ The camp will provide confidential counselling and family planning services to h
     <li>Follow-up support and management of family planning concerns</li>
     <li>Health education on healthy pregnancy spacing and reproductive health</li>
 </ul><br>
-
 Our trained healthcare providers will offer respectful, private, and non-judgmental services. Clients will be guided to choose a method that is safe and suitable for their health needs and future plans.<br><br>
-
 <strong>Come with your partner, friend, or family member and take a positive step towards informed reproductive health choices.</strong><br><br>
-
 <strong>Date:</strong> Sunday, June 14, 2026<br>
 <strong>Venue:</strong> Nusha Hospital<br>
 <strong>Cost:</strong> Free`
-        }, {
-            id: 2,
-            img: "photos/news/healthtalk.png",
-            date: "June 10, 2026",
-            title: "School Health Talk on Hygiene and Wellness",
-            excerpt: "Nusha Hospital conducted an engaging health education talk for students, focusing on practical knowledge for healthier choices.",
-            fullDesc: `<strong>Nusha Hospital</strong> conducted a health education talk for students as part of our commitment to promoting healthier communities through awareness, prevention, and early health-seeking behaviour.<br><br>
-
+            },
+            {
+                id: 2, img: "photos/news/healthtalk.png", date: "June 10, 2026",
+                title: "School Health Talk on Hygiene and Wellness",
+                excerpt: "Nusha Hospital conducted an engaging health education talk for students, focusing on practical knowledge for healthier choices.",
+                fullDesc: `<strong>Nusha Hospital</strong> conducted a health education talk for students as part of our commitment to promoting healthier communities through awareness, prevention, and early health-seeking behaviour.<br><br>
 The session provided students with practical and age-appropriate information to help them make informed decisions about their health and wellbeing. Our healthcare team encouraged learners to ask questions, share their experiences, and understand the importance of seeking help early when they have health concerns.<br><br>
-
 <strong>Topics Covered During the Health Talk</strong><br>
 <ul>
     <li><strong>Personal hygiene:</strong> Proper handwashing, bathing, oral hygiene, menstrual hygiene, and keeping the school environment clean.</li>
@@ -2122,20 +1506,15 @@ The session provided students with practical and age-appropriate information to 
     <li><strong>Digital health and responsible social media use:</strong> Avoiding harmful online content, protecting personal information, managing screen time, and verifying health information before sharing it.</li>
     <li><strong>Healthy lifestyle choices:</strong> Balanced nutrition, physical activity, adequate sleep, and avoiding behaviours that may affect health and future goals.</li>
 </ul><br>
-
 The students actively participated in the discussion, asked important questions, and received health guidance from the Nusha Hospital team. We appreciate the school administration, teachers, and students for welcoming us and supporting this important health awareness activity.<br><br>
-
 <strong>Nusha Hospital remains committed to working with schools and communities to promote health education, disease prevention, and healthier futures for young people.</strong>`
-        }, {
-            id: 3,
-            img: "photos/news/outreach.png",
-            date: "May 25, 2026",
-            title: "Free Medical Camp at Nusha Hospital",
-            excerpt: "Community members accessed free consultations, screening services, health education, and treatment during our successful medical camp.",
-            fullDesc: `<strong>Nusha Hospital</strong> successfully hosted a free medical camp aimed at improving access to essential healthcare services within the community. The event brought together healthcare professionals, support staff, and community members in a shared effort to promote preventive healthcare and early disease detection.<br><br>
-
+            },
+            {
+                id: 3, img: "photos/news/outreach.png", date: "May 25, 2026",
+                title: "Free Medical Camp at Nusha Hospital",
+                excerpt: "Community members accessed free consultations, screening services, health education, and treatment during our successful medical camp.",
+                fullDesc: `<strong>Nusha Hospital</strong> successfully hosted a free medical camp aimed at improving access to essential healthcare services within the community. The event brought together healthcare professionals, support staff, and community members in a shared effort to promote preventive healthcare and early disease detection.<br><br>
 Throughout the camp, community members received free medical consultations, health screening services, treatment, counselling, and health education. Our healthcare team assessed patients with a variety of health concerns and provided appropriate care, treatment, and referrals where necessary.<br><br>
-
 <strong>Services Offered During the Medical Camp</strong><br>
 <ul>
     <li>General medical consultations</li>
@@ -2149,22 +1528,17 @@ Throughout the camp, community members received free medical consultations, heal
     <li>Medication dispensing</li>
     <li>Referral services for further care where needed</li>
 </ul><br>
-
 The medical camp provided an opportunity for community members to learn more about their health status, receive professional medical advice, and access healthcare services at no cost. Particular emphasis was placed on early detection of disease, healthy lifestyle practices, and the importance of seeking medical care promptly.<br><br>
-
 We extend our sincere appreciation to all community members who participated, as well as the healthcare workers and partners who contributed to the success of the event.<br><br>
-
 <strong>At Nusha Hospital, community outreach remains an important part of our mission to improve health outcomes and bring quality healthcare services closer to the people we serve.</strong>`
-        }];
+            }
+        ];
 
         // ---------- HERO ROTATION ----------
         const bgElements = [
-            document.getElementById('heroBg1'),
-            document.getElementById('heroBg2'),
-            document.getElementById('heroBg3'),
-            document.getElementById('heroBg4'),
-            document.getElementById('heroBg5'),
-            document.getElementById('heroBg6')
+            document.getElementById('heroBg1'), document.getElementById('heroBg2'),
+            document.getElementById('heroBg3'), document.getElementById('heroBg4'),
+            document.getElementById('heroBg5'), document.getElementById('heroBg6')
         ];
         let currentBgIndex = 0;
         if (bgElements[0]) bgElements[0].classList.add('active');
@@ -2192,15 +1566,14 @@ We extend our sincere appreciation to all community members who participated, as
 
         // ---------- AMBULANCE ----------
         document.getElementById('ambulanceBtn')?.addEventListener('click', () => {
-            window.location.href = 'tel:0800123456';
+            window.location.href = 'tel:+256704308025';
         });
 
         // ---------- WHATSAPP ----------
         const whatsappNumber = '256704308025';
         const inquiryMessage = "Hi, I have an inquiry";
         const openWhatsApp = () => {
-            const url =
-                `https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodeURIComponent(inquiryMessage)}&type=phone_number&app_absent=0`;
+            const url = `https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodeURIComponent(inquiryMessage)}&type=phone_number&app_absent=0`;
             window.open(url, '_blank');
         };
         document.getElementById('whatsappIcon')?.addEventListener('click', openWhatsApp);
@@ -2210,20 +1583,18 @@ We extend our sincere appreciation to all community members who participated, as
             document.getElementById('whatsappChatPreview').classList.add('hidden');
         });
 
-        // ---------- ACTIVITIES SWIPER (EXACTLY AS ORIGINAL - UNCHANGED) ----------
+        // ---------- ACTIVITIES SWIPER ----------
         const slidesData = [
             { img: "photos/activities/ccs.png", note: "Every Saturday in April: Free Cervical cancer screening, and expert consultation. Walk-ins welcome." },
             { img: "photos/activities/immunizationdrive.png", note: "Immunization for children under 5. Nutritional counseling every Tuesday. Bring immunization card." },
-            { img: "photos/activities/maternaleducation.png", note: "Antenatal classes every Thursday." },
+            { img: "photos/activities/maternaleducation.png", note: "Antenatal classes every Thursday." }
         ];
         const wrapper = document.getElementById('slideshowWrapper');
         slidesData.forEach(s => {
             wrapper.innerHTML += `<div class="swiper-slide"><img src="${s.img}" class="activity-slide-img" alt="Activity" onerror="this.style.display='none'"><div class="activity-slide-content"><div class="activity-note"><i class="fas fa-calendar-alt"></i> ${s.note}</div></div></div>`;
         });
         new Swiper('.activitySwiper', {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 24,
+            loop: true, slidesPerView: 1, spaceBetween: 24,
             pagination: { el: '.swiper-pagination', clickable: true },
             autoplay: { delay: 4000 },
             breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
@@ -2231,18 +1602,10 @@ We extend our sincere appreciation to all community members who participated, as
 
         // ---------- TESTIMONIALS ----------
         const testimonialsData = [
-            { name: "Sarah N., Kakiri", condition: "Maternity Care",
-                text: "The maternity team at Nusha Hospital was incredible! The nurses were so supportive during my delivery. I felt safe and cared for throughout my stay.",
-                stars: 5, initial: "S" },
-            { name: "John M., Namusera", condition: "Theatre",
-                text: "After my surgery, the recovery was smooth thanks to the Nusha team. World-class care right here in Uganda.",
-                stars: 5, initial: "J" },
-            { name: "Grace A., Wakiso", condition: "Pediatrics",
-                text: "My son received excellent treatment for pneumonia. The pediatric ward is child-friendly and the doctors explained everything clearly.",
-                stars: 5, initial: "G" },
-            { name: "David L., Kampala", condition: "Dental",
-                text: "The Dental team helped me recover my smile. I'm forever grateful for their dedication and expertise.",
-                stars: 4, initial: "D" }
+            { name: "Sarah N., Kakiri", condition: "Maternity Care", text: "The maternity team at Nusha Hospital was incredible! The nurses were so supportive during my delivery. I felt safe and cared for throughout my stay.", stars: 5, initial: "S" },
+            { name: "John M., Namusera", condition: "Theatre", text: "After my surgery, the recovery was smooth thanks to the Nusha team. World-class care right here in Uganda.", stars: 5, initial: "J" },
+            { name: "Grace A., Wakiso", condition: "Pediatrics", text: "My son received excellent treatment for pneumonia. The pediatric ward is child-friendly and the doctors explained everything clearly.", stars: 5, initial: "G" },
+            { name: "David L., Kampala", condition: "Dental", text: "The Dental team helped me recover my smile. I'm forever grateful for their dedication and expertise.", stars: 4, initial: "D" }
         ];
         let currentTestimonialIndex = 0;
         let testimonialInterval;
@@ -2251,71 +1614,45 @@ We extend our sincere appreciation to all community members who participated, as
 
         function renderTestimonial(index) {
             const t = testimonialsData[index];
-            testimonialContainer.innerHTML =
-                `<div class="testimonial-slide"><div class="quote-icon"><i class="fas fa-quote-left"></i></div><p class="testimonial-text">"${t.text}"</p><div class="patient-avatar">${t.initial}</div><div class="patient-name">${t.name}</div><div class="patient-condition">${t.condition}</div><div class="stars">${'★'.repeat(t.stars)}${'☆'.repeat(5 - t.stars)}</div></div>`;
+            testimonialContainer.innerHTML = `<div class="testimonial-slide"><div class="quote-icon"><i class="fas fa-quote-left"></i></div><p class="testimonial-text">"${t.text}"</p><div class="patient-avatar">${t.initial}</div><div class="patient-name">${t.name}</div><div class="patient-condition">${t.condition}</div><div class="stars">${'★'.repeat(t.stars)}${'☆'.repeat(5 - t.stars)}</div></div>`;
             document.querySelectorAll('.testimonial-dot').forEach((dot, i) => dot.classList.toggle('active', i === index));
         }
-
         function createDots() {
             dotsContainer.innerHTML = '';
             testimonialsData.forEach((_, i) => {
                 const dot = document.createElement('div');
                 dot.className = 'testimonial-dot';
                 if (i === currentTestimonialIndex) dot.classList.add('active');
-                dot.addEventListener('click', () => { stopAutoSlide();
-                    currentTestimonialIndex = i;
-                    renderTestimonial(currentTestimonialIndex);
-                    startAutoSlide(); });
+                dot.addEventListener('click', () => { stopAutoSlide(); currentTestimonialIndex = i; renderTestimonial(currentTestimonialIndex); startAutoSlide(); });
                 dotsContainer.appendChild(dot);
             });
         }
-
-        function nextTestimonial() { currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialsData.length;
-            renderTestimonial(currentTestimonialIndex); }
-
-        function prevTestimonial() { currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonialsData.length) %
-                testimonialsData.length;
-            renderTestimonial(currentTestimonialIndex); }
-
-        function startAutoSlide() { if (testimonialInterval) clearInterval(testimonialInterval);
-            testimonialInterval = setInterval(nextTestimonial, 8000); }
-
-        function stopAutoSlide() { if (testimonialInterval) { clearInterval(testimonialInterval);
-                testimonialInterval = null; } }
+        function nextTestimonial() { currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialsData.length; renderTestimonial(currentTestimonialIndex); }
+        function prevTestimonial() { currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonialsData.length) % testimonialsData.length; renderTestimonial(currentTestimonialIndex); }
+        function startAutoSlide() { if (testimonialInterval) clearInterval(testimonialInterval); testimonialInterval = setInterval(nextTestimonial, 8000); }
+        function stopAutoSlide() { if (testimonialInterval) { clearInterval(testimonialInterval); testimonialInterval = null; } }
         renderTestimonial(0);
         createDots();
         startAutoSlide();
-        document.getElementById('testimonialPrev')?.addEventListener('click', () => { stopAutoSlide();
-            prevTestimonial();
-            startAutoSlide(); });
-        document.getElementById('testimonialNext')?.addEventListener('click', () => { stopAutoSlide();
-            nextTestimonial();
-            startAutoSlide(); });
+        document.getElementById('testimonialPrev')?.addEventListener('click', () => { stopAutoSlide(); prevTestimonial(); startAutoSlide(); });
+        document.getElementById('testimonialNext')?.addEventListener('click', () => { stopAutoSlide(); nextTestimonial(); startAutoSlide(); });
 
         // ---------- DETAIL OVERLAY ----------
         const detailOverlay = document.getElementById('detailOverlay');
         const detailContentDiv = document.getElementById('detailContent');
 
-        // Make openDetail globally accessible for inline onclick
         window.openDetail = function(title, mainImg, galleryImgs, fullDescription, extraInfo) {
-            // Handle gallery as string or array
             let galleryArray = [];
-            if (typeof galleryImgs === 'string') {
-                galleryArray = galleryImgs.split(',').map(s => s.trim());
-            } else if (Array.isArray(galleryImgs)) {
-                galleryArray = galleryImgs;
-            } else {
-                galleryArray = [mainImg, mainImg, mainImg];
-            }
-            
-            let galleryHtml = '<!-- <div class="gallery-grid">';
-            galleryArray.forEach(img => {
-                galleryHtml +=
-                    `<img src="${img}" class="gallery-img" alt="Gallery image" onerror="this.style.display='none'">`;
-            });
-            galleryHtml += '</div> -->';
+            if (typeof galleryImgs === 'string') galleryArray = galleryImgs.split(',').map(s => s.trim());
+            else if (Array.isArray(galleryImgs)) galleryArray = galleryImgs;
+            else galleryArray = [mainImg, mainImg, mainImg];
 
-            // Parse description with HTML formatting (for bold headings)
+            let galleryHtml = '<div class="gallery-grid">';
+            galleryArray.forEach(img => {
+                galleryHtml += `<img src="${img}" class="gallery-img" alt="Gallery image" onerror="this.style.display='none'">`;
+            });
+            galleryHtml += '</div>';
+
             const formattedDesc = fullDescription.replace(/\n/g, '<br>');
 
             detailContentDiv.innerHTML = `
@@ -2347,7 +1684,7 @@ We extend our sincere appreciation to all community members who participated, as
             if (e.key === 'Escape' && detailOverlay.classList.contains('active')) closeDetail();
         });
 
-        // ---------- RENDER SERVICES (initial 5 including Ultrasonography) ----------
+        // ---------- RENDER SERVICES ----------
         function renderServices(services) {
             const grid = document.getElementById('servicesGrid');
             grid.innerHTML = '';
@@ -2357,11 +1694,7 @@ We extend our sincere appreciation to all community members who participated, as
                 const bullets = svc.desc.split(/\n|, /).filter(s => s.trim().length > 0 && !s.includes(':') && !s.includes('<')).slice(0, 6);
                 let bulletHtml = bullets.length ?
                     '<ul style="list-style:none;padding:0;margin:0 0 16px 0;display:flex;flex-wrap:wrap;gap:8px 16px;">' +
-                    bullets.map(b =>
-                        `<li style="font-size:0.92rem;color:#1f3b4c;display:flex;align-items:center;gap:6px;"><i class="fas fa-check-circle" style="color:#0f7b5e;font-size:0.75rem;"></i> ${b.trim()}</li>`
-                        ).join('') + '</ul>' :
-                    '';
-                // Get plain text for preview (strip HTML tags)
+                    bullets.map(b => `<li style="font-size:0.92rem;color:#1f3b4c;display:flex;align-items:center;gap:6px;"><i class="fas fa-check-circle" style="color:#0f7b5e;font-size:0.75rem;"></i> ${b.trim()}</li>`).join('') + '</ul>' : '';
                 const plainDesc = svc.desc.replace(/<[^>]*>/g, '');
                 div.innerHTML = `
                     <div class="service-image">
@@ -2376,46 +1709,30 @@ We extend our sincere appreciation to all community members who participated, as
                     </div>
                 `;
                 grid.appendChild(div);
-                // Use the same openDetail function with proper escaping
                 div.querySelector('.service-link').addEventListener('click', function() {
-                    // Properly escape strings for the function call
                     const escapedTitle = svc.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
                     const escapedDesc = svc.desc.replace(/'/g, "\\'").replace(/"/g, '&quot;');
                     const escapedQuick = svc.quick.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                    // Pass gallery as array
                     const galleryStr = svc.gallery.join(',');
                     window.openDetail(escapedTitle, svc.mainImg, galleryStr, escapedDesc, escapedQuick);
                 });
             });
         }
-
-        // Initial: first 5 services (including Ultrasonography)
         renderServices(fullServices.slice(0, 5));
 
-        // ---------- FUNCTION TO OPEN VIEW ALL SERVICES ----------
+        // ---------- VIEW ALL SERVICES ----------
         function openViewAllServices() {
-            // Build a responsive grid of all services, each with a working "Learn More" link
             let allServicesHtml = `
                 <div style="padding:20px 0;">
                     <h2 style="font-size:2rem;color:#144d5e;margin-bottom:30px;">Our Services</h2>
                     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;">
             `;
             fullServices.forEach((svc, index) => {
-                // Build bullet list for quick view
                 const plainDesc = svc.desc.replace(/<[^>]*>/g, '');
                 const bullets = plainDesc.split(/\n|, /).filter(s => s.trim().length > 0 && !s.includes(':') && !s.includes('<')).slice(0, 4);
                 let bulletHtml = bullets.length ?
                     '<ul style="list-style:none;padding:0;margin:8px 0 12px 0;display:flex;flex-wrap:wrap;gap:4px 12px;">' +
-                    bullets.map(b =>
-                        `<li style="font-size:0.8rem;color:#1f3b4c;display:flex;align-items:center;gap:4px;"><i class="fas fa-check-circle" style="color:#0f7b5e;font-size:0.6rem;"></i> ${b.trim().substring(0, 50)}${b.trim().length > 50 ? '...' : ''}</li>`
-                        ).join('') + '</ul>' :
-                    '';
-                // Escape strings for inline onclick - use a different approach
-                const escapedTitle = svc.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                const escapedDesc = svc.desc.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                const escapedQuick = svc.quick.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                const galleryStr = svc.gallery.join(',');
-                
+                    bullets.map(b => `<li style="font-size:0.8rem;color:#1f3b4c;display:flex;align-items:center;gap:4px;"><i class="fas fa-check-circle" style="color:#0f7b5e;font-size:0.6rem;"></i> ${b.trim().substring(0, 50)}${b.trim().length > 50 ? '...' : ''}</li>`).join('') + '</ul>' : '';
                 allServicesHtml += `
                     <div style="background:#f8fefb;border-radius:24px;padding:24px;border:1px solid #e2f0ea;display:flex;flex-direction:column;height:100%;">
                         <img src="${svc.mainImg}" alt="${svc.title}" style="width:100%;height:160px;object-fit:cover;border-radius:16px;margin-bottom:16px;" onerror="this.style.display='none'">
@@ -2433,14 +1750,10 @@ We extend our sincere appreciation to all community members who participated, as
                     <button class="back-to-home-btn" id="backFromDetailBtn" style="margin-top:40px;">← Back to Home</button>
                 </div>
             `;
-
-            // Open detail overlay with the full list
             detailContentDiv.innerHTML = allServicesHtml;
             detailOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
             document.documentElement.style.overflow = 'hidden';
-            
-            // Attach click events to all "Learn More" buttons in the view-all grid
             document.querySelectorAll('#detailContent .service-link').forEach((btn) => {
                 const index = parseInt(btn.getAttribute('data-service-index'));
                 btn.addEventListener('click', function(e) {
@@ -2455,26 +1768,19 @@ We extend our sincere appreciation to all community members who participated, as
                     }
                 });
             });
-            
             document.getElementById('backFromDetailBtn')?.addEventListener('click', closeDetail);
         }
-
-        // ---------- VIEW ALL SERVICES: opens in detail overlay with active "Learn More" ----------
         document.getElementById('viewAllServicesBtn').addEventListener('click', openViewAllServices);
-
-        // ---------- EXPLORE SERVICES BUTTON IN HERO ----------
         document.getElementById('exploreServicesBtn').addEventListener('click', function(e) {
             e.preventDefault();
             openViewAllServices();
         });
 
-        // ---------- RENDER NEWS (both grid and swiper) ----------
+        // ---------- RENDER NEWS ----------
         function renderNews() {
             const grid = document.getElementById('newsGrid');
             const swiperWrapper = document.getElementById('newsSwiperWrapper');
-            
             newsData.forEach(news => {
-                // Grid card
                 const card = document.createElement('div');
                 card.className = 'news-card';
                 card.innerHTML = `
@@ -2488,12 +1794,10 @@ We extend our sincere appreciation to all community members who participated, as
                 `;
                 card.querySelector('.read-more').addEventListener('click', () => {
                     openDetail(news.title, news.img, news.gallery, news.fullDesc,
-                        "For more information, please contact our media relations team at +256 414 123 456 or email media@nushahospital.ug."
-                    );
+                        "For more information, please contact our media relations team at +256 414 123 456 or email media@nushahospital.ug.");
                 });
                 grid.appendChild(card);
 
-                // Swiper slide (same content but for carousel)
                 const slide = document.createElement('div');
                 slide.className = 'swiper-slide';
                 slide.innerHTML = `
@@ -2507,30 +1811,20 @@ We extend our sincere appreciation to all community members who participated, as
                 `;
                 slide.querySelector('.read-more').addEventListener('click', () => {
                     openDetail(news.title, news.img, news.gallery, news.fullDesc,
-                        "For more information, please contact our media relations team at +256 414 123 456 or email media@nushahospital.ug."
-                    );
+                        "For more information, please contact our media relations team at +256 414 123 456 or email media@nushahospital.ug.");
                 });
                 swiperWrapper.appendChild(slide);
             });
-
-            // Initialize News Swiper
             new Swiper('.newsSwiper', {
-                loop: true,
-                slidesPerView: 1,
-                spaceBetween: 24,
+                loop: true, slidesPerView: 1, spaceBetween: 24,
                 pagination: { el: '.swiper-pagination', clickable: true },
                 autoplay: { delay: 5000 },
-                breakpoints: {
-                    480: { slidesPerView: 1 },
-                    768: { slidesPerView: 2 }
-                }
+                breakpoints: { 480: { slidesPerView: 1 }, 768: { slidesPerView: 2 } }
             });
         }
-
-        // Call renderNews
         renderNews();
 
-        // ---------- INSURANCE (updated with real logos, white background cards) ----------
+        // ---------- INSURANCE ----------
         const insurances = [
             { name: "Britam", logo: "photos/insurance/britam.png" },
             { name: "Jubilee Health", logo: "photos/insurance/jubilee.png" },
@@ -2570,20 +1864,17 @@ We extend our sincere appreciation to all community members who participated, as
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             feedback.innerHTML = '';
-            const templateParams = { name: fullname, email: email, phone: phone || 'Not provided', message: message,
-                subject: `New Inquiry from ${fullname}` };
+            const templateParams = { name: fullname, email: email, phone: phone || 'Not provided', message: message, subject: `New Inquiry from ${fullname}` };
             try {
                 const serviceId = 'service_6may74p';
                 await Promise.all([
                     emailjs.send(serviceId, 'template_ysz31in', templateParams),
                     emailjs.send(serviceId, 'template_up14cln', templateParams)
                 ]);
-                feedback.innerHTML =
-                    `<div class="success-message">✅ Thank you ${fullname}! A confirmation email has been sent to ${email}. Our team will respond shortly.</div>`;
+                feedback.innerHTML = `<div class="success-message">✅ Thank you ${fullname}! A confirmation email has been sent to ${email}. Our team will respond shortly.</div>`;
                 form.reset();
             } catch (error) {
-                feedback.innerHTML =
-                    `<div class="success-message">✅ Thank you ${fullname}! Your inquiry has been received. We'll respond to ${email} within 24 hours.</div>`;
+                feedback.innerHTML = `<div class="success-message">✅ Thank you ${fullname}! Your inquiry has been received. We'll respond to ${email} within 24 hours.</div>`;
                 form.reset();
             } finally {
                 submitBtn.disabled = false;
@@ -2624,24 +1915,15 @@ We extend our sincere appreciation to all community members who participated, as
 
         // ---------- WHY CHOOSE CAROUSEL ----------
         const reasons = [
-            { icon: "fas fa-hand-holding-heart", title: "Compassionate Patient Care",
-                desc: "We place our patients at the heart of everything we do, ensuring respectful, personalized, and compassionate healthcare for all." },
-            { icon: "fas fa-user-md", title: "Qualified Healthcare Professionals",
-                desc: "Our dedicated team of healthcare professionals is committed to delivering safe, effective, and high-quality medical services." },
-            { icon: "fas fa-coins", title: "Affordable Healthcare Services",
-                desc: "We strive to make quality healthcare accessible and affordable for individuals, families, and organizations." },
-            { icon: "fas fa-microscope", title: "Modern Diagnostic Services",
-                desc: "With reliable laboratory and diagnostic services, we support timely and accurate medical decisions." },
-            { icon: "fas fa-ambulance", title: "Emergency Response Services",
-                desc: "Our standby ambulance and referral network ensure prompt response and continuity of care during emergencies." },
-            { icon: "fas fa-users", title: "Community Outreach Programs",
-                desc: "We actively engage with communities through health education, medical camps, screenings, and disease prevention initiatives." },
-            { icon: "fas fa-star-of-life", title: "Trusted by the Community",
-                desc: "Since 2016, we have served thousands of patients and continue to build trust through integrity, excellence, and quality healthcare." },
-            { icon: "fas fa-map-marker-alt", title: "Accessible and Convenient",
-                desc: "Located in Wakiso District, we provide healthcare services that are easily accessible to the communities we serve." }
+            { icon: "fas fa-hand-holding-heart", title: "Compassionate Patient Care", desc: "We place our patients at the heart of everything we do, ensuring respectful, personalized, and compassionate healthcare for all." },
+            { icon: "fas fa-user-md", title: "Qualified Healthcare Professionals", desc: "Our dedicated team of healthcare professionals is committed to delivering safe, effective, and high-quality medical services." },
+            { icon: "fas fa-coins", title: "Affordable Healthcare Services", desc: "We strive to make quality healthcare accessible and affordable for individuals, families, and organizations." },
+            { icon: "fas fa-microscope", title: "Modern Diagnostic Services", desc: "With reliable laboratory and diagnostic services, we support timely and accurate medical decisions." },
+            { icon: "fas fa-ambulance", title: "Emergency Response Services", desc: "Our standby ambulance and referral network ensure prompt response and continuity of care during emergencies." },
+            { icon: "fas fa-users", title: "Community Outreach Programs", desc: "We actively engage with communities through health education, medical camps, screenings, and disease prevention initiatives." },
+            { icon: "fas fa-star-of-life", title: "Trusted by the Community", desc: "Since 2016, we have served thousands of patients and continue to build trust through integrity, excellence, and quality healthcare." },
+            { icon: "fas fa-map-marker-alt", title: "Accessible and Convenient", desc: "Located in Wakiso District, we provide healthcare services that are easily accessible to the communities we serve." }
         ];
-
         let currentReasonIndex = 0;
         let carouselInterval;
         const carouselContainerNew = document.getElementById('reasonCarousel');
@@ -2659,43 +1941,19 @@ We extend our sincere appreciation to all community members who participated, as
             reasons.forEach((_, idx) => {
                 const dot = document.createElement('div');
                 dot.className = `carousel-dot ${idx === currentReasonIndex ? 'active-dot' : ''}`;
-                dot.addEventListener('click', () => {
-                    stopCarousel();
-                    currentReasonIndex = idx;
-                    updateCarouselDisplay();
-                    startCarousel();
-                });
+                dot.addEventListener('click', () => { stopCarousel(); currentReasonIndex = idx; updateCarouselDisplay(); startCarousel(); });
                 dotsCarouselNew.appendChild(dot);
             });
         }
-
         function updateCarouselDisplay() {
             const cards = document.querySelectorAll('.reason-card');
             const dots = document.querySelectorAll('.carousel-dot');
-            cards.forEach((card, i) => {
-                if (i === currentReasonIndex) card.classList.add('active');
-                else card.classList.remove('active');
-            });
-            dots.forEach((dot, i) => {
-                if (i === currentReasonIndex) dot.classList.add('active-dot');
-                else dot.classList.remove('active-dot');
-            });
+            cards.forEach((card, i) => { if (i === currentReasonIndex) card.classList.add('active'); else card.classList.remove('active'); });
+            dots.forEach((dot, i) => { if (i === currentReasonIndex) dot.classList.add('active-dot'); else dot.classList.remove('active-dot'); });
         }
-
-        function nextReason() {
-            currentReasonIndex = (currentReasonIndex + 1) % reasons.length;
-            updateCarouselDisplay();
-        }
-
-        function startCarousel() {
-            if (carouselInterval) clearInterval(carouselInterval);
-            carouselInterval = setInterval(nextReason, 15000);
-        }
-
-        function stopCarousel() {
-            if (carouselInterval) { clearInterval(carouselInterval);
-                carouselInterval = null; }
-        }
+        function nextReason() { currentReasonIndex = (currentReasonIndex + 1) % reasons.length; updateCarouselDisplay(); }
+        function startCarousel() { if (carouselInterval) clearInterval(carouselInterval); carouselInterval = setInterval(nextReason, 15000); }
+        function stopCarousel() { if (carouselInterval) { clearInterval(carouselInterval); carouselInterval = null; } }
         buildCarousel();
         startCarousel();
         const carouselContainerElement = document.querySelector('.carousel-container');
