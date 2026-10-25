@@ -33,7 +33,7 @@ p{margin:12px 0}
 .steps p{font-size:14px}
 .steps b{color:var(--red);margin-right:10px}
 
-/* ---- NEW: nutrition image section ---- */
+/* ---- nutrition image section ---- */
 .nutrition-section{margin:34px 0 8px}
 .nutrition-title{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:10px}
 .nutrition-grid{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:260px}
@@ -44,7 +44,7 @@ p{margin:12px 0}
 .nutrition-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 14px 10px;font-size:12px;color:#fff;background:linear-gradient(to top,rgba(9,45,96,.82),rgba(9,45,96,0));font-weight:600;letter-spacing:.2px}
 .nutrition-note{font-size:12px;color:var(--muted);margin-top:8px}
 
-/* ---- NEW: small gallery inside booking card ---- */
+/* ---- small gallery inside booking card ---- */
 .card-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0 4px}
 .card-gallery img{width:100%;height:64px;object-fit:cover;border-radius:8px;border:1px solid #e0e7ef;display:block}
 .card-gallery-cap{font-size:11px;color:var(--muted);margin:4px 0 0}
@@ -72,6 +72,91 @@ dd{margin:0 0 10px;font-weight:600}
 footer{border-top:1px solid #e0e7ef;padding:28px 24px;text-align:center;font-size:12px;color:var(--muted)}
 [hidden]{display:none!important}
 
+/* ---- review area with flyer on the left ---- */
+.review-layout{
+  display:grid;
+  grid-template-columns:0.9fr 1.1fr;
+  gap:20px;
+  align-items:start;
+  margin-top:4px;
+}
+.review-flyer{
+  background:white;
+  border:1px solid #e0e7ef;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 8px 22px #092d600f;
+  position:sticky;
+  top:16px;
+}
+.review-flyer img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.review-flyer figcaption{
+  padding:10px 14px;
+  font-size:11px;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:700;
+  border-top:1px solid #eef2f7;
+  background:#fbfdff;
+}
+.review-body h2{margin-top:0}
+.review-body .button{margin-top:14px}
+
+/* ---- NEW: mobile-only scroll-down arrow ---- */
+.scroll-down-hint{
+  display:none;             /* hidden by default (desktop) */
+  width:100%;
+  margin-top:14px;
+  padding:12px 14px;
+  border:1px dashed #cbd5e1;
+  background:#f5f9ff;
+  border-radius:12px;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  cursor:pointer;
+  color:var(--navy);
+  font-size:13px;
+  font-weight:650;
+  letter-spacing:.2px;
+  transition:background .2s ease, border-color .2s ease;
+  text-align:left;
+}
+.scroll-down-hint:hover{
+  background:#eef6ff;
+  border-color:#9cc0e6;
+}
+.scroll-down-hint .hint-text small{
+  display:block;
+  font-weight:500;
+  font-size:11px;
+  color:var(--muted);
+  margin-top:2px;
+  letter-spacing:0;
+}
+.scroll-down-hint .hint-arrow{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--navy);
+  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  flex-shrink:0;
+  animation:hintBounce 1.6s ease-in-out infinite;
+}
+@keyframes hintBounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(4px)}
+}
+
 @media(max-width:800px){
   .layout{grid-template-columns:1fr;gap:30px;padding-top:35px}
   .card{padding:24px}
@@ -80,6 +165,11 @@ footer{border-top:1px solid #e0e7ef;padding:28px 24px;text-align:center;font-siz
   header a{font-size:12px}
   h1{max-width:550px}
   .nutrition-grid{height:220px}
+  .review-layout{grid-template-columns:1fr}
+  .review-flyer{position:static}
+
+  /* Show the arrow on mobile only */
+  .scroll-down-hint{ display:flex; }
 }
 @media(max-width:560px){
   .brand img{height:44px}
@@ -94,7 +184,7 @@ footer{border-top:1px solid #e0e7ef;padding:28px 24px;text-align:center;font-siz
 </style>
 <header>
   <div class="brand">
-    <img src="photos/logo/nusha.png" alt="Nusha Hospital Logo" onerror="this.style.display='none'">
+    <img src="/photos/logo/nusha.png" alt="Nusha Hospital Logo" onerror="this.style.display='none'">
     <div class="brand-text">
       <div class="brand-name">NUSHA <span>HOSPITAL</span></div>
       <div class="tag">Your Health, Our Priority.</div>
@@ -117,20 +207,19 @@ footer{border-top:1px solid #e0e7ef;padding:28px 24px;text-align:center;font-siz
       <div><strong>UGX 30,000</strong><span>Book first. Pay before your visit.</span></div>
     </div>
 
-    <!-- NEW: Nutrition & weight-management photo gallery -->
     <div class="nutrition-section">
       <div class="nutrition-title">Nutrition &amp; weight management</div>
       <div class="nutrition-grid">
         <figure>
-          <img src="photos/nutrition/healthy-plate.jfif" alt="Balanced healthy meal plate with vegetables, protein and whole grains" loading="lazy" onerror="this.style.display='none'">
+          <img src="/photos/nutrition/healthy-plate.jfif" alt="Balanced healthy meal plate with vegetables, protein and whole grains" loading="lazy" onerror="this.style.display='none'">
           <figcaption>Balanced, everyday eating</figcaption>
         </figure>
         <figure>
-          <img src="photos/nutrition/consultation.jfif" alt="Nutritionist guiding a patient through a meal plan" loading="lazy" onerror="this.style.display='none'">
+          <img src="/photos/nutrition/consultation.jfif" alt="Nutritionist guiding a patient through a meal plan" loading="lazy" onerror="this.style.display='none'">
           <figcaption>One-to-one guidance</figcaption>
         </figure>
         <figure>
-          <img src="photos/nutrition/progress.jfif" alt="Patient tracking weight and activity progress" loading="lazy" onerror="this.style.display='none'">
+          <img src="/photos/nutrition/progress.jfif" alt="Patient tracking weight and activity progress" loading="lazy" onerror="this.style.display='none'">
           <figcaption>Measured progress</figcaption>
         </figure>
       </div>
@@ -151,11 +240,10 @@ footer{border-top:1px solid #e0e7ef;padding:28px 24px;text-align:center;font-siz
     <h2>Request your consultation</h2>
     <p class="sub">Choose what works for you. The clinic will confirm your appointment personally.</p>
 
-    <!-- NEW: small illustrative strip inside the card -->
     <div class="card-gallery">
-      <img src="photos/nutrition/meal-prep.jfif" alt="Prepared healthy meals" loading="lazy" onerror="this.style.display='none'">
-      <img src="photos/nutrition/fruit-veg.jfif" alt="Fresh fruit and vegetables" loading="lazy" onerror="this.style.display='none'">
-      <img src="photos/nutrition/activity.jfif" alt="Gentle physical activity" loading="lazy" onerror="this.style.display='none'">
+      <img src="/photos/nutrition/meal-prep.jfif" alt="Prepared healthy meals" loading="lazy" onerror="this.style.display='none'">
+      <img src="/photos/nutrition/fruit-veg.jfif" alt="Fresh fruit and vegetables" loading="lazy" onerror="this.style.display='none'">
+      <img src="/photos/nutrition/activity.jfif" alt="Gentle physical activity" loading="lazy" onerror="this.style.display='none'">
     </div>
     <p class="card-gallery-cap">Nutrition, movement and medical review — handled together.</p>
 
@@ -169,11 +257,11 @@ footer{border-top:1px solid #e0e7ef;padding:28px 24px;text-align:center;font-siz
       <label for="reason">Choose consultation reason</label>
       <select id="reason" required>
         <option value="">Select a reason</option>
-        <option value="Weight assessment & management">Weight assessment & management</option>
-        <option value="Nutrition & dietary planning">Nutrition & dietary planning</option>
+        <option value="Weight assessment & management">Weight assessment &amp; management</option>
+        <option value="Nutrition & dietary planning">Nutrition &amp; dietary planning</option>
         <option value="Metabolic health review">Metabolic health review</option>
         <option value="Follow-up / progress review">Follow-up / progress review</option>
-        <option value="General health & lifestyle advice">General health & lifestyle advice</option>
+        <option value="General health & lifestyle advice">General health &amp; lifestyle advice</option>
       </select>
 
       <div class="row">
@@ -219,19 +307,41 @@ footer{border-top:1px solid #e0e7ef;padding:28px 24px;text-align:center;font-siz
       <button type="submit">Review booking request →</button>
     </form>
 
+    <!-- Review panel with flyer on the left + mobile scroll-down hint -->
     <div id="review" hidden aria-live="polite">
-      <h2>Check your request</h2>
-      <dl id="summary"></dl>
-      <p class="sub">Next, WhatsApp will open with your request ready. Press Send there to deliver it to the clinic.</p>
-      <a id="send" class="button" target="_blank" rel="noopener">Continue to WhatsApp ↗</a>
-      <p class="sub">Your appointment is confirmed only after the clinic replies. A Google Meet link, if selected, will be shared separately.</p>
+      <div class="review-layout">
+        <figure class="review-flyer">
+          <img src="/photos/nutrition/nutritionflyer.jpeg" alt="Nusha Virtual Clinic nutrition and weight management flyer" loading="lazy" onerror="this.style.display='none'">
+          <figcaption>Nusha Virtual Clinic · Nutrition &amp; Weight Management</figcaption>
+        </figure>
+        <div class="review-body" id="reviewBody">
+          <h2>Check your request</h2>
+          <dl id="summary"></dl>
+          <p class="sub">Next, WhatsApp will open with your request ready. Press Send there to deliver it to the clinic.</p>
+          <a id="send" class="button" target="_blank" rel="noopener">Continue to WhatsApp ↗</a>
+          <p class="sub">Your appointment is confirmed only after the clinic replies. A Google Meet link, if selected, will be shared separately.</p>
+        </div>
+      </div>
+
+      <!-- Mobile-only scroll-down arrow -->
+      <button type="button" class="scroll-down-hint" id="scrollDownHint" aria-label="Scroll down to see your request summary">
+        <span class="hint-text">
+          Continue below — your request summary
+          <small>Tap to see your full booking details</small>
+        </span>
+        <span class="hint-arrow"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+      </button>
     </div>
   </section>
 </main>
 <footer>
-  Nusha Hospital · Virtual weight assessment & management<br>
+  Nusha Hospital · Virtual weight assessment &amp; management<br>
   This service is for scheduled consultations. For urgent medical needs, seek immediate in-person care.
 </footer>
+
+<!-- Font Awesome for the chevron icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <script>
 const $=id=>document.getElementById(id);
 const nowEAT=()=>new Date(new Date().toLocaleString('en-US',{timeZone:'Africa/Kampala'}));
@@ -242,7 +352,6 @@ function slots(){
   const old=$('time').value;
   $('time').replaceChildren(new Option('Choose a time',''));
 
-  // Sunday check only when a date is chosen
   if($('date').value){
     const d=new Date($('date').value+'T12:00:00');
     if(d.getDay()===0){
@@ -255,7 +364,6 @@ function slots(){
   $('error').textContent='';
 
   for(let m=540;m<900;m+=30){
-    // Only filter out past times when the chosen date is today
     if($('date').value && $('date').value===dayString(n) && m<=n.getHours()*60+n.getMinutes()) continue;
     const v=String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
     const label=(Math.floor(m/60)%12||12)+':'+String(m%60).padStart(2,'0')+(m<720?' am':' pm');
@@ -265,8 +373,6 @@ function slots(){
 }
 
 $('date').addEventListener('change',slots);
-
-// Populate the time dropdown immediately on page load
 slots();
 
 document.querySelectorAll('[name=platform]').forEach(e=>e.addEventListener('change',()=>{
@@ -327,6 +433,11 @@ $('booking').addEventListener('submit',e=>{
   $('send').href='https://wa.me/256703883166?text='+encodeURIComponent(msg);
   $('review').hidden=false;
   $('review').scrollIntoView({behavior:'smooth',block:'nearest'});
+});
+
+/* Mobile scroll-down hint: smooth scroll to the request summary */
+$('scrollDownHint')?.addEventListener('click',()=>{
+  $('reviewBody')?.scrollIntoView({behavior:'smooth',block:'start'});
 });
 </script>
 </html>
